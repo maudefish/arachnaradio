@@ -2,5 +2,5 @@
 
 2/9/25
   - first commit
-  - major milestone: streaming and storing 30 second mp3
-  - 
+ [x] major milestone: streaming and storing 30 second mp3
+ [ ] song ID with ACRCloud
