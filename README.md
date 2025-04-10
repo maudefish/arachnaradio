@@ -15,7 +15,7 @@ This lead me to want to develop an app that would ...
 
 2. 🕷️ **Provide realtime notifications when a favorite artist is mentioned on air:**
 
-   During non-music segments of a radio broadcast, Arachnaradio will be listening quietly for mentions of a user's favorite artists by name... Once an artist mention is caught in its web, a notification will go out to the user, categorizing the mention as either a) a live interview airing on channel XY.Z FM, b) information about local live shows with that artist, or c) something else that doesn't fit those two criteria! Tentatively, this feature is to be called a *tingle* (yes I am leaning heavily into the spider imagery here. Let me have fun.)
+   During non-music segments of a radio broadcast, Arachnaradio will be listening quietly for mentions of a user's favorite artists by name... Once an artist mention is caught in its web, a notification will go out to the user, categorizing the mention as either a) a live interview airing on channel XY.Z FM, b) information about local live shows with that artist, or c) something else that doesn't fit those two criteria! Tentatively, this feature is to be called a ⚡ *tingle* 🕸️ (yes I am leaning heavily into the spider imagery here. Let me have fun.)
 
 3. 🧵 **Transcribe live artist interviews to create a cultural archive for fans, journalists, and music historians of the future:**
 
