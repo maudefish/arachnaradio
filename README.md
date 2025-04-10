@@ -6,7 +6,7 @@
 
 ## 🧠 Inspiration
 
-This project was inspired by a serendipitous moment I had while tuning into KALX Berkeley 90.7FM in my car on my way home from work, where I happened to catch the tail end of a live interview with folk legend Bridget St. John. While tuned to 90.7FM and stuck in 580 traffic on this fateful day, I was actually leaving work early due to illness, so I was not listening during my typical timeframe. After texting a friend about the St. John interview that was airing live, I wondered, "How many interviews with my favorite artists am I missing because I simply didn't know they were happening?" Rhetorical question-- the answer is of course: a lot!
+This project was inspired by a serendipitous moment I had while listening to KALX Berkeley in my car on my way home from work, where I happened to catch the tail end of a live interview with folk legend Bridget St. John. While tuned to 90.7FM and stuck in 580 traffic on this fateful day, I was actually leaving work early due to illness, so I was not listening during my typical timeframe. After texting a friend about the St. John interview that was airing live, I wondered, *"How many interviews with my favorite artists am I missing because I simply didn't know they were happening?"* Rhetorical question-- the answer is of course: a lot!
 
 This lead me to want to develop an app that would 
 1. :radio:  **Connect people to their local radiostations based on their own personal music taste profile**
