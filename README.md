@@ -26,7 +26,7 @@ This lead me to want to develop an app that would ...
 ## 🎯 Current Project Milestones
 
 - [x] Stream and save live radio audio (KALX)
-- [ ] Identify music clips via audio recognition (ACRCloud or AudD)
+- [x] Identify music clips via audio recognition (ACRCloud or AudD)
 - [ ] Transcribe speech using Whisper
 - [ ] Detect mentions of artists from user's listening history
 - [ ] Notify or log when relevant content is detected
