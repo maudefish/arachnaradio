@@ -15,21 +15,24 @@ ACR_KEY = os.getenv("ACR_KEY")
 ACR_SECRET = os.getenv("ACR_SECRET")
 
 def identify_song(file_path: Path):
+    # Prepare audio clip (10s mono wav)
+    audio = AudioSegment.from_file(file_path)
+    audio = audio.set_channels(1).set_frame_rate(8000)
+    audio = audio[:10000]
+    audio.export("temp_clip.wav", format="wav")
+
+    with open("temp_clip.wav", "rb") as f:
+        sample_bytes = f.read()
+        sample_size = len(sample_bytes)
+
+    os.remove("temp_clip.wav")
+
+    # ACRCloud authentication
     http_method = "POST"
     http_uri = "/v1/identify"
     data_type = "audio"
     signature_version = "1"
     timestamp = str(int(time.time()))
-
-    # Trim and convert to 10s wav clip
-    sample = AudioSegment.from_file(file_path)
-    sample = sample.set_channels(1).set_frame_rate(8000)
-    sample = sample[:10000]
-    sample.export("temp_clip.wav", format="wav")
-
-    with open("temp_clip.wav", "rb") as f:
-        sample_bytes = f.read()
-        sample_size = len(sample_bytes)
 
     string_to_sign = "\n".join([
         http_method,
@@ -40,7 +43,7 @@ def identify_song(file_path: Path):
         timestamp
     ])
 
-    sign = base64.b64encode(
+    signature = base64.b64encode(
         hmac.new(ACR_SECRET.encode('ascii'), string_to_sign.encode('ascii'), hashlib.sha1).digest()
     ).decode('ascii')
 
@@ -52,29 +55,30 @@ def identify_song(file_path: Path):
         'access_key': ACR_KEY,
         'sample_bytes': sample_size,
         'timestamp': timestamp,
-        'signature': sign,
+        'signature': signature,
         'data_type': data_type,
         'signature_version': signature_version
     }
 
-    print("📡 Requesting:", ACR_HOST + http_uri)
-    print("🧾 Signature:", sign)
-    print("🧾 Timestamp:", timestamp)
-    print("🧾 Sample size (bytes):", sample_size)
-
     response = requests.post(ACR_HOST + http_uri, files=files, data=data)
-    os.remove("temp_clip.wav")
+    result = response.json()
 
-    print("📥 Raw response text:")
-    print(response.text)
+    if result.get("status", {}).get("code") == 0:
+        metadata = result["metadata"]["music"][0]
 
-    try:
-        result = response.json()
-        metadata = result['metadata']['music'][0]
-        title = metadata.get('title')
-        artist = metadata.get('artists')[0]['name']
-        print(f"🎶 Match: {title} by {artist}")
-        return title, artist
-    except Exception:
-        print("❌ No match found.")
-        return None, None
+        match_info = {
+            "title": metadata.get("title"),
+            "artist": metadata.get("artists", [{}])[0].get("name"),
+            "album": metadata.get("album", {}).get("name"),
+            "score": metadata.get("score"),
+            "label": metadata.get("label"),
+            "play_offset_ms": metadata.get("play_offset_ms"),
+            "acrid": metadata.get("acrid"),
+            "genres": [g.get("name") for g in metadata.get("genres", [])]
+        }
+
+        print(f"🎶 Match: {match_info['title']} by {match_info['artist']}")
+        return match_info
+
+    print("❌ No match found.")
+    return None
