@@ -1,0 +1,10 @@
+timestamp,station,filename,title,artist,album,score,label,play_offset_ms,acrid,genres
+2025-04-10T15:14:56,KALX,data/kalx_clip_2025-04-10_15-14-29.mp3,Pull the Rope,Ibibio Sound Machine,The Black Notes EP,100,,243700,30fbebe0458924832028889026cada9a,
+2025-04-10T15:21:08,KALX,data/kalx_clip_2025-04-10_15-20-39.mp3,ATS,OOIOO,TAIGA,100,Thrill Jockey,57160,d345ef54eda7dd107ed18ac83bd94d14,
+2025-04-10T15:22:37,KALX,data/kalx_clip_2025-04-10_15-22-08.mp3,ATS,OOIOO,TAIGA,100,Thrill Jockey,146340,d345ef54eda7dd107ed18ac83bd94d14,
+2025-04-10T15:24:06,KALX,data/kalx_clip_2025-04-10_15-23-37.mp3,ATS,OOIOO,TAIGA,100,Thrill Jockey,235320,d345ef54eda7dd107ed18ac83bd94d14,
+2025-04-10T15:25:35,KALX,data/kalx_clip_2025-04-10_15-25-06.mp3,ATS,OOIOO,TAIGA,100,Thrill Jockey,324440,d345ef54eda7dd107ed18ac83bd94d14,
+2025-04-10T15:27:04,KALX,data/kalx_clip_2025-04-10_15-26-35.mp3,ATS,OOIOO,TAIGA,100,Thrill Jockey,413560,d345ef54eda7dd107ed18ac83bd94d14,
+2025-04-10T15:28:33,KALX,data/kalx_clip_2025-04-10_15-28-04.mp3,Ire,King Sunny Ade,Synchro System + Aura,49,UMC (Universal Music Catalogue),20700,6a10b4ef4bbf18172099a8aa24f61453,World
+2025-04-10T15:30:03,KALX,data/kalx_clip_2025-04-10_15-29-33.mp3,Ire,King Sunny Ade,Synchro System + Aura,73,UMC (Universal Music Catalogue),109440,6a10b4ef4bbf18172099a8aa24f61453,World
+2025-04-10T15:34:34,KALX,data/kalx_clip_2025-04-10_15-34-04.mp3,GAME B1-10,Ilinx,Flipperen,100,Futura Resistenza,70080,309a7d55c00f7c66e7e5af622128a33d,Electro
