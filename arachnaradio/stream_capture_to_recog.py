@@ -12,6 +12,7 @@ from pathlib import Path
 from arachnaradio.song_identifier import identify_song
 from arachnaradio.match_logger import log_match
 
+
 STREAM_URL = "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3"
 OUTPUT_DIR = Path("data")
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -36,7 +37,6 @@ def record_clip(duration=30):
     print("🔍 Identifying song...")
     
     match = identify_song(filename)
-    match = identify_song(filename)
 
     if match and match.get("title") and match.get("artist"):
         title = match["title"]
@@ -44,7 +44,9 @@ def record_clip(duration=30):
         print(f"🎶 {title} by {artist}")
         log_match(str(filename), match, station="KALX")
     else:
-        print("🕸️ No match found — skipping log.")
+        print("🗣️ No song match — trying Whisper...")
+        transcript = transcribe_clip(filename)
+        print(f"📝 Transcript: {transcript}")
 
     print()
 
