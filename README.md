@@ -38,17 +38,16 @@ This lead me to want to develop an app that would ...
 
 1. Clone the repo and create a virtual environment:
    ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     pip install -r requirements.txt
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
    ```
 
 2. Start capturing radio clips:
-  ```bash
-    Copy
-    Edit
-    python arachnaradio/stream_capture.py
-  ```
+    ```bash
+    python arachnaradio/stream_capture_to_recog.py
+    ```
+3. 
 
 ---
 ## 🛠️ Dependencies
