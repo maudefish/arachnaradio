@@ -7,7 +7,6 @@ import requests
 from pathlib import Path
 from dotenv import load_dotenv
 from pydub import AudioSegment
-from arachnaradio.whisper_transcriber import transcribe_clip
 
 
 load_dotenv()

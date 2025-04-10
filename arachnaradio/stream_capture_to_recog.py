@@ -11,7 +11,12 @@ from datetime import datetime
 from pathlib import Path
 from arachnaradio.song_identifier import identify_song
 from arachnaradio.match_logger import log_match
+from arachnaradio.whisper_transcriber import transcribe_clip
+from arachnaradio.mention_logger import mentioned_artists, log_mention
 
+favorite_artists = [
+    "SPELLLING", "Bridget St. John", "Ibibio Sound Machine", "Broadcast"
+]
 
 STREAM_URL = "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3"
 OUTPUT_DIR = Path("data")
@@ -48,7 +53,14 @@ def record_clip(duration=30):
         transcript = transcribe_clip(filename)
         print(f"📝 Transcript: {transcript}")
 
-    print()
+        matches = mentioned_artists(transcript, favorite_artists)
+        if matches:
+            print(f"🎯 Mentioned: {', '.join(matches)}")
+            log_mention(str(filename), transcript, station="KALX", matches=matches)
+        else:
+            print("🕸️ No artist mentions found.")
+
+    print()  # Keep this outside to space out logs regardless of branch
 
 if __name__ == "__main__":
     while True:
