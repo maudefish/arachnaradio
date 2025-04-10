@@ -50,6 +50,28 @@ This lead me to want to develop an app that would ...
     python arachnaradio/stream_capture.py
   ```
 
+---
+## 🛠️ Dependencies
+ffmpeg (must be installed system-wide)
 
+Python packages:
 
+    pydub
+
+    requests
+
+    python-dotenv
+
+See requirements.txt for a full list.
+
+---
+
+## 💭 Ideas / Future Features
+Compare identified songs to user’s Spotify profile
+
+Trigger push/email/desktop notifications for matches
+
+Archive and index interviews with full transcripts
+
+Web dashboard for browsing matches and logs
 
