@@ -11,7 +11,7 @@ This project was inspired by a serendipitous moment I had while listening to KAL
 This lead me to want to develop an app that would ...
 1. :radio:  **Connect people to their local radiostations based on their own personal music taste profile**
 
-    I love my local radio stations here in the Bay. In the era of streaming services a la Spotify and Apple Music, bonafide radio stations are at risk of falling to the wayside. At the same time, I do believe that many peeople would be willing and excited to find new music on their local radio stations if they knew *how* to find a station that matches their taste. Therein lies the grounds for Goal #1 of Arachnaradio: Take a user's existing music taste data (last.fm, spotify, apple music, etc.) and suggest local radio stations customized to the user's interests.
+    I love my local radio stations here in the Bay. In the era of streaming services a la Spotify and Apple Music, bonafide radio stations are at risk of falling to the wayside. At the same time, I do believe that many people would be willing and excited to find new music on their local radio stations if they knew *how* to find a station that matches their taste. Therein lies the grounds for Goal #1 of Arachnaradio: Take a user's existing music taste data (last.fm, spotify, apple music, etc.) and suggest local radio stations customized to the user's interests.
 
 2. 🕷️ **Provide realtime notifications when a favorite artist is mentioned on air:**
 
