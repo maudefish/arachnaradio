@@ -25,3 +25,5 @@ timestamp,station,filename,title,artist,album,score,label,play_offset_ms,acrid,g
 2025-04-10T16:30:37,KALX,data/kalx_clip_2025-04-10_16-30-10.mp3,Shining in the Wood,Tiger,Shining in the Wood,100,Stoned Gnome Music,129780,99304737937560abd01b3407a8b6df84,Alternative;Pop IndÃ©;Rock indÃ©
 2025-04-10T16:32:42,KALX,data/kalx_clip_2025-04-10_16-32-14.mp3,Share Your Care,Helen Ganya,Share Your Care,100,Bella Union,30940,6fa3908d350f3cb9d1acdac4e2b02c4b,Alternative - Electronic / EBM
 2025-04-10T16:34:10,KALX,data/kalx_clip_2025-04-10_16-33-42.mp3,Share Your Care,Helen Ganya,Share Your Care,100,Bella Union,118900,6fa3908d350f3cb9d1acdac4e2b02c4b,Alternative - Electronic / EBM
+2025-04-10T17:28:11,Test,data/kalx_clip_2025-04-10_15-59-18.mp3,Crick,Mercury,"Together We Are One, You and I",100,,140140,dfd323de655b8eab5b014f2ef50cc5ca,
+2025-04-10T17:29:17,Test,data/kalx_clip_2025-04-10_15-59-18.mp3,Crick,Mercury,"Together We Are One, You and I",100,,140140,dfd323de655b8eab5b014f2ef50cc5ca,
