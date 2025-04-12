@@ -3,12 +3,18 @@ from arachnaradio.whisper_transcriber import transcribe_clip
 from arachnaradio.song_identifier import identify_song
 from arachnaradio.match_logger import log_match
 from arachnaradio.mention_logger import log_mention, mentioned_artists
+from arachnaradio.venue_logger import mentioned_venues, log_venue_mention
+
 import re
 # 🎧 Your tracked artist list (replace with dynamic loading later)
 favorite_artists = [
     "SPELLLING", "Bridget St. John", "Ibibio Sound Machine", "Broadcast", "Mercury"
 ]
-
+venue_list = [
+    "Great American Music Hall", "The Chapel", "Rickshaw Stop",
+    "The Independent", "Bottom of the Hill", "Fox Theater",
+    "Greek Theatre", "Cafe du Nord", "The Fillmore", "Starline Social Club"
+]
 
 def clean_transcript(transcript: str) -> str:
     # Remove timestamps and [Music] tags
@@ -54,4 +60,8 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             log_mention(str(file_path), cleaned, station=station, matches=matches)
         else:
             print("🕸️ No artist mentions found.")
+    venue_hits = mentioned_venues(cleaned, venue_list)
+    if venue_hits:
+        print(f"📍 Venue(s) mentioned: {', '.join(venue_hits)}")
+        log_venue_mention(str(file_path), cleaned, station=station, venues=venue_hits)
     print()
