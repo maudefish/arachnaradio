@@ -66,11 +66,15 @@ See requirements.txt for a full list.
 ---
 
 ## 💭 Ideas / Future Features
-Compare identified songs to user’s Spotify profile
-
-Trigger push/email/desktop notifications for matches
-
-Archive and index interviews with full transcripts
-
-Web dashboard for browsing matches and logs
+- [x] Log song IDs
+- [x] Log artist mentions from a user provided list
+- [x] Log venue mentions from a user provided list
+- [x] Map venue mentions on dashboard
+- [ ] Compare identified songs to user’s Spotify profile
+- [ ] Trigger push/email/desktop notifications for matches
+- [ ] Web dashboard for browsing matches and logs
+- [ ] Archive and index interviews with full transcripts
+- [ ] “Trending artists by song appearance on radio station X"
+- [ ] "Sift" feature to check out radiostation stats/songs
+- [ ] On the sift idea -- scrollable up-down thing for more/less obscure
 
