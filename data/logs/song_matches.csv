@@ -27,3 +27,22 @@ timestamp,station,filename,title,artist,album,score,label,play_offset_ms,acrid,g
 2025-04-10T16:34:10,KALX,data/kalx_clip_2025-04-10_16-33-42.mp3,Share Your Care,Helen Ganya,Share Your Care,100,Bella Union,118900,6fa3908d350f3cb9d1acdac4e2b02c4b,Alternative - Electronic / EBM
 2025-04-10T17:28:11,Test,data/kalx_clip_2025-04-10_15-59-18.mp3,Crick,Mercury,"Together We Are One, You and I",100,,140140,dfd323de655b8eab5b014f2ef50cc5ca,
 2025-04-10T17:29:17,Test,data/kalx_clip_2025-04-10_15-59-18.mp3,Crick,Mercury,"Together We Are One, You and I",100,,140140,dfd323de655b8eab5b014f2ef50cc5ca,
+2025-04-10T17:42:42,KALX,data/kalx_clip_2025-04-10_17-42-14.mp3,Thalassaki mou,Lolomis,Carmen 404,64,Airfono,339420,db86d121e2af4c0f7dcb8023b83c23fd,World Music: World - Fusion - Others...
+2025-04-10T17:44:10,KALX,data/kalx_clip_2025-04-10_17-43-42.mp3,Thalassaki mou,Lolomis,Carmen 404,100,Airfono,427260,db86d121e2af4c0f7dcb8023b83c23fd,World Music: World - Fusion - Others...
+2025-04-10T20:25:51,KALX,data/kalx_clip_2025-04-10_20-25-23.mp3,Little Acts Of Violence,Ray Bull,Little Acts Of Violence,100,Ray Bull,47340,5d1a27dd2d4fe2678201ce0c634f9edf,Alternative
+2025-04-10T20:42:09,KALX,data/kalx_clip_2025-04-10_20-41-41.mp3,Ennui,Aldous Harding,Ennui,100,4AD,191300,f31dd1af9112e638ed474f302f94072a,Alternative
+2025-04-10T21:08:29,KALX,data/kalx_clip_2025-04-10_21-08-01.mp3,Who Knows Where The Time Goes?,Fairport Convention,Gold Series,100,Universal Music,113440,1bf4f1976e6cc6bb75228a7f58745b30,Alternative;Indie Pop;Indie Rock;Pop;Indie Pop/Folk;Rock
+2025-04-10T21:09:59,KALX,data/kalx_clip_2025-04-10_21-09-29.mp3,Who Knows Where The Time Goes?,Fairport Convention,Gold Series,100,Universal Music,201480,1bf4f1976e6cc6bb75228a7f58745b30,Alternative;Indie Pop;Indie Rock;Pop;Indie Pop/Folk;Rock
+2025-04-10T21:11:27,KALX,data/kalx_clip_2025-04-10_21-10-59.mp3,Who Knows Where The Time Goes?,Fairport Convention,Gold Series,100,Universal Music,291180,1bf4f1976e6cc6bb75228a7f58745b30,Alternative;Indie Pop;Indie Rock;Pop;Indie Pop/Folk;Rock
+2025-04-10T21:12:56,KALX,data/kalx_clip_2025-04-10_21-12-27.mp3,BalanÃ§o,Tim Maia,Tim Maia,100,Universal Music Ireland Ltd.,76300,6a75559fdb49e5efd1990b774eec58f1,Pop
+2025-04-10T21:14:25,KALX,data/kalx_clip_2025-04-10_21-13-56.mp3,BalanÃ§o,Tim Maia,Tim Maia,100,Universal Music Ireland Ltd.,165200,6a75559fdb49e5efd1990b774eec58f1,Pop
+2025-04-10T21:20:15,KALX,data/kalx_clip_2025-04-10_21-19-46.mp3,Mulher Brasileira,Jorge Ben,Obras-Primas,100,Universal Music International Ltda.,124460,14ac65c45baed15050cb9f4914035090,MPB
+2025-04-10T21:21:43,KALX,data/kalx_clip_2025-04-10_21-21-15.mp3,Mulher Brasileira,Jorge Ben,Obras-Primas,100,Universal Music International Ltda.,212740,14ac65c45baed15050cb9f4914035090,MPB
+2025-04-10T21:27:36,KALX,data/kalx_clip_2025-04-10_21-27-08.mp3,Honey Bee,Ibibio Sound Machine,The Black Notes EP,100,Merge Records,62480,8982f14744dbc9e1dbf7352ea96ea84c,Electro
+2025-04-10T21:29:05,KALX,data/kalx_clip_2025-04-10_21-28-36.mp3,Honey Bee,Ibibio Sound Machine,The Black Notes EP,100,Merge Records,151000,8982f14744dbc9e1dbf7352ea96ea84c,Electro
+2025-04-10T21:30:34,KALX,data/kalx_clip_2025-04-10_21-30-05.mp3,Magica Bonita,The Bongo Hop,La Pata Coja,100,Underdog records,14640,458d1d7f8a6680787e1e34b38b693e58,Latin - Tropical;World Music / Regional Folklore
+2025-04-10T21:32:02,KALX,data/kalx_clip_2025-04-10_21-31-34.mp3,Magica Bonita,The Bongo Hop,La Pata Coja,100,Underdog records,103060,458d1d7f8a6680787e1e34b38b693e58,Latin - Tropical;World Music / Regional Folklore
+2025-04-10T21:33:31,KALX,data/kalx_clip_2025-04-10_21-33-02.mp3,Magica Bonita,The Bongo Hop,La Pata Coja,100,Underdog records,191420,458d1d7f8a6680787e1e34b38b693e58,Latin - Tropical;World Music / Regional Folklore
+2025-04-11T01:24:19,KALX,data/kalx_clip_2025-04-11_01-23-51.mp3,LucifeÌrine,Ichiko Aoba,Luminescent Creatures,100,hermine,127960,d701df261e464243a777ea079f8c3a02,Alternative
+2025-04-11T01:25:47,KALX,data/kalx_clip_2025-04-11_01-25-19.mp3,LucifeÌrine,Ichiko Aoba,Luminescent Creatures,100,hermine,215900,d701df261e464243a777ea079f8c3a02,Alternative
+2025-04-11T19:28:04,KALX,data/kalx_clip_2025-04-11_19-27-34.mp3,Faithful,Meshell Ndegeocello,Faithful,100,Maverick,161700,e7eee5e5fa10f269f91cc74d41b07634,R&B

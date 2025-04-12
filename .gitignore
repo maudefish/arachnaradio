@@ -2,3 +2,5 @@ venv/
 .env
 .env
 whisper.cpp/
+# Ignore all recorded audio clips
+data/*.mp3

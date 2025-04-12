@@ -13,6 +13,7 @@ from arachnaradio.song_identifier import identify_song
 from arachnaradio.match_logger import log_match
 from arachnaradio.whisper_transcriber import transcribe_clip
 from arachnaradio.mention_logger import mentioned_artists, log_mention
+from arachnaradio.clip_processor import process_clip
 
 favorite_artists = [
     "SPELLLING", "Bridget St. John", "Ibibio Sound Machine", "Broadcast"
@@ -21,7 +22,6 @@ favorite_artists = [
 STREAM_URL = "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3"
 OUTPUT_DIR = Path("data")
 OUTPUT_DIR.mkdir(exist_ok=True)
-
 def record_clip(duration=30):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     filename = OUTPUT_DIR / f"kalx_clip_{timestamp}.mp3"
@@ -39,29 +39,9 @@ def record_clip(duration=30):
     subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
     print("✅ Recording complete.")
 
-    print("🔍 Identifying song...")
-    
-    match = identify_song(filename)
-
-    if match and match.get("title") and match.get("artist"):
-        title = match["title"]
-        artist = match["artist"]
-        print(f"🎶 {title} by {artist}")
-        log_match(str(filename), match, station="KALX")
-    else:
-        print("🗣️ No song match — trying Whisper...")
-        transcript = transcribe_clip(filename)
-        print(f"📝 Transcript: {transcript}")
-
-        matches = mentioned_artists(transcript, favorite_artists)
-        if matches:
-            print(f"🎯 Mentioned: {', '.join(matches)}")
-            log_mention(str(filename), transcript, station="KALX", matches=matches)
-        else:
-            print("🕸️ No artist mentions found.")
-
-    print()  # Keep this outside to space out logs regardless of branch
-
+    # 🧠 Let process_clip handle everything from here
+    process_clip(filename)
+    print()  # Visual spacing for logs
 if __name__ == "__main__":
     while True:
         record_clip()
