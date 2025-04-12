@@ -77,4 +77,6 @@ See requirements.txt for a full list.
 - [ ] “Trending artists by song appearance on radio station X"
 - [ ] "Sift" feature to check out radiostation stats/songs
 - [ ] On the sift idea -- scrollable up-down thing for more/less obscure
+- [ ] station: Most frequently played artists
+- [ ] station: Venues most often mentioned
 
