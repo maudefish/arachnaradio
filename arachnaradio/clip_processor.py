@@ -26,16 +26,18 @@ def is_music_segment(transcript: str) -> bool:
     # If more than half the lines look like lyrics, treat as music
     return len(lyric_lines) > 0.5 * len(lines)
 
-def process_clip(file_path: Path, station: str = "KALX"):
+def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base.en"):
     print(f"🧠 Transcribing {file_path.name}...")
-    transcribe_clip(Path("data/clip.mp3"), model_name="small.en")  # uses small.en
+    transcript = transcribe_clip(file_path, model_name=model_name)
 
 
     # 🧼 Clean transcript for both artist matching and user output
     cleaned = clean_transcript(transcript)
 
-    print(f"📝 Transcript:\n{cleaned}\n")  # 👈 Always print cleaned transcript
-
+    print("📝 Raw Transcript:")
+    print(transcript)
+    # print("\n🧼 Cleaned Transcript:")
+    # print(cleaned)
     if is_music_segment(transcript):
         print("🎵 Music segment detected — trying ACRCloud...")
         match = identify_song(file_path)
