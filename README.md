@@ -27,7 +27,7 @@ This lead me to want to develop an app that would ...
 
 - [x] Stream and save live radio audio (KALX)
 - [x] Identify music clips via audio recognition (ACRCloud or AudD)
-- [ ] Transcribe speech using Whisper
+- [x] Transcribe speech using Whisper
 - [ ] Detect mentions of artists from user's listening history
 - [ ] Notify or log when relevant content is detected
 - [ ] Clean up clips after parsing to manage storage
