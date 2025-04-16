@@ -5,9 +5,26 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-
-
 st.set_page_config(page_title="Arachnaradio Dashboard", layout="wide")
+
+# 💅 Inject custom font via markdown
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+    html, body, div, span, input, label, textarea, select, button {
+        font-family: 'Space Mono', monospace !important;
+    }
+
+    .stText, .stMarkdown, .stDataFrame, .stSelectbox, .stTooltip {
+        font-family: 'Space Mono', monospace !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("🕸️ Arachnaradio Dashboard")
 
 # Load logs
