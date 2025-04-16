@@ -1,6 +1,12 @@
 venv/
 .env
-.env
 whisper.cpp/
 # Ignore all recorded audio clips
 data/*.mp3
+whisper.cpp/models/
+whisper.cpp/build/
+data/clips/*.mp3
+
+# Python cache
+__pycache__/
+*.pyc
