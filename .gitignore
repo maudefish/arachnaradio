@@ -6,7 +6,12 @@ data/*.mp3
 whisper.cpp/models/
 whisper.cpp/build/
 data/clips/*.mp3
-
+data/clips/
+*.mp3
 # Python cache
 __pycache__/
 *.pyc
+
+*.mp3
+data/clips/
+data/clips/*.mp3
