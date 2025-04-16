@@ -1,17 +1,10 @@
-username: kevin
-location:
-  city: Berkeley
-  lat: 37.8716
-  lon: -122.2727
-
 favorite_artists:
 - SPELLLING
 - Bridget St. John
 - Ibibio Sound Machine
 - Broadcast
 - Mercury
-
-favorite_venues:
+venue_list:
 - Great American Music Hall
 - The Chapel
 - Rickshaw Stop
