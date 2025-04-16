@@ -1,0 +1,17 @@
+username: kevin
+location:
+  city: Berkeley
+  lat: 37.8716
+  lon: -122.2727
+
+favorite_artists:
+  - OOIOO
+  - FM Einheit
+  - King Sunny Ade
+  - Ibibio Sound Machine
+
+favorite_venues:
+  - The Chapel
+  - Ivy Room
+  - Rickshaw Stop
+  - Eli's Mile High Club

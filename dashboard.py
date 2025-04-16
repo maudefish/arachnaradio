@@ -18,18 +18,21 @@ venue_log_path = Path("data/logs/venue_mentions.csv")
 
 
 def format_timestamp(ts):
-    try:
-        return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S").strftime("%b %d, %Y %I:%M %p")
-    except:
-        return ts  # fallback in case it's already clean or malformed
+    return pd.to_datetime(ts).strftime("%b %d, %Y %I:%M %p")
 
 # SONG MATCHES
 st.subheader("🎶 Recent Song Matches")
 if matches_path.exists():
     matches = pd.read_csv(matches_path)
     matches = matches.drop(columns=["filename"])
-    matches["timestamp"] = matches["timestamp"].apply(format_timestamp)
+    # 🔁 Parse actual datetime *before* sorting
+    matches["timestamp"] = pd.to_datetime(matches["timestamp"])
+
+    # ✅ Now sort based on real time
     matches = matches.sort_values("timestamp", ascending=False)
+
+    # 🧼 Format only for display after sorting
+    matches["timestamp"] = matches["timestamp"].dt.strftime("%b %d, %Y %I:%M %p")
     st.dataframe(matches, use_container_width=True)
 
 else:

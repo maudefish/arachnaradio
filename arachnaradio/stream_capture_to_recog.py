@@ -21,19 +21,28 @@ favorite_artists = [
 ]
 
 STREAM_URL = "https://stream.kalx.berkeley.edu:8443/kalx-128.mp3"
-OUTPUT_DIR = Path("data")
+OUTPUT_DIR = Path("data/clips")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
-def wait_until_fully_written(file_path, timeout=5):
-    previous_size = -1
-    for _ in range(timeout * 10):  # 10 tries per second
-        current_size = os.path.getsize(file_path)
-        if current_size == previous_size:
-            return True  # File stopped growing
-        previous_size = current_size
-        time.sleep(0.1)
-    raise TimeoutError("File write didn't stabilize in time.")
+def wait_until_fully_written(file_path, timeout=10):
+    import time
+    import os
+
+    start_time = time.time()
+    last_size = -1
+
+    while time.time() - start_time < timeout:
+        if os.path.exists(file_path):
+            current_size = os.path.getsize(file_path)
+            if current_size == last_size:
+                return True  # done
+            last_size = current_size
+        time.sleep(0.5)
+
+    print("⚠️ Timeout: File may not have finished writing.")
+    return False
+
 def record_clip(duration=30):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     filename = OUTPUT_DIR / f"kalx_clip_{timestamp}.mp3"
@@ -43,13 +52,22 @@ def record_clip(duration=30):
         "-y",
         "-i", STREAM_URL,
         "-t", str(duration),
-        "-acodec", "copy",
+        "-vn",                      # no video
+        "-acodec", "libmp3lame",    # encode to mp3 explicitly
+        "-ar", "44100",             # sample rate (standard CD quality)
+        "-ac", "2",                 # stereo
+        "-b:a", "192k",             # bitrate (can adjust higher/lower)
         str(filename)
     ]
 
-    print("🎙️ Recording to", filename)
+    print(f"🎙️ Recording to {filename}...")
     subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-    wait_until_fully_written(filename)
+
+    if not wait_until_fully_written(filename):
+        print(f"❌ Recording failed or incomplete: {filename}")
+        return  # skip processing
+
+
     print("✅ Recording complete.")
 
     # 🧠 Let process_clip handle everything from here

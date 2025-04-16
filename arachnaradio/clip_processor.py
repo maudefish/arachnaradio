@@ -4,33 +4,34 @@ from arachnaradio.song_identifier import identify_song
 from arachnaradio.match_logger import log_match
 from arachnaradio.mention_logger import log_mention, mentioned_artists
 from arachnaradio.venue_logger import mentioned_venues, log_venue_mention
+from arachnaradio.user_loader import load_user_profile
 
 import re
 # 🎧 Your tracked artist list (replace with dynamic loading later)
-favorite_artists = [
-    "SPELLLING", "Bridget St. John", "Ibibio Sound Machine", "Broadcast", "Mercury"
-]
-venue_list = [
-    "Great American Music Hall", "The Chapel", "Rickshaw Stop",
-    "The Independent", "Bottom of the Hill", "Fox Theater",
-    "Greek Theatre", "Cafe du Nord", "The Fillmore", "Starline Social Club"
-]
+
+profile = load_user_profile("kevin")
+favorite_artists = profile["favorite_artists"]
+favorite_venues = profile["favorite_venues"]
 
 def clean_transcript(transcript: str) -> str:
     # Remove timestamps and [Music] tags
     return transcript.strip()
 
-
 def is_music_segment(transcript: str) -> bool:
-    if "[Music]" in transcript:
-        return True
+    # Check for common indicators of music in the raw transcript
+    music_indicators = ["[music]", "(music)", "*Music*", "[MUSIC]", "♪", "♫", "[instrumental]", "(instrumental)", "[song]", "(song)", "[MUSIC PLAYING]", "music)"]
+    return any(indicator.lower() in transcript.lower() for indicator in music_indicators)
 
-    # Heuristic: if transcript is all short lines and mostly starts with ♪ or is repetitive, it's probably lyrics
-    lines = transcript.splitlines()
-    lyric_lines = [line for line in lines if line.strip().startswith("♪") or len(line.strip()) < 60]
+# # def is_music_segment(transcript: str) -> bool:
+#     if "[Music]" in transcript:
+#         return True
+
+#     # Heuristic: if transcript is all short lines and mostly starts with ♪ or is repetitive, it's probably lyrics
+#     lines = transcript.splitlines()
+#     lyric_lines = [line for line in lines if line.strip().startswith("♪") or len(line.strip()) < 60]
     
-    # If more than half the lines look like lyrics, treat as music
-    return len(lyric_lines) > 0.5 * len(lines)
+#     # If more than half the lines look like lyrics, treat as music
+#     return len(lyric_lines) > 0.5 * len(lines)
 
 def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base.en"):
     print(f"🧠 Transcribing {file_path.name}...")
@@ -60,7 +61,7 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             log_mention(str(file_path), cleaned, station=station, matches=matches)
         else:
             print("🕸️ No artist mentions found.")
-    venue_hits = mentioned_venues(cleaned, venue_list)
+    venue_hits = mentioned_venues(cleaned, favorite_venues)
     if venue_hits:
         print(f"📍 Venue(s) mentioned: {', '.join(venue_hits)}")
         log_venue_mention(str(file_path), cleaned, station=station, venues=venue_hits)
