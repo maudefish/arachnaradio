@@ -20,13 +20,47 @@ sp = get_spotify_client()
 user_profile = sp.current_user()
 username = user_profile["id"]  # used for file naming
 
-# 🎧 Favorite artist syncing
-top_artists = get_all_top_artists(sp)
-save_top_artists_to_yaml(username, top_artists)
-favorite_artists = load_favorite_artists(username)
-# st.sidebar.markdown(f"🧑 Logged in as **{user_profile.get('display_name', username)}**")
+from artist_manager import (
+    get_user_profile_path,
+    get_all_top_artists,
+    save_top_artists_to_yaml,
+    load_favorite_artists,
+)
 
-st.write("🎧 Your tracked artists:", favorite_artists)
+# Only fetch & save Spotify top artists if user profile doesn't exist yet
+user_profile_path = get_user_profile_path(username)
+if not user_profile_path.exists():
+    top_artists = get_all_top_artists(sp)
+    save_top_artists_to_yaml(username, top_artists)
+
+# Load current tracked artists
+favorite_artists = load_favorite_artists(username)
+
+
+st.sidebar.subheader("🎧 Manage Tracked Artists")
+
+# Remove artists
+with st.sidebar.expander("➖ Remove Artists", expanded=False):
+    remove_artists = st.multiselect("Select artists to remove", favorite_artists)
+    if st.button("Remove Selected"):
+        favorite_artists = [artist for artist in favorite_artists if artist not in remove_artists]
+        save_top_artists_to_yaml(username, favorite_artists)
+        st.rerun()
+
+# Add artist
+with st.sidebar.expander("➕ Add Artist", expanded=False):
+    new_artist = st.text_input("Artist name")
+    if st.button("Add Artist") and new_artist:
+        if new_artist not in favorite_artists:
+            favorite_artists.append(new_artist)
+            favorite_artists = sorted(set(favorite_artists))
+            save_top_artists_to_yaml(username, favorite_artists)
+            st.success(f"Added {new_artist} to tracked artists!")
+            st.rerun()
+        else:
+            st.info(f"{new_artist} is already being tracked.")
+
+
 def format_timestamp(ts):
     return pd.to_datetime(ts).strftime("%b %d, %Y %I:%M %p")
 
@@ -49,7 +83,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("🕸️ Arachnaradio Dashboard")
+# st.title("🕸️ Arachnaradio Dashboard")
 
 # Load logs
 matches_path = Path("data/logs/song_matches.csv")

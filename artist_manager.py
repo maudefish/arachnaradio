@@ -11,6 +11,8 @@ def get_user_profile_path(username: str) -> Path:
 def save_top_artists_to_yaml(username: str, artists: List[str]):
     path = get_user_profile_path(username)
     path.parent.mkdir(parents=True, exist_ok=True)
+    st.write("📝 Writing to:", get_user_profile_path(username))
+
     with open(path, "w") as f:
         yaml.dump({"favorite_artists": artists}, f)
     st.success("🎧 Saved top artists to user profile!")
