@@ -1,6 +1,4 @@
 #dashboard.py
-from dotenv import load_dotenv
-import os
 import pydeck as pdk
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -8,27 +6,40 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
-import yaml
-from typing import List
-from auth_section import get_spotify_client
-from artist_manager import get_all_top_artists, save_top_artists_to_yaml, load_favorite_artists
-
 st.set_page_config(page_title="Arachnaradio Dashboard", layout="wide")
-st.title("🕸️ Arachnaradio Dashboard")
 
-sp = get_spotify_client()
-user_profile = sp.current_user()
-username = user_profile["id"]  # used for file naming
 
-# 🎧 Favorite artist syncing
-top_artists = get_all_top_artists(sp)
-save_top_artists_to_yaml(username, top_artists)
-favorite_artists = load_favorite_artists(username)
-# st.sidebar.markdown(f"🧑 Logged in as **{user_profile.get('display_name', username)}**")
+# 🎧 Spotify Auth Setup
+REDIRECT_URI = "http://127.0.0.1:8501/"
+CLIENT_ID = "79ca8615ee02470c8a34ff3c15977965"
+CLIENT_SECRET = "435216fbd8bf4d438e23ae83c419fc3a"
+SCOPE = "user-read-private user-read-email user-top-read"
 
-st.write("🎧 Your tracked artists:", favorite_artists)
-def format_timestamp(ts):
-    return pd.to_datetime(ts).strftime("%b %d, %Y %I:%M %p")
+auth_manager = SpotifyOAuth(
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
+    redirect_uri=REDIRECT_URI,  # must match exactly
+    scope=SCOPE,
+    show_dialog=True
+)
+
+code = st.query_params.get("code")
+if code:
+    try:
+        token_info = auth_manager.get_access_token(code[0])
+        sp = spotipy.Spotify(auth=token_info["access_token"])
+        user_profile = sp.current_user()
+        st.sidebar.success(f"🎶 Logged in as: {user_profile['display_name']}")
+    except spotipy.oauth2.SpotifyOauthError as e:
+        st.error(str(e))
+        st.sidebar.error("Authorization failed. Please try logging in again.")
+        st.stop()
+else:
+    auth_url = auth_manager.get_authorize_url()
+    st.sidebar.link_button("🔐 Login with Spotify", auth_url)
+    st.stop()
+
+# ... existing dataframe views, charts, maps, etc.
 
 
 # 💅 Inject custom font via markdown
@@ -56,14 +67,16 @@ matches_path = Path("data/logs/song_matches.csv")
 mentions_path = Path("data/logs/artist_mentions.csv")
 venue_log_path = Path("data/logs/venue_mentions.csv")
 
-# # Get top artists (short_term, medium_term, or long_term)
-# top_artists = sp.current_user_top_artists(limit=30, time_range='long_term')
+# Get top artists (short_term, medium_term, or long_term)
+top_artists = sp.current_user_top_artists(limit=10, time_range='medium_term')
 
-# st.subheader("🔥 Your Top Artists")
-# for idx, artist in enumerate(top_artists['items'], start=1):
-#     st.markdown(f"**{idx}. {artist['name']}**")
+st.subheader("🔥 Your Top Artists")
+for idx, artist in enumerate(top_artists['items'], start=1):
+    st.markdown(f"**{idx}. {artist['name']}**")
 
 
+def format_timestamp(ts):
+    return pd.to_datetime(ts).strftime("%b %d, %Y %I:%M %p")
 
 # SONG MATCHES
 st.subheader("🎶 Recent Song Matches")
