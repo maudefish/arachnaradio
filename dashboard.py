@@ -12,6 +12,8 @@ import yaml
 from typing import List
 from auth_section import get_spotify_client
 from artist_manager import get_all_top_artists, save_top_artists_to_yaml, load_favorite_artists
+from venue_manager import update_master_venue_list, save_favorite_venues, load_favorite_venues
+
 
 st.set_page_config(page_title="Arachnaradio Dashboard", layout="wide")
 st.title("🕸️ Arachnaradio Dashboard")
@@ -29,19 +31,50 @@ from artist_manager import (
 
 # Only fetch & save Spotify top artists if user profile doesn't exist yet
 user_profile_path = get_user_profile_path(username)
-if not user_profile_path.exists():
+
+# 🏟️ Update venue master with user's favorite venues
+# update_master_with_favorites(username)
+# dashboard.py (or main app)
+
+
+# Load profile if it exists
+if user_profile_path.exists():
+    with open(user_profile_path, "r") as f:
+        profile = yaml.safe_load(f) or {}
+
+    # Ensure defaults are present
+    profile.setdefault("favorite_artists", [])
+    profile.setdefault("favorite_venues", [])
+    profile.setdefault("location_hint", "San Francisco Bay Area, CA")
+
+    # Save back any missing defaults (optional, but good habit)
+    with open(user_profile_path, "w") as f:
+        yaml.dump(profile, f)
+
+    favorite_artists = profile["favorite_artists"]
+    favorite_venues = profile["favorite_venues"]
+    location_hint = profile["location_hint"]
+
+
+else:
     top_artists = get_all_top_artists(sp)
     save_top_artists_to_yaml(username, top_artists)
+    favorite_artists = top_artists
+    favorite_venues = []  # default to empty list
 
-# Load current tracked artists
-favorite_artists = load_favorite_artists(username)
+if st.sidebar.button("🔄 Update Venue Locations"):
+    with st.spinner("📍 Geocoding new venues..."):
+        updated = update_master_venue_list(favorite_venues, location_hint)
+        st.success(f"✅ Added {len(updated)} new venues to master list.")
+
+
 
 
 st.sidebar.subheader("🎧 Manage Tracked Artists")
 
 # Remove artists
-with st.sidebar.expander("➖ Remove Artists", expanded=False):
-    remove_artists = st.multiselect("Select artists to remove", favorite_artists)
+with st.sidebar.expander("🔍 Tracked Artists", expanded=False):
+    remove_artists = st.multiselect("Expand to view list. Highlight name to edit.", favorite_artists)
     if st.button("Remove Selected"):
         favorite_artists = [artist for artist in favorite_artists if artist not in remove_artists]
         save_top_artists_to_yaml(username, favorite_artists)
@@ -59,6 +92,61 @@ with st.sidebar.expander("➕ Add Artist", expanded=False):
             st.rerun()
         else:
             st.info(f"{new_artist} is already being tracked.")
+
+st.sidebar.subheader("📍 Manage Tracked Venues")
+
+# 🔍 View + Remove
+with st.sidebar.expander("🔍 Tracked Venues", expanded=False):
+    if favorite_venues:
+        remove_venues = st.multiselect("Select venues to remove", favorite_venues)
+        if st.button("Remove Selected Venues"):
+            favorite_venues = [v for v in favorite_venues if v not in remove_venues]
+            save_favorite_venues(username, favorite_venues)
+            st.success("Selected venues removed.")
+            st.rerun()
+    else:
+        st.info("You are not tracking any venues yet.")
+
+# ➕ Add
+with st.sidebar.expander("➕ Add Venue", expanded=False):
+    new_venue = st.text_input("Venue name")
+    if st.button("Add Venue") and new_venue:
+        if new_venue not in favorite_venues:
+            favorite_venues.append(new_venue)
+            favorite_venues = sorted(set(favorite_venues))
+            save_favorite_venues(username, favorite_venues)
+            st.success(f"Added {new_venue} to tracked venues!")
+            st.rerun()
+        else:
+            st.info(f"{new_venue} is already being tracked.")
+
+matches_path = Path("data/logs/song_matches.csv")
+
+if matches_path.exists():
+    matches = pd.read_csv(matches_path)
+
+    # Normalize artist names
+    matches["artist"] = matches["artist"].str.strip().str.lower()
+    tracked = [a.lower() for a in favorite_artists]
+
+    # Filter for tracked artist matches
+    filtered = matches[matches["artist"].isin(tracked)].copy()
+
+    # Only show relevant columns
+    display_columns = ["timestamp", "station", "artist", "title", "label", "score"]
+    available_columns = [col for col in display_columns if col in filtered.columns]
+    filtered = filtered[available_columns]
+
+    # Format timestamp
+    if "timestamp" in filtered.columns:
+        filtered["timestamp"] = pd.to_datetime(filtered["timestamp"])
+        filtered = filtered.sort_values("timestamp", ascending=False)
+        filtered["timestamp"] = filtered["timestamp"].dt.strftime("%b %d, %Y %I:%M %p")
+
+    st.subheader("🎶 Matched Tracks for Your Tracked Artists")
+    st.dataframe(filtered, use_container_width=True)
+else:
+    st.info("No song matches logged yet.")
 
 
 def format_timestamp(ts):
@@ -176,10 +264,12 @@ if venue_log_path.exists():
                 "ScatterplotLayer",
                 data=venues,
                 get_position='[lon, lat]',
-                get_color='[255, 0, 0, 180]',  # red markers
-                get_radius=100,
+                get_color='[255, 0, 0, 180]',
+                get_radius=120,  # Increase for visual size
+                radius_min_pixels=5,  # ensures it's not too small when zoomed out
+                radius_max_pixels=20,  # cap for when zoomed in
                 pickable=True
-            )
+                    )
         ],
         tooltip={
             "html": "<b>{venue}</b><br/>{station}<br/>{timestamp}<br/><i>{transcript}</i>",

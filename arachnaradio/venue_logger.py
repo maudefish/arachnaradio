@@ -1,20 +1,17 @@
-# arachnaradio/venue_logger.py
-
 import csv
 from datetime import datetime
 from pathlib import Path
 import pandas as pd
 from typing import List
 
-
 LOG_PATH = Path("data/logs/venue_mentions.csv")
-COORDS_PATH = Path("data/venue_locations.csv")
+MASTER_VENUE_PATH = Path("data/venues_master.csv")
 
-# Load venue coordinates once
-venue_coords = pd.read_csv(COORDS_PATH)
+# Load master venue data
+venue_coords = pd.read_csv(MASTER_VENUE_PATH)
 
 def get_coords_for_venue(venue_name: str):
-    row = venue_coords[venue_coords["venue"].str.lower() == venue_name.lower()]
+    row = venue_coords[venue_coords["name"].str.lower() == venue_name.lower()]
     if not row.empty:
         return row.iloc[0]["lat"], row.iloc[0]["lon"]
     return None, None
