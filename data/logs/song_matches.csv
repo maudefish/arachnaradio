@@ -520,3 +520,29 @@ timestamp,station,filename,title,artist,album,score,label,play_offset_ms,acrid,g
 2025-04-17T22:29:39,KALX,data/clips/kalx_clip_2025-04-17_22-29-09.mp3,Ceremony,Galaxie 500,On Fire,100,20/20/20,44900,Rock
 2025-04-17T22:36:42,KALX,data/clips/kalx_clip_2025-04-17_22-36-10.mp3,Fast As You Can (Album Version),Fiona Apple,When The Pawn...,100,Clean Slate/Epic,42100,Alternative; Indie Pop; Indie Rock; Pop; Indie Pop/Folk; Rock
 2025-04-17T22:40:45,KALX,data/clips/kalx_clip_2025-04-17_22-40-14.mp3,"Call It Fate, Call It Karma",The Strokes,"Call It Fate, Call It Karma",100,Rough Trade,6720,Alternative
+2025-04-17T22:44:46,KALX,data/clips/kalx_clip_2025-04-17_22-44-15.mp3,So Real,Jeff Buckley,22 Sweet 90s Hits,100,RCA/Legacy,42960,Alternative
+2025-04-17T22:48:48,KALX,data/clips/kalx_clip_2025-04-17_22-48-17.mp3,Ballad Of Big Nothing,Elliott Smith,Either/Or,100,Kill Rock Stars,6200,Rock
+2025-04-17T22:52:53,KALX,data/clips/kalx_clip_2025-04-17_22-52-21.mp3,Here Comes Your Man,Pixies,Death To The Pixies,100,4AD,12020,Alternative
+2025-04-17T22:56:56,KALX,data/clips/kalx_clip_2025-04-17_22-56-25.mp3,Coast,Kim Deal,Coast,100,4AD,51620,Alternative
+2025-04-17T23:00:57,KALX,data/clips/kalx_clip_2025-04-17_23-00-27.mp3,Spud Infinity,Big Thief,Spud Infinity,100,4AD,67380,Alternative
+2025-04-17T23:06:59,KALX,data/clips/kalx_clip_2025-04-17_23-06-28.mp3,Love Takes Miles,Cameron Winter,Heavy Metal,100,Partisan / Play It Again Sam,27640,Alternative
+2025-04-17T23:10:05,KALX,data/clips/kalx_clip_2025-04-17_23-09-34.mp3,Code,Flora Hibberd,Swirl,100,22TWENTY,15480,Folk
+2025-04-17T23:13:06,KALX,data/clips/kalx_clip_2025-04-17_23-12-37.mp3,Lie In the Gutter,Peel Dream Magazine,Lie In the Gutter,100,,9940,
+2025-04-17T23:17:11,KALX,data/clips/kalx_clip_2025-04-17_23-16-40.mp3,Indian Summer (8/19/66 Vocal),The Doors,Indian Summer (8/19/66 Vocal),67,Elektra 0591,35860,Pop
+2025-04-17T23:19:14,KALX,data/clips/kalx_clip_2025-04-17_23-18-44.mp3,Do It Again,Steely Dan,Magic Of The Seventies,52,"Universal Music, a division of Universal International Music BV",7600,Rock
+2025-04-17T23:21:15,KALX,data/clips/kalx_clip_2025-04-17_23-20-44.mp3,Back 2 Do It Again (feat. Snipe),Spiktakula,4 Tha Life Of Me,100,Kickdoor Records,150540,
+2025-04-17T23:22:15,KALX,data/clips/kalx_clip_2025-04-17_23-21-45.mp3,Do It Again,Steely Dan,Showbiz Kids: The Steely Dan Story 1972 - 1980,100,Digital Distribution Grenada,188380,Rock
+2025-04-17T23:23:15,KALX,data/clips/kalx_clip_2025-04-17_23-22-45.mp3,Do It Again,Paul Parsons/Bronx Cheer,Do It Again,61,PLAYEDiT Records,290440,Electronic
+2025-04-17T23:24:16,KALX,data/clips/kalx_clip_2025-04-17_23-23-45.mp3,Do It Again,Steely Dan,Showbiz Kids: The Steely Dan Story 1972 - 1980,97,Digital Distribution Grenada,308320,Rock
+2025-04-17T23:27:16,KALX,data/clips/kalx_clip_2025-04-17_23-26-46.mp3,Don't Think Twice It's Alright (Remastered),Bob Dylan,Blowin' in the Wind (Remastered),100,Columbia,60560,Folk
+2025-04-17T23:30:15,KALX,data/clips/kalx_clip_2025-04-17_23-29-45.mp3,Northern Sky,Nick Drake,Serendipity (Motion Picture Soundtrack),100,Columbia/Sony Music Soundtrax,22760,Folk
+2025-04-17T23:34:19,KALX,data/clips/kalx_clip_2025-04-17_23-33-47.mp3,Life On Mars?,David Bowie,Nothing Has Changed (The Best Of David Bowie),100,Parlophone UK,40260,Alternative; Pop; Rock
+2025-04-17T23:38:23,KALX,data/clips/kalx_clip_2025-04-17_23-37-52.mp3,Help Me,Joni Mitchell,I Am Woman: 70s Female Singers,100,Warner Music,57340,Pop - J-Pop
+2025-04-17T23:41:25,KALX,data/clips/kalx_clip_2025-04-17_23-40-53.mp3,I Will (Remastered 2009),The Beatles,The Beatles (Remastered),100,EMI Catalogue,38900,Rock
+2025-04-17T23:44:24,KALX,data/clips/kalx_clip_2025-04-17_23-43-55.mp3,Dogs (2011 Remastered Version),Pink Floyd,Dogs (2011 Remastered Version),100,Pink Floyd Music Ltd,18480,Pop
+2025-04-18T00:01:30,KALX,data/clips/kalx_clip_2025-04-18_00-01-00.mp3,American Dream (live),"Rainbow Girls, Eric Long, King Dream",Rolling Dumpster Fire & Other Songs,100,,26740,
+2025-04-18T00:04:32,KALX,data/clips/kalx_clip_2025-04-18_00-04-02.mp3,American Dream (live),Rainbow Girls,American Dream (live),91,Rainbow Girls,209060,
+2025-04-18T00:05:33,KALX,data/clips/kalx_clip_2025-04-18_00-05-02.mp3,American Dream (live),"Rainbow Girls, Eric Long, King Dream",Rolling Dumpster Fire & Other Songs,97,,268820,
+2025-04-18T00:06:32,KALX,data/clips/kalx_clip_2025-04-18_00-06-03.mp3,American Dream (live),Rainbow Girls,American Dream (live),100,Rainbow Girls,329640,
+2025-04-18T00:07:33,KALX,data/clips/kalx_clip_2025-04-18_00-07-02.mp3,Harvest Moon,The Brothers Comatose,Harvest Moon,100,Swamp Jam Records,51620,Folk
+2025-04-18T00:18:41,KALX,data/clips/kalx_clip_2025-04-18_00-18-11.mp3,Overture,"The Sam Chase, The Untraditional",The Last Rites of Dallas Pistol,100,,38580,

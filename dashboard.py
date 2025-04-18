@@ -13,6 +13,7 @@ from typing import List
 from auth_section import get_spotify_client
 from artist_manager import get_all_top_artists, save_top_artists_to_yaml, load_favorite_artists
 from venue_manager import update_master_venue_list, save_favorite_venues, load_favorite_venues
+from tooltip_formatter import create_venue_tooltip
 
 
 st.set_page_config(page_title="Arachnaradio Dashboard", layout="wide")
@@ -176,7 +177,7 @@ st.markdown(
 # Load logs
 matches_path = Path("data/logs/song_matches.csv")
 mentions_path = Path("data/logs/artist_mentions.csv")
-venue_log_path = Path("data/logs/venue_mentions.csv")
+venue_log_path = Path("data/logs/venue_mentions_enriched.csv")
 
 # # Get top artists (short_term, medium_term, or long_term)
 # top_artists = sp.current_user_top_artists(limit=30, time_range='long_term')
@@ -223,60 +224,113 @@ else:
 
 
 
-st.subheader("📍 Venue Mentions")
+# st.subheader("📍 Venue Mentions")
 
-venue_log_path = Path("data/logs/venue_mentions.csv")
+# venue_log_path = Path("data/logs/venue_mentions.csv")
+# Assuming `venues_display` is your DataFrame
+# venues_display["tooltip"] = venues_display.apply(lambda row: create_venue_tooltip(row), axis=1)
+
+
+
+# if venue_log_path.exists():
+#     venues = pd.read_csv(venue_log_path)
+
+#     # Show table
+#     if "timestamp" in venues.columns:
+#         venues["timestamp"] = venues["timestamp"].apply(format_timestamp)
+
+#     venues_display = venues.copy()
+#     venues_display = venues_display.dropna(how="all")
+
+
+#     if "filename" in venues_display.columns:
+#         venues_display = venues_display.drop(columns=["filename"])
+
+#     st.dataframe(venues_display, use_container_width=True)
+
+#     # Show map if lat/lon are present
+#     if {"lat", "lon"}.issubset(venues.columns):
+#         st.subheader("🗺️ Venue Map")
+
+#         venue_map_data = venues.dropna(subset=["lat", "lon"])
+
+#         tooltip = {
+#             "html": "<b>{venue}</b><br/>{station}<br/>{timestamp}",
+#             "style": {"backgroundColor": "white", "color": "black"},
+#         }
+
+#         st.pydeck_chart(pdk.Deck(
+
+#         map_style="mapbox://styles/mapbox/dark-v10",  # dark minimalist map
+#         initial_view_state=pdk.ViewState(
+#             latitude=37.77, longitude=-122.42, zoom=11
+#         ),
+#         layers=[
+#             pdk.Layer(
+#                 "ScatterplotLayer",
+#                 data=venues,
+#                 get_position='[lon, lat]',
+#                 get_color='[255, 0, 0, 180]',
+#                 get_radius=120,  # Increase for visual size
+#                 radius_min_pixels=5,  # ensures it's not too small when zoomed out
+#                 radius_max_pixels=20,  # cap for when zoomed in
+#                 pickable=True
+#                     )
+#         ],
+
+#         tooltip={"html": "{tooltip}", "style": {"backgroundColor": "black", "color": "white"}}
+#         ))
+
+
+        
+# else:
+#     st.info("No venue mentions logged yet.")
 
 if venue_log_path.exists():
     venues = pd.read_csv(venue_log_path)
 
-    # Show table
+    # Format timestamp if present
     if "timestamp" in venues.columns:
         venues["timestamp"] = venues["timestamp"].apply(format_timestamp)
 
-    venues_display = venues.copy()
-    venues_display = venues_display.dropna(how="all")
+    # Clean up null rows
+    venues = venues.dropna(how="all")
 
+    # Only show venues with coordinates
+    venues_with_coords = venues.dropna(subset=["lat", "lon"]).copy()
 
-    if "filename" in venues_display.columns:
-        venues_display = venues_display.drop(columns=["filename"])
+    # Optional: drop unnecessary columns in table display
+    table_view = venues_with_coords.drop(columns=["filename"], errors="ignore")
 
-    st.dataframe(venues_display, use_container_width=True)
+    # 🆕 Add custom tooltip field (after importing your function)
+    venues_with_coords["tooltip"] = venues_with_coords.apply(create_venue_tooltip, axis=1)
 
-    # Show map if lat/lon are present
-    if {"lat", "lon"}.issubset(venues.columns):
-        st.subheader("🗺️ Venue Map")
+    # 📊 Show table
+    st.subheader("📍 Venue Mentions")
+    st.dataframe(table_view, use_container_width=True)
 
-        venue_map_data = venues.dropna(subset=["lat", "lon"])
-
-        tooltip = {
-            "html": "<b>{venue}</b><br/>{station}<br/>{timestamp}",
-            "style": {"backgroundColor": "white", "color": "black"},
-        }
-
-        st.pydeck_chart(pdk.Deck(
-        map_style="mapbox://styles/mapbox/dark-v10",  # dark minimalist map
-        initial_view_state=pdk.ViewState(
-            latitude=37.77, longitude=-122.42, zoom=11
-        ),
+    # 🗺️ Show map
+    st.subheader("🗺️ Venue Map")
+    st.write("Columns in venues_with_coords:", venues_with_coords.columns.tolist())
+    st.write("Sample tooltip:", venues_with_coords["tooltip"].head())
+    st.pydeck_chart(pdk.Deck(
+        map_style="mapbox://styles/mapbox/dark-v10",
+        initial_view_state=pdk.ViewState(latitude=37.8, longitude=-122.35, zoom=11),
         layers=[
             pdk.Layer(
                 "ScatterplotLayer",
-                data=venues,
+                data=venues_with_coords,
                 get_position='[lon, lat]',
                 get_color='[255, 0, 0, 180]',
                 get_radius=120,  # Increase for visual size
                 radius_min_pixels=5,  # ensures it's not too small when zoomed out
                 radius_max_pixels=20,  # cap for when zoomed in
                 pickable=True
-                    )
+            )
         ],
-        tooltip={
-            "html": "<b>{venue}</b><br/>{station}<br/>{timestamp}<br/><i>{transcript}</i>",
-            "style": {"backgroundColor": "black", "color": "white"}
-        }
+        tooltip={"html": "{tooltip}", "style": {"backgroundColor": "black", "color": "white"}}
+         ))
 
-
-        ))
 else:
     st.info("No venue mentions logged yet.")
+
