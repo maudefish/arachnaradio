@@ -5,6 +5,7 @@ from arachnaradio.match_logger import log_match
 from arachnaradio.mention_logger import log_mention, mentioned_artists
 from arachnaradio.venue_logger import mentioned_venues, log_venue_mention
 from arachnaradio.user_loader import load_user_profile
+from alias_resolver import resolve_canonical_name, maybe_add_alias_to_yaml
 
 import re
 # 🎧 Your tracked artist list (replace with dynamic loading later)
@@ -62,7 +63,11 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             log_mention(str(file_path), cleaned, station=station, matches=matches)
         else:
             print("🕸️ No artist mentions found.")
-    venue_hits = mentioned_venues(cleaned, favorite_venues)
+    venue_hits = mentioned_venues(cleaned, favorite_venues, return_aliases=True)
+    for canonical, alias in venue_hits:
+        maybe_add_alias_to_yaml(canonical, alias)
+
+    venue_hits = list(set(venue_hits))  # Remove duplicates
     if venue_hits:
         print(f"📍 Venue(s) mentioned: {', '.join(venue_hits)}")
         log_venue_mention(str(file_path), cleaned, station=station, venues=venue_hits)
