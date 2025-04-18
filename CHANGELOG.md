@@ -89,3 +89,5 @@
 
 ## [RANDOM THOUGHTS]
 - Potential for listening to talk radio for topics of interest to the user also (climate change, local politics, hobbies, etc)
+- Eventually need to figure out a way to record quasicontinuously
+- ... probably will be best to save only clips that feature event mentions for use in map
