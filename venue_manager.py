@@ -8,6 +8,26 @@ from typing import List, Dict
 import re 
 
 
+# Load alias map
+def load_venue_aliases(path="data/venue_aliases.yaml") -> dict:
+    if Path(path).exists():
+        with open(path) as f:
+            return yaml.safe_load(f)
+    return {}
+
+# Match transcript name to canonical name
+def resolve_canonical_venue(name: str, alias_map: dict) -> str:
+    name_lower = name.strip().lower()
+    for canonical, info in alias_map.items():
+        if name_lower == canonical.lower():
+            return canonical
+        for alias in info.get("aliases", []):
+            if name_lower == alias.lower():
+                return canonical
+    return name  # fallback to the original if not matched
+
+
+
 VENUE_CSV_PATH = Path("data/venues_master.csv")
 USER_PATH = Path("data/users")
 geolocator = Nominatim(user_agent="arachnaradio", timeout=10)

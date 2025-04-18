@@ -3,6 +3,8 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 from typing import List
+from alias_resolver import resolve_venue_name
+
 
 LOG_PATH = Path("data/logs/venue_mentions.csv")
 MASTER_VENUE_PATH = Path("data/venues_master.csv")
@@ -17,8 +19,14 @@ def get_coords_for_venue(venue_name: str):
     return None, None
 
 def mentioned_venues(transcript: str, venue_list: List[str]) -> List[str]:
-    return [venue for venue in venue_list if venue.lower() in transcript.lower()]
-
+    transcript_lower = transcript.lower()
+    matched = []
+    for venue in venue_list:
+        aliases = resolve_venue_name(venue)
+        if any(alias.lower() in transcript_lower for alias in aliases):
+            matched.append(venue)
+    return matched
+    
 def log_venue_mention(filename: str, transcript: str, station: str, venues: List[str]):
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
