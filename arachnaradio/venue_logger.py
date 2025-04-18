@@ -28,8 +28,14 @@ def log_venue_mention(filename: str, transcript: str, station: str, venues: List
         writer = csv.writer(f)
         if not file_exists:
             writer.writerow(["timestamp", "station", "filename", "venue", "lat", "lon", "transcript"])
+        
+        # Only log each venue once per transcript
+        logged = set()
         for venue in venues:
+            if venue.lower() in logged:
+                continue
             lat, lon = get_coords_for_venue(venue)
             writer.writerow([timestamp, station, filename, venue, lat, lon, transcript])
+            logged.add(venue.lower())
 
-    print(f"📍 Logged venue mention(s): {', '.join(venues)}")
+    print(f"📍 Logged venue mention(s): {', '.join(set(venues))}")

@@ -1,29 +1,44 @@
+# backfill.py
 import pandas as pd
 from pathlib import Path
 
-# Paths
-log_path = Path("data/logs/venue_mentions.csv")
-master_path = Path("data/venues_master.csv")
+MENTIONS_PATH = Path("data/logs/venue_mentions.csv")
+MASTER_PATH = Path("data/venues_master.csv")
 
 # Load files
-mentions_df = pd.read_csv(log_path)
-master_df = pd.read_csv(master_path)
+mentions_df = pd.read_csv(MENTIONS_PATH)
+master_df = pd.read_csv(MASTER_PATH)
 
-# Normalize for matching
-mentions_df["venue_normalized"] = mentions_df["venue"].str.lower().str.strip()
-master_df["venue_normalized"] = master_df["name"].str.lower().str.strip()
+# Normalize venue names
+mentions_df["venue_clean"] = mentions_df["venue"].str.strip().str.lower()
+master_df["venue_clean"] = master_df["name"].str.strip().str.lower()
 
-# Merge lat/lon from master into mentions
-updated = pd.merge(
-    mentions_df.drop(columns=["lat", "lon"], errors="ignore"),
-    master_df[["venue_normalized", "lat", "lon"]],
-    on="venue_normalized",
-    how="left"
+# Merge to add missing lat/lon from master
+merged = mentions_df.merge(
+    master_df[["venue_clean", "lat", "lon"]],
+    on="venue_clean",
+    how="left",
+    suffixes=("", "_master")
 )
 
-# Drop helper column
-updated = updated.drop(columns=["venue_normalized"])
+# Fill missing lat/lon values
+merged["lat"] = merged["lat"].combine_first(merged["lat_master"])
+merged["lon"] = merged["lon"].combine_first(merged["lon_master"])
 
-# Save back to CSV
-updated.to_csv(log_path, index=False)
-print("✅ Backfilled lat/lon values in venue_mentions.csv")
+# Drop temp columns
+merged.drop(columns=["venue_clean", "lat_master", "lon_master"], inplace=True)
+
+# Optional: trim whitespace from 'venue' and 'station'
+merged["venue"] = merged["venue"].str.strip()
+merged["station"] = merged["station"].str.strip()
+
+# Drop duplicates
+deduped = merged.drop_duplicates(
+    subset=["timestamp", "station", "venue", "transcript"], keep="first"
+)
+
+# Overwrite original CSV
+deduped.to_csv(MENTIONS_PATH, index=False)
+
+print(f"✅ Cleaned and backfilled {len(mentions_df) - len(deduped)} duplicate rows.")
+print("✅ Filled in missing lat/lon where available.")

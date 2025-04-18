@@ -133,7 +133,7 @@ if matches_path.exists():
     filtered = matches[matches["artist"].isin(tracked)].copy()
 
     # Only show relevant columns
-    display_columns = ["timestamp", "station", "artist", "title", "label", "score"]
+    display_columns = ["timestamp", "station", "title", "artist", "album", "label", "score"]
     available_columns = [col for col in display_columns if col in filtered.columns]
     filtered = filtered[available_columns]
 

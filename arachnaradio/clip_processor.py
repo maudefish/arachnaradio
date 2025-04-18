@@ -9,9 +9,10 @@ from arachnaradio.user_loader import load_user_profile
 import re
 # 🎧 Your tracked artist list (replace with dynamic loading later)
 
-profile = load_user_profile("kevin")
+profile = load_user_profile("1253110124")
 favorite_artists = profile["favorite_artists"]
 favorite_venues = profile["favorite_venues"]
+print(favorite_artists)
 
 def clean_transcript(transcript: str) -> str:
     # Remove timestamps and [Music] tags
@@ -19,7 +20,7 @@ def clean_transcript(transcript: str) -> str:
 
 def is_music_segment(transcript: str) -> bool:
     # Check for common indicators of music in the raw transcript
-    music_indicators = ["[music]", "(music)", "*Music*", "[MUSIC]", "♪", "♫", "[instrumental]", "(instrumental)", "[song]", "(song)", "[MUSIC PLAYING]", "music)"]
+    music_indicators = ["[music]", "(music)", "*Music*", "[MUSIC]", "♪", "♫", "🎵", "[instrumental]", "(instrumental)", "[song]", "(song)", "[MUSIC PLAYING]", "music)"]
     return any(indicator.lower() in transcript.lower() for indicator in music_indicators)
 
 # # def is_music_segment(transcript: str) -> bool:
