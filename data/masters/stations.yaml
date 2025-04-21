@@ -1,0 +1,20 @@
+kalx:
+  name: "KALX"
+  stream_url: "http://stream.kalx.berkeley.edu:8000/kalx-128.mp3"
+  location: "Berkeley, CA"
+  schedule_url: "https://kalx.berkeley.edu/calendar"
+
+kdvs:
+  name: "KDVS"
+  stream_url: "http://kdvs.org/stream.mp3"
+  location: "Davis, CA"
+
+kfjc:
+  name: "KFJC"
+  stream_url: "http://netcast.kfjc.org:8000/kfjc-128.mp3"
+  location: "Los Altos Hills, CA"
+
+kzsc:
+  name: "KZSC"
+  stream_url: "https://kzscfms1-geckohost.radioca.st/kzschigh"
+  location: "Santa Cruz, CA"

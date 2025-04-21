@@ -1,48 +1,83 @@
-timestamp,station,filename,venue,transcript,lat,lon,canonical_venue
-2025-04-11T21:54:14,KALX,data/test_clip_fake.mp3,The Chapel,Don't miss SPELLLING live at The Chapel this Saturday night!,37.7604879,-122.42120099500367,The Chapel
+timestamp,station,filename,venue,transcript,lat,lon,canonical_venue,summary
 2025-04-12T18:36:02,KALX,data/kalx_clip_2025-04-12_18-35-32.mp3,924 Gilman,"[00:00:00.000 --> 00:00:06.020]   And so here we go, I'm going to read it off here.
 [00:00:06.020 --> 00:00:18.420]   This is the Saturday, April 12th, 2025, Calex entertainment calendar in the East Bay at 924 Gilman.
-[00:00:18.420 --> 00:00:30.020]   It's Night Wraith with Human Head, Margaret and Warskythe.",37.879307,-122.297145,924 Gilman
+[00:00:18.420 --> 00:00:30.020]   It's Night Wraith with Human Head, Margaret and Warskythe.",37.879307,-122.297145,924 Gilman,"Artist(s): Night Wraith, Human Head, Margaret, Warskythe
+   Venue: 924 Gilman
+   Date: April 12th, 2025
+   Source: KALX"
 2025-04-12T18:37:03,KALX,data/kalx_clip_2025-04-12_18-36-32.mp3,Fox Theater,"[00:00:00.000 --> 00:00:08.980]   After Putrid Marsh, Fife and Magic Creature, at the Fox Theater it's Amal and the Sniffers
 [00:00:08.980 --> 00:00:12.060]   and Sheer Mag.
 [00:00:12.060 --> 00:00:15.780]   At the Freight it's Andrea Pritchett and Friends.
 [00:00:15.780 --> 00:00:22.820]   At the Ivy Room it's Rage on Parade.
-[00:00:22.820 --> 00:00:30.080]   The Last Decade, Immortallica and Stone Temple Co-Pilots.",37.808,-122.2708,Fox Theater
+[00:00:22.820 --> 00:00:30.080]   The Last Decade, Immortallica and Stone Temple Co-Pilots.",37.808,-122.2708,Fox Theater,"1. Amal and the Sniffers playing at the Fox Theater. Source: KALX
+2. Sheer Mag playing at the Fox Theater. Source: KALX
+3. Andrea Pritchett and Friends playing at the Freight. Source: KALX
+4. Rage on Parade playing at the Ivy Room. Source: KALX
+5. The Last Decade, Immortallica, and Stone Temple Co-Pilots (Unknown Venue). Source: KALX"
 2025-04-12T18:37:03,KALX,data/kalx_clip_2025-04-12_18-36-32.mp3,The Freight,"[00:00:00.000 --> 00:00:08.980]   After Putrid Marsh, Fife and Magic Creature, at the Fox Theater it's Amal and the Sniffers
 [00:00:08.980 --> 00:00:12.060]   and Sheer Mag.
 [00:00:12.060 --> 00:00:15.780]   At the Freight it's Andrea Pritchett and Friends.
 [00:00:15.780 --> 00:00:22.820]   At the Ivy Room it's Rage on Parade.
-[00:00:22.820 --> 00:00:30.080]   The Last Decade, Immortallica and Stone Temple Co-Pilots.",37.8703,-122.2698,The Freight
+[00:00:22.820 --> 00:00:30.080]   The Last Decade, Immortallica and Stone Temple Co-Pilots.",37.8703,-122.2698,The Freight,"1. Amal and the Sniffers playing at the Fox Theater. Source: KALX
+2. Sheer Mag playing at the Fox Theater. Source: KALX
+3. Andrea Pritchett and Friends playing at the Freight. Source: KALX
+4. Rage on Parade playing at the Ivy Room. Source: KALX
+5. The Last Decade, Immortallica and Stone Temple Co-Pilots (Unknown - no specific venue mentioned). Source: KALX"
 2025-04-12T18:37:03,KALX,data/kalx_clip_2025-04-12_18-36-32.mp3,Ivy Room,"[00:00:00.000 --> 00:00:08.980]   After Putrid Marsh, Fife and Magic Creature, at the Fox Theater it's Amal and the Sniffers
 [00:00:08.980 --> 00:00:12.060]   and Sheer Mag.
 [00:00:12.060 --> 00:00:15.780]   At the Freight it's Andrea Pritchett and Friends.
 [00:00:15.780 --> 00:00:22.820]   At the Ivy Room it's Rage on Parade.
-[00:00:22.820 --> 00:00:30.080]   The Last Decade, Immortallica and Stone Temple Co-Pilots.",37.8904419,-122.2992009,Ivy Room
+[00:00:22.820 --> 00:00:30.080]   The Last Decade, Immortallica and Stone Temple Co-Pilots.",37.8904419,-122.2992009,Ivy Room,"1. Amal and the Sniffers playing at the Fox Theater. Source: KALX
+2. Sheer Mag playing at the Fox Theater. Source: KALX
+3. Andrea Pritchett and Friends playing at the Freight. Source: KALX
+4. Rage on Parade playing at the Ivy Room. Source: KALX
+5. The Last Decade, Immortallica and Stone Temple Co-Pilots (Unknown - date not mentioned) Source: KALX"
 2025-04-12T18:38:04,KALX,data/kalx_clip_2025-04-12_18-37-33.mp3,The Chapel,"[00:00:00.000 --> 00:00:07.440]   Sugar Ray Rayford, at bottom of the hill it's Couch Dog, Mom Cars, and Moonwave.
 [00:00:07.440 --> 00:00:16.800]   At Center for New Music, it's Zero Collective, Fat Cog, and Ram, or Ramda, or Fat Cog and Ramda.
 [00:00:16.800 --> 00:00:25.120]   Eric Glick-Riemann and more, at the chapel is A La Las, and Monda UFO.
-[00:00:25.920 --> 00:00:29.920]   at the Fillmore at Cypress Hill, at Four Star Theatre...",37.7604879,-122.42120099500367,The Chapel
+[00:00:25.920 --> 00:00:29.920]   at the Fillmore at Cypress Hill, at Four Star Theatre...",37.7604879,-122.42120099500400,The Chapel,"1. Couch Dog, Mom Cars, and Moonwave playing at bottom of the hill. Source: KALX
+   2. Zero Collective, Fat Cog, Ram (or Ramda), or Fat Cog and Ramda at Center for New Music. Source: KALX
+   3. A La Las at the chapel. Source: KALX
+   4. Eric Glick-Riemann (Unknown Venue)
+   5. Monda UFO at the chapel. Source: KALX
+   6. Unknown Artist(s) at Fillmore at Cypress Hill, Unknown Artist(s) at Four Star Theatre (Venue name and Date are missing in this transcript). Source: KALX"
 2025-04-12T18:38:04,KALX,data/kalx_clip_2025-04-12_18-37-33.mp3,Bottom of the Hill,"[00:00:00.000 --> 00:00:07.440]   Sugar Ray Rayford, at bottom of the hill it's Couch Dog, Mom Cars, and Moonwave.
 [00:00:07.440 --> 00:00:16.800]   At Center for New Music, it's Zero Collective, Fat Cog, and Ram, or Ramda, or Fat Cog and Ramda.
 [00:00:16.800 --> 00:00:25.120]   Eric Glick-Riemann and more, at the chapel is A La Las, and Monda UFO.
-[00:00:25.920 --> 00:00:29.920]   at the Fillmore at Cypress Hill, at Four Star Theatre...",37.7649626,-122.39641152655962,Bottom of the Hill
+[00:00:25.920 --> 00:00:29.920]   at the Fillmore at Cypress Hill, at Four Star Theatre...",37.7649626,-122.39641152656000,Bottom of the Hill,"1. Couch Dog, Mom Cars, and Moonwave. Playing at bottom of the hill. Source: KALX
+  2. Zero Collective, Fat Cog, Ram (or Ramda), or Fat Cog and Ramda. Playing at Center for New Music. Source: KALX
+  3. A La Las and Monda UFO. Playing at the chapel. Source: KALX
+  4. Unknown playing at Four Star Theatre or The Fillmore at Cypress Hill. Source: KALX (Since no specific artist is mentioned)"
 2025-04-12T18:38:04,KALX,data/kalx_clip_2025-04-12_18-37-33.mp3,The Fillmore,"[00:00:00.000 --> 00:00:07.440]   Sugar Ray Rayford, at bottom of the hill it's Couch Dog, Mom Cars, and Moonwave.
 [00:00:07.440 --> 00:00:16.800]   At Center for New Music, it's Zero Collective, Fat Cog, and Ram, or Ramda, or Fat Cog and Ramda.
 [00:00:16.800 --> 00:00:25.120]   Eric Glick-Riemann and more, at the chapel is A La Las, and Monda UFO.
-[00:00:25.920 --> 00:00:29.920]   at the Fillmore at Cypress Hill, at Four Star Theatre...",37.7840838,-122.433171,The Fillmore
+[00:00:25.920 --> 00:00:29.920]   at the Fillmore at Cypress Hill, at Four Star Theatre...",37.7840838,-122.433171,The Fillmore,"1. Sugar Ray Rayford playing at bottom of the hill. Source: KALX
+  2. Unknown playing at Center for New Music. Source: KALX
+  3. A La Las playing at the chapel. Source: KALX
+  4. Monda UFO playing at the chapel. Source: KALX
+  5. Unknown playing at Fillmore at Cypress Hill, Unknown at Four Star Theatre (the transcript does not provide enough information for these events). Source: KALX"
 2025-04-12T18:39:05,KALX,data/kalx_clip_2025-04-12_18-38-34.mp3,Rickshaw Stop,"[00:00:00.000 --> 00:00:10.400]   of the woods brings us false flag stimulant 9/11 POS and surprise privilege at the peacock lounge
 [00:00:10.400 --> 00:00:19.200]   is naked roommate rearranged face warp and lackey and at public works it's megan hamilton
-[00:00:20.000 --> 00:00:29.840]   and pinio and lobe at rickshaw stop is los piranhas reetmos tropicosmos and disco",37.7759904,-122.42047537588324,Rickshaw Stop
+[00:00:20.000 --> 00:00:29.840]   and pinio and lobe at rickshaw stop is los piranhas reetmos tropicosmos and disco",37.7759904,-122.42047537588300,Rickshaw Stop,"Artist: of the woods, Megan Hamilton, Pinio and lobe, Los Piranhas, Reetmos Tropicosmos and disco
+   Venue: Peacock Lounge (for of the woods), Public Works (for megan hamilton), Rickshaw Stop (for Los Piranhas, Reetmos Tropicosmos and disco)
+   Date: Unknown (as no date was mentioned in the transcript)
+   Sources: KALX"
 2025-04-12T18:39:05,KALX,data/kalx_clip_2025-04-12_18-38-34.mp3,Public Works,"[00:00:00.000 --> 00:00:10.400]   of the woods brings us false flag stimulant 9/11 POS and surprise privilege at the peacock lounge
 [00:00:10.400 --> 00:00:19.200]   is naked roommate rearranged face warp and lackey and at public works it's megan hamilton
-[00:00:20.000 --> 00:00:29.840]   and pinio and lobe at rickshaw stop is los piranhas reetmos tropicosmos and disco",37.7688931,-122.41926507660828,Public Works
+[00:00:20.000 --> 00:00:29.840]   and pinio and lobe at rickshaw stop is los piranhas reetmos tropicosmos and disco",37.7688931,-122.41926507660800,Public Works,"Artist: of the woods, Megan Hamilton, Pinio and Lobe, Los Piranhas, Reetmos Tropicosmos, Disco
+   Venue: Peacock Lounge (for of the woods), Public Works (for megan hamilton), rickshaw stop (for Pinio and Lobe, Los Piranhas, Reetmos Tropicosmos, Disco)
+   Date: Unknown. Source: KALX"
 2025-04-12T20:02:26,KALX,data/kalx_clip_2025-04-12_20-01-56.mp3,The Lost Church,"[00:00:00.000 --> 00:00:11.400]   The Lost Church on Wednesday April 16th 8 15 p.m. It's all ages. It is wheelchair accessible doors open at 730
 [00:00:11.400 --> 00:00:18.060]   This is at 9 8 8 Columbus Avenue in San Francisco the Lost Church
 [00:00:18.060 --> 00:00:22.920]   It's to see Creek bed Carter Hogan and night jars
-[00:00:22.920 --> 00:00:29.760]   You want to go to that you can have a free pair of passes",37.7657871,-122.41846711128797,The Lost Church
+[00:00:22.920 --> 00:00:29.760]   You want to go to that you can have a free pair of passes",37.7657871,-122.41846711128800,The Lost Church,"Artist(s): Creek Bed, Carter Hogan, Night Jars
+   Venue: The Lost Church
+   Date: April 16th, 2021 (assuming current year)
+
+   Source: KALX"
 2025-04-12T21:45:17,KALX,data/kalx_clip_2025-04-12_21-44-47.mp3,Knockout,"[00:00:00.000 --> 00:00:05.040]   oh joey what do you got to say joey i was gonna say we're listening to kalx berkeley
 [00:00:05.040 --> 00:00:20.080]   we're on kalx berkeley right now and we have a show coming up in may on the 19th at the knockout
-[00:00:20.080 --> 00:00:29.840]   come out next one is called healthy boy uh rubble is it oh okay next one's",37.7451409,-122.420005,Knockout
+[00:00:20.080 --> 00:00:29.840]   come out next one is called healthy boy uh rubble is it oh okay next one's",37.7451409,-122.420005,Knockout,"Artist: Healthy Boy (Rubble, if ""Rubble"" is part of the artist name), Venue: The Knockout, Date: May 19th. Source: KALX"
 2025-04-12T23:09:11,KALX,data/kalx_clip_2025-04-12_23-08-39.mp3,Knockout,"[00:00:00.000 --> 00:00:04.820]   - Date wrong when I said it earlier because it's on 5/18.
 [00:00:04.820 --> 00:00:06.180]   I think I might have said 5/19.
 [00:00:06.180 --> 00:00:10.120]   But yeah, 5/18 at the Knockout in the city.
@@ -54,18 +89,26 @@ timestamp,station,filename,venue,transcript,lat,lon,canonical_venue
 [00:00:19.160 --> 00:00:20.680]   what you're gonna get. - Yep.
 [00:00:20.680 --> 00:00:24.000]   - Other than heavy lifter, which is already enough.
 [00:00:24.000 --> 00:00:26.960]   - Yep. - That'll fill up your cup.
-[00:00:26.960 --> 00:00:29.800]   - I think it's mocks, but I could, it might not be mocks.",37.7451409,-122.420005,Knockout
+[00:00:26.960 --> 00:00:29.800]   - I think it's mocks, but I could, it might not be mocks.",37.7451409,-122.420005,Knockout,"Artist(s): Unknown
+   Venue name: The Knockout in the city
+   Date: May 18th, 20XX (Transcript does not provide a specific year)
+   Source: KALX"
 2025-04-14T02:20:27,KALX,data/kalx_clip_2025-04-14_02-19-56.mp3,Ashkenaz,"[00:00:00.000 --> 00:00:04.800]   Just, I don't know, so sometimes technique, you know, there's something to be said about that too.
 [00:00:04.800 --> 00:00:11.040]   But I want to say about Ani DiFranco, I met her many years ago at the Ashkenaz,
 [00:00:11.040 --> 00:00:16.640]   because we were, she was, a friend of hers in Wild Mango was doing a gig at the Berkeley
 [00:00:16.640 --> 00:00:24.960]   Community Theater, and she came down to Ashkenaz to see another friend of hers in a band.
-[00:00:26.080 --> 00:00:30.080]   we as like oh Ani how you doing man you're you're you're we're about to go",37.88014045,-122.29534700403023,Ashkenaz
+[00:00:26.080 --> 00:00:30.080]   we as like oh Ani how you doing man you're you're you're we're about to go",37.88014045,-122.29534700403000,Ashkenaz,"Artist: Ani DiFranco
+   Venue: Berkeley Community Theater (This transcript does not mention a specific date, so it remains unknown.)
+   Source: KALX"
 2025-04-14T02:30:35,KALX,data/kalx_clip_2025-04-14_02-30-04.mp3,The Freight,"[00:00:00.000 --> 00:00:07.820]   I found myself in this band called The Shaky Booty Band, and we are a disco/funk/R&B band.
 [00:00:07.820 --> 00:00:14.780]   We play only covers, and it's just a great time, and there's some kick-butt musicians
 [00:00:14.780 --> 00:00:15.780]   in there.
 [00:00:15.780 --> 00:00:20.280]   Actually, I've recruited some of them to be at the Freight Show.
 [00:00:20.280 --> 00:00:23.560]   So Deb Hungerford plays keys in The Shaky Booty Band.
-[00:00:23.560 --> 00:00:30.040]   She also plays piano and keys with me on this album.",37.8703,-122.2698,The Freight
+[00:00:23.560 --> 00:00:30.040]   She also plays piano and keys with me on this album.",37.8703,-122.2698,The Freight,"Artist: The Shaky Booty Band, Deb Hungerford
+   Venue: Freight Show (Assumption based on context, as no specific venue name was mentioned)
+   Date: Unknown (Not mentioned in the transcript)
+   Source: KALX"
 2025-04-14T02:31:36,KALX,data/kalx_clip_2025-04-14_02-31-05.mp3,Ivy Room,"[00:00:00.000 --> 00:00:05.080]   I'm at four o'clock, actually, there's another party monster starts at two.
 [00:00:05.080 --> 00:00:09.960]   If you've never been to the Ivy Room, it's on San Pablo and Solano.
 [00:00:09.960 --> 00:00:13.420]   And it's a really cool-- but I just saw some awesome--
@@ -73,7 +116,9 @@ timestamp,station,filename,venue,transcript,lat,lon,canonical_venue
 [00:00:16.180 --> 00:00:21.680]   Yeah, I just-- I've had a couple interviews lately with people who were just playing there.
 [00:00:21.680 --> 00:00:23.640]   Ivy Room is really becoming a cool venue.
 [00:00:23.640 --> 00:00:28.320]   Mike Dillon, and Kid Congo Powers, and Eric McFadden.
-[00:00:28.320 --> 00:00:29.320]   Yeah, a lot of cool people.",37.8904419,-122.2992009,Ivy Room
+[00:00:28.320 --> 00:00:29.320]   Yeah, a lot of cool people.",37.8904419,-122.2992009,Ivy Room,"Artist(s): Chris Delmhurst, Mike Dillon, Kid Congo Powers, Eric McFadden
+   Venue: Ivy Room (No date mentioned)
+   Source: KALX"
 2025-04-14T02:32:38,KALX,data/kalx_clip_2025-04-14_02-32-06.mp3,The Freight,"[00:00:00.000 --> 00:00:03.380]   - Freight to disclose a secret promo code.
 [00:00:03.380 --> 00:00:06.260]   So, don't tell anyone, John.
 [00:00:06.260 --> 00:00:07.720]   No, just kidding.
@@ -85,45 +130,90 @@ timestamp,station,filename,venue,transcript,lat,lon,canonical_venue
 [00:00:19.920 --> 00:00:22.520]   for Andrea Pritchett, AP-50,
 [00:00:22.520 --> 00:00:25.760]   you can get two tickets for one.
 [00:00:25.760 --> 00:00:28.120]   So, I say take advantage of it
-[00:00:28.120 --> 00:00:29.960]   'cause it really makes it a really...",37.8703,-122.2698,The Freight
+[00:00:28.120 --> 00:00:29.960]   'cause it really makes it a really...",37.8703,-122.2698,The Freight,"Artist(s): Unknown
+   Venue name: Freight and Salvage
+   Date (if mentioned): Unknown
+   Source: KALX"
 2025-04-14T02:53:48,KALX,data/kalx_clip_2025-04-14_02-53-17.mp3,The Freight,"[00:00:00.000 --> 00:00:19.000]   Michelle Gortz, Deb Herngerford, Isaac Cole, Maggie Forti, Marina Garza, Casey Knudsen, and Mike Derick at the Freight and Salvage, Saturday April 12th at 8 o'clock, an All-Ages Wheelchair Accessible Performance.
 [00:00:19.000 --> 00:00:29.000]   Once again Andrea Pritchett and Friends at the Freight and Salvage 2020 Addison Street in Berkeley, Saturday April 12th at 8 o'clock,
-[00:00:29.000 --> 00:00:30.000]   all ages will change.",37.8703,-122.2698,The Freight
+[00:00:29.000 --> 00:00:30.000]   all ages will change.",37.8703,-122.2698,The Freight,"Artist(s): Michelle Gortz, Deb Herngerford, Isaac Cole, Maggie Forti, Marina Garza, Casey Knudsen, Mike Derick
+   Venue: The Freight and Salvage
+   Date: Saturday April 12th at 8 o'clock
+   Source: KALX"
 2025-04-14T07:45:17,KALX,data/kalx_clip_2025-04-14_07-44-45.mp3,The Chapel,"[00:00:00.000 --> 00:00:06.560]   So it's 8 30 p.m. Saturday April 19th. All ages are welcome and the venue is wheelchair accessible.
 [00:00:06.560 --> 00:00:16.960]   If you would like a pair of passes to see ""Beachwood Sparks"" with ""Silver Synthetic"" and ""DJ Set"" by Kelly Stoltz at the chapel on Saturday April 19th,
 [00:00:16.960 --> 00:00:28.000]   just be my first caller at 510-642-CALEX. It's 510-642-5259 for a pair of passes for you and a friend to see ""Beachwood Sparks"" at the chapel on April 19th.
-[00:00:28.000 --> 00:00:30.000]   Alright, gonna get back into the music now.",37.7604879,-122.42120099500367,The Chapel
+[00:00:28.000 --> 00:00:30.000]   Alright, gonna get back into the music now.",37.7604879,-122.42120099500400,The Chapel,"Artist(s): Beachwood Sparks, Silver Synthetic, DJ Set by Kelly Stoltz
+   Venue: The Chapel
+   Date: April 19th
+
+   Source: KALX"
 2025-04-14T08:23:52,KALX,data/kalx_clip_2025-04-14_08-23-21.mp3,The Chapel,"[00:00:00.000 --> 00:00:06.360]   April 23rd Aida and Tsunami will be playing at the chapel in San Francisco. It's an 8 p.m
 [00:00:06.360 --> 00:00:13.360]   Show Wednesday, April 23rd. The chapel is located at 777 Valencia Street in San Francisco
 [00:00:13.360 --> 00:00:19.760]   all ages are welcome and the venue is wheelchair accessible if you would like a pair of passes to see Aida and
 [00:00:19.760 --> 00:00:22.160]   Tsunami at the chapel on
 [00:00:22.160 --> 00:00:28.820]   Wednesday April 23rd just be my second caller at 5 1 0 6 4 2 Calex
-[00:00:28.820 --> 00:00:31.900]   that's five one oh six",37.7604879,-122.42120099500367,The Chapel
+[00:00:28.820 --> 00:00:31.900]   that's five one oh six",37.7604879,-122.42120099500400,The Chapel,"Artist(s): Aida and Tsunami
+   Venue: The Chapel
+   Date: April 23rd
+
+Source: KALX"
 2025-04-14T08:29:55,KALX,data/kalx_clip_2025-04-14_08-29-24.mp3,Baltic Kiss,"[00:00:00.000 --> 00:00:06.720]   that was just pens with high in the cinema before that we heard hyper girl with ghost coming off
 [00:00:06.720 --> 00:00:12.960]   their latest album after image it is now 8 30 a.m which means it is time for the calyx entertainment
 [00:00:12.960 --> 00:00:21.840]   calendar calyx and calyx entertainment calendar is read thrice daily at 8 30 a.m 330 p.m and 6 30 p.m
 [00:00:21.840 --> 00:00:28.160]   starting off in the east bay for today monday 14th of april performing at the baltic kiss or at the
-[00:00:28.160 --> 00:00:29.920]   That's about the kiss, it's a jam night.",37.9362,-122.3535,Baltic Kiss
+[00:00:28.160 --> 00:00:29.920]   That's about the kiss, it's a jam night.",37.9362,-122.3535,Baltic Kiss,"Artist: Pens with High, Hyper Girl with Ghost
+   Venue: Baltic Kiss (or at the [That's about the kiss, it's a jam night.])
+   Date: Unknown (The transcript does not specify a date)
+   Source: KALX"
 2025-04-14T08:30:56,KALX,data/kalx_clip_2025-04-14_08-30-25.mp3,Kilowatt,"[00:00:00.000 --> 00:00:08.840]   So at the Brick and Mortar Music Hall we have Broken Side, Baymack, Brumane and from this
 [00:00:08.840 --> 00:00:15.280]   day forward at the DNA Lounge Night is Monday Night Hubba, Twilight Burlesque.
 [00:00:15.280 --> 00:00:22.560]   It's an open mic night at the Hotel Utah and performing at the Kilowatt will be Joby, Trisalis,
 [00:00:22.560 --> 00:00:25.240]   Squiggle and Sadie Allen.
-[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.7649743,-122.4232405,Kilowatt
+[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.7649743,-122.4232405,Kilowatt,"1. Broken Side, Baymack, Brumane playing at Brick and Mortar Music Hall. Source: KALX
+    - No date mentioned
+
+   2. Unknown performing at DNA Lounge on Monday Night Hubba, Twilight Burlesque. Source: KALX
+
+   3. Joby, Trisalis, Squiggle, Sadie Allen playing at Hotel Utah. Source: KALX
+      - No date mentioned
+
+   4. SF Jam, free community jam sessions at SF Jazz Center. Source: KALX
+       - No artist(s) or date mentioned"
 2025-04-14T08:30:56,KALX,data/kalx_clip_2025-04-14_08-30-25.mp3,DNA Lounge,"[00:00:00.000 --> 00:00:08.840]   So at the Brick and Mortar Music Hall we have Broken Side, Baymack, Brumane and from this
 [00:00:08.840 --> 00:00:15.280]   day forward at the DNA Lounge Night is Monday Night Hubba, Twilight Burlesque.
 [00:00:15.280 --> 00:00:22.560]   It's an open mic night at the Hotel Utah and performing at the Kilowatt will be Joby, Trisalis,
 [00:00:22.560 --> 00:00:25.240]   Squiggle and Sadie Allen.
-[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.77108755,-122.41261257044634,DNA Lounge
+[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.77108755,-122.41261257044600,DNA Lounge,"1. Broken Side, Baymack, Brumane at Brick and Mortar Music Hall. Source: KALX
+  2. Unknown at DNA Lounge (Monday Night Hubba, Twilight Burlesque). Source: KALX
+  3. Joby, Trisalis, Squiggle, Sadie Allen at Hotel Utah. Source: KALX
+  4. Unknown at SF Jazz Center (SF Jam, free community jam sessions). Source: KALX"
 2025-04-14T08:30:56,KALX,data/kalx_clip_2025-04-14_08-30-25.mp3,Hotel Utah,"[00:00:00.000 --> 00:00:08.840]   So at the Brick and Mortar Music Hall we have Broken Side, Baymack, Brumane and from this
 [00:00:08.840 --> 00:00:15.280]   day forward at the DNA Lounge Night is Monday Night Hubba, Twilight Burlesque.
 [00:00:15.280 --> 00:00:22.560]   It's an open mic night at the Hotel Utah and performing at the Kilowatt will be Joby, Trisalis,
 [00:00:22.560 --> 00:00:25.240]   Squiggle and Sadie Allen.
-[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.77930235,-122.39816076428788,Hotel Utah
+[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.77930235,-122.39816076428800,Hotel Utah,"1. Broken Side, Baymack, Brumane at The Brick and Mortar Music Hall. Source: KALX
+    - No date mentioned
+
+   2. Joby, Trisalis, Squiggle and Sadie Allen at The Kilowatt. Source: KALX
+      - No date mentioned
+
+   3. Monday Night Hubba, Twilight Burlesque at The DNA Lounge. Source: KALX
+      - No specific date mentioned, but it's a recurring event on Mondays
+
+   4. Open mic night at The Hotel Utah. Source: KALX
+      - No artist(s) or date mentioned
+
+   5. SF Jam (free community jam sessions) at The SF Jazz Center. Source: KALX
+      - No specific date mentioned, presumably a regular event"
 2025-04-14T08:30:56,KALX,data/kalx_clip_2025-04-14_08-30-25.mp3,SF Jazz Center,"[00:00:00.000 --> 00:00:08.840]   So at the Brick and Mortar Music Hall we have Broken Side, Baymack, Brumane and from this
 [00:00:08.840 --> 00:00:15.280]   day forward at the DNA Lounge Night is Monday Night Hubba, Twilight Burlesque.
 [00:00:15.280 --> 00:00:22.560]   It's an open mic night at the Hotel Utah and performing at the Kilowatt will be Joby, Trisalis,
 [00:00:22.560 --> 00:00:25.240]   Squiggle and Sadie Allen.
-[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.7763,-122.4218,SFJAZZ Center
+[00:00:25.240 --> 00:00:30.040]   The SF Jazz Center has SF Jam, free community jam sessions.",37.7763,-122.4218,SFJAZZ Center,"1. Broken Side, Baymack, Brumane are playing at the Brick and Mortar Music Hall. Date unknown. Source: KALX
+   2. Monday Night Hubba, Twilight Burlesque (unknown if they are artists or event) at DNA Lounge on Mondays. Source: KALX
+   3. Joby, Trisalis, Squiggle and Sadie Allen are performing at the Hotel Utah. Date unknown. Source: KALX
+   4. SF Jam (community jam sessions, no artist mentioned) at the SF Jazz Center. Date unknown. Source: KALX"
 2025-04-14T09:35:03,KALX,data/kalx_clip_2025-04-14_09-34-31.mp3,The Independent,"[00:00:00.000 --> 00:00:04.280]   - Yeah, Saturday, April 26th, at the Independent.
 [00:00:04.280 --> 00:00:07.080]   So, if you're curious, wanna go check it out,
 [00:00:07.080 --> 00:00:10.680]   give us a call at station 510-642-KALX,
@@ -135,12 +225,15 @@ timestamp,station,filename,venue,transcript,lat,lon,canonical_venue
 [00:00:21.760 --> 00:00:23.520]   - All right, and when you're calling us,
 [00:00:23.520 --> 00:00:25.800]   and you're waiting for us to pick up that phone,
 [00:00:25.800 --> 00:00:27.440]   maybe you wanna get over to our website,
-[00:00:27.440 --> 00:00:29.980]   at calx.berkeley.edu/donate.",37.7755281,-122.43764100406057,The Independent
+[00:00:27.440 --> 00:00:29.980]   at calx.berkeley.edu/donate.",37.7755281,-122.43764100406100,The Independent,"Artist(s) unknown playing at The Independent on Saturday, April 26th. Source: KALX"
 2025-04-14T11:04:53,KALX,data/kalx_clip_2025-04-14_11-04-22.mp3,Fox Theater,"[00:00:00.000 --> 00:00:05.280]   gratis every time all year long so you know maybe you guys want to give back just just this once
 [00:00:05.280 --> 00:00:10.320]   yes this once for um all those tickets and all those shows that we've sent you to maybe over
 [00:00:10.320 --> 00:00:16.240]   the years so that being said that being said what's on the table i've got a nice pair of tickets here
 [00:00:16.240 --> 00:00:25.120]   so let's see if anyone is interested in checking out a show on sunday may 4th at the fox theater
-[00:00:25.840 --> 00:00:29.920]   Located at 1807 Telegraph in Oakland",37.808,-122.2708,Fox Theater
+[00:00:25.840 --> 00:00:29.920]   Located at 1807 Telegraph in Oakland",37.808,-122.2708,Fox Theater,"Artist(s): Unknown
+   Venue: Fox Theater
+   Date: May 4th, 20XX (Year unknown)
+   Source: KALX"
 2025-04-14T11:05:55,KALX,data/kalx_clip_2025-04-14_11-05-23.mp3,Fox Theater,"[00:00:00.000 --> 00:00:03.120]   The show starts at seven, all ages, wheelchair accessible.
 [00:00:03.120 --> 00:00:04.520]   What do you wanna do, Plato?
 [00:00:04.520 --> 00:00:05.960]   Call her number.
@@ -157,80 +250,135 @@ timestamp,station,filename,venue,transcript,lat,lon,canonical_venue
 [00:00:19.400 --> 00:00:21.760]   - And we're gonna shift gears a bit.
 [00:00:21.760 --> 00:00:22.600]   - Okay.
 [00:00:22.600 --> 00:00:26.620]   - And I am, we're gonna get into something here.
-[00:00:28.380 --> 00:00:29.940]   This one is from the...",37.808,-122.2708,Fox Theater
+[00:00:28.380 --> 00:00:29.940]   This one is from the...",37.808,-122.2708,Fox Theater,"Artist(s): Unknown
+   Venue: Fox Theater
+   Date (if mentioned): Not mentioned. Source: KALX"
 2025-04-14T11:32:20,KALX,data/kalx_clip_2025-04-14_11-31-49.mp3,Fox Theater,"[00:00:00.000 --> 00:00:07.760]   18 and up and it is wheelchair accessible. So Barry can't swim along with Anish Kumar Fox theater April 27th
 [00:00:07.760 --> 00:00:12.760]   Plato what number call you want to give these to you know, let's go with
 [00:00:12.760 --> 00:00:19.280]   Back to number two number two. Okay. I like number two. Okay number two very balanced number
 [00:00:19.280 --> 00:00:25.200]   Yes, we got you and you guys hopefully will get us by going to calyx.berkeley.edu/donate
-[00:00:25.200 --> 00:00:29.560]   Checking out all the thank you gifts that were often up this year and perhaps you will",37.808,-122.2708,Fox Theater
+[00:00:25.200 --> 00:00:29.560]   Checking out all the thank you gifts that were often up this year and perhaps you will",37.808,-122.2708,Fox Theater,"Artist: Barry and Anish Kumar, Venue: Fox theater, Date: April 27th. Source: KALX"
 2025-04-14T14:54:08,KALX,data/kalx_clip_2025-04-14_14-53-37.mp3,Greek Theatre,"[00:00:00.000 --> 00:00:08.080]   Sturgill Simpson is coming to the Greek Theatre later this month. I believe it's the 24th
 [00:00:08.080 --> 00:00:14.080]   of this month. Sturgill Simpson has a new album out under the moniker Johnny Blue Skies.
 [00:00:14.080 --> 00:00:19.760]   Let's take a listen to the new one from Johnny Blue Skies, aka Sturgill Simpson, right here
-[00:00:19.760 --> 00:00:30.000]   on Your Mighty Calyx.",37.8735,-122.2547,Greek Theatre
+[00:00:19.760 --> 00:00:30.000]   on Your Mighty Calyx.",37.8735,-122.2547,Greek Theatre,"Artist: Sturgill Simpson (Johnny Blue Skies)
+   Venue: The Greek Theatre
+   Date: 24th of this month.
+
+   Result: Sturgill Simpson (Johnny Blue Skies) playing at The Greek Theatre on the 24th of this month. Source: KALX"
 2025-04-14T16:19:04,KALX,data/kalx_clip_2025-04-14_16-18-33.mp3,DNA Lounge,"[00:00:00.000 --> 00:00:05.840]   program. Zacharys Thompson, Skyway Man and Miles Lassie will be at Little Hill
 [00:00:05.840 --> 00:00:11.840]   Lounge and Stella Cole will be at Yoshi's. If you're across the bay go to I
 [00:00:11.840 --> 00:00:16.960]   mean you can go to brick-and-mortar music hall to see Broken Side, Bay Mac,
 [00:00:16.960 --> 00:00:23.240]   Brahmane and From This Day Forward. At DNA lounge will be Monday night Hubba,
-[00:00:23.240 --> 00:00:29.760]   Twilight Burlesque. Open mic will be at Hotel Utah, Joby, Chrysalis, Squiggle and",37.77108755,-122.41261257044634,DNA Lounge
+[00:00:23.240 --> 00:00:29.760]   Twilight Burlesque. Open mic will be at Hotel Utah, Joby, Chrysalis, Squiggle and",37.77108755,-122.41261257044600,DNA Lounge,"1. Zacharys Thompson, Skyway Man and Miles Lassie will be at Little Hill Lounge on Unknown Date. Source: KALX
+2. Stella Cole will be at Yoshi's on Unknown Date. Source: KALX
+3. Broken Side, Bay Mac, Brahmane and From This Day Forward will be at brick-and-mortar music hall on Unknown Date. Source: KALX
+4. Monday night Hubba, Twilight Burlesque will be at DNA lounge on Unknown Date. Source: KALX
+5. Open mic will be at Hotel Utah on Unknown Date with artist(s) Joby, Chrysalis, Squiggle. Source: KALX"
 2025-04-14T16:19:04,KALX,data/kalx_clip_2025-04-14_16-18-33.mp3,Hotel Utah,"[00:00:00.000 --> 00:00:05.840]   program. Zacharys Thompson, Skyway Man and Miles Lassie will be at Little Hill
 [00:00:05.840 --> 00:00:11.840]   Lounge and Stella Cole will be at Yoshi's. If you're across the bay go to I
 [00:00:11.840 --> 00:00:16.960]   mean you can go to brick-and-mortar music hall to see Broken Side, Bay Mac,
 [00:00:16.960 --> 00:00:23.240]   Brahmane and From This Day Forward. At DNA lounge will be Monday night Hubba,
-[00:00:23.240 --> 00:00:29.760]   Twilight Burlesque. Open mic will be at Hotel Utah, Joby, Chrysalis, Squiggle and",37.77930235,-122.39816076428788,Hotel Utah
+[00:00:23.240 --> 00:00:29.760]   Twilight Burlesque. Open mic will be at Hotel Utah, Joby, Chrysalis, Squiggle and",37.77930235,-122.39816076428800,Hotel Utah,"1. Zacharys Thompson, Skyway Man, Miles Lassie will be at Little Hill Lounge. Source: KALX
+    Stella Cole will be at Yoshi's. Source: KALX
+    Unknown playing at brick-and-mortar music hall. Source: KALX (No specific date mentioned)
+    Monday night Hubba, Twilight Burlesque at DNA lounge. Source: KALX
+    Open mic will be at Hotel Utah, Joby, Chrysalis, Squiggle. Source: KALX (No specific date mentioned)"
 2025-04-14T18:34:49,KALX,data/kalx_clip_2025-04-14_18-34-18.mp3,The Freight,"[00:00:00.000 --> 00:00:07.360]   It's also red at 8 30 a.m. and 3 30 p.m. This is for Monday April 14th starting in the East Bay.
 [00:00:07.360 --> 00:00:14.180]   And it's a ball to kiss. It's a jam night. Eli's Mile High Club has Cole and the gang.
 [00:00:14.180 --> 00:00:21.560]   The Freight has Berklee Symphony, Chamber Music, a Viennese sojourn.
-[00:00:21.560 --> 00:00:30.160]   At the Ivy Room you can see Unlikely, Taipo, and Red June.",37.8703,-122.2698,The Freight
+[00:00:21.560 --> 00:00:30.160]   At the Ivy Room you can see Unlikely, Taipo, and Red June.",37.8703,-122.2698,The Freight,"1. Cole and the gang are playing at Eli's Mile High Club on Monday April 14th. Source: KALX
+  2. Berklee Symphony is performing at The Freight on Monday April 14th (No specific time mentioned, so it's not included in the sentence). Source: KALX
+  3. Unlikely, Taipo, and Red June are playing at the Ivy Room (No date mentioned, so it's not included in the sentence). Source: KALX"
 2025-04-14T18:34:49,KALX,data/kalx_clip_2025-04-14_18-34-18.mp3,Ivy Room,"[00:00:00.000 --> 00:00:07.360]   It's also red at 8 30 a.m. and 3 30 p.m. This is for Monday April 14th starting in the East Bay.
 [00:00:07.360 --> 00:00:14.180]   And it's a ball to kiss. It's a jam night. Eli's Mile High Club has Cole and the gang.
 [00:00:14.180 --> 00:00:21.560]   The Freight has Berklee Symphony, Chamber Music, a Viennese sojourn.
-[00:00:21.560 --> 00:00:30.160]   At the Ivy Room you can see Unlikely, Taipo, and Red June.",37.8904419,-122.2992009,Ivy Room
+[00:00:21.560 --> 00:00:30.160]   At the Ivy Room you can see Unlikely, Taipo, and Red June.",37.8904419,-122.2992009,Ivy Room,"1. Artist(s): Cole and the gang, Berklee Symphony, Unlikely, Taipo, Red June
+     Venue: Eli's Mile High Club (for Cole and the gang), The Freight (for Berklee Symphony), Ivy Room (for Unlikely, Taipo, Red June)
+     Date: Unknown (none is mentioned in this transcript specifically for these events)
+
+Answers:
+- ""Cole and the gang playing at Eli's Mile High Club. Source: KALX""
+- ""Berklee Symphony performing at The Freight. Source: KALX""
+- ""Unlikely, Taipo, and Red June at Ivy Room. Source: KALX"""
 2025-04-14T18:35:49,KALX,data/kalx_clip_2025-04-14_18-35-19.mp3,Kilowatt,"[00:00:00.000 --> 00:00:09.000]   Bay Mac, Brah Main, and From This Day Forward.
 [00:00:09.000 --> 00:00:18.100]   At the DNA Lounge, there's a Monday Night Hubba, Twilight Burlesque, Hotel Utah has
 [00:00:18.100 --> 00:00:28.620]   an open mic, Kilowatt has Joby, Chrysalis, Squiggle, and Soddy Allen.
-[00:00:28.620 --> 00:00:30.620]   SFJAZZ CENTER",37.7649743,-122.4232405,Kilowatt
+[00:00:28.620 --> 00:00:30.620]   SFJAZZ CENTER",37.7649743,-122.4232405,Kilowatt,"Artist(s): Bay Mac, Brah Main, From This Day Forward, Joby, Chrysalis, Squiggle, Soddy Allen. Source: KALX (No specific date was mentioned)
+   Venue(s): DNA Lounge, Hotel Utah, Kilowatt, SFJAZZ CENTER. Source: KALX (No specific date was mentioned)"
 2025-04-14T18:35:49,KALX,data/kalx_clip_2025-04-14_18-35-19.mp3,DNA Lounge,"[00:00:00.000 --> 00:00:09.000]   Bay Mac, Brah Main, and From This Day Forward.
 [00:00:09.000 --> 00:00:18.100]   At the DNA Lounge, there's a Monday Night Hubba, Twilight Burlesque, Hotel Utah has
 [00:00:18.100 --> 00:00:28.620]   an open mic, Kilowatt has Joby, Chrysalis, Squiggle, and Soddy Allen.
-[00:00:28.620 --> 00:00:30.620]   SFJAZZ CENTER",37.77108755,-122.41261257044634,DNA Lounge
+[00:00:28.620 --> 00:00:30.620]   SFJAZZ CENTER",37.77108755,-122.41261257044600,DNA Lounge,"Artist(s): Bay Mac, Brah Main, From This Day Forward, Joby, Chrysalis, Squiggle, Soddy Allen. Source: KALX
+   Venue: DNA Lounge (Monday Night Hubba and Twilight Burlesque), Hotel Utah (open mic), SFJAZZ CENTER. Source: KALX
+   Date: Unknown. Source: KALX"
 2025-04-14T18:35:49,KALX,data/kalx_clip_2025-04-14_18-35-19.mp3,Hotel Utah,"[00:00:00.000 --> 00:00:09.000]   Bay Mac, Brah Main, and From This Day Forward.
 [00:00:09.000 --> 00:00:18.100]   At the DNA Lounge, there's a Monday Night Hubba, Twilight Burlesque, Hotel Utah has
 [00:00:18.100 --> 00:00:28.620]   an open mic, Kilowatt has Joby, Chrysalis, Squiggle, and Soddy Allen.
-[00:00:28.620 --> 00:00:30.620]   SFJAZZ CENTER",37.77930235,-122.39816076428788,Hotel Utah
+[00:00:28.620 --> 00:00:30.620]   SFJAZZ CENTER",37.77930235,-122.39816076428800,Hotel Utah,"Artist(s): Bay Mac, Brah Main, From This Day Forward, Joby, Chrysalis, Squiggle, Soddy Allen
+   Venue: DNA Lounge (Monday Night Hubba), Hotel Utah (open mic), SFJAZZ CENTER
+   Date: Unknown (radio transcript does not mention a specific date)
+   Source: KALX"
 2025-04-15T18:32:21,KALX,data/kalx_clip_2025-04-15_18-31-50.mp3,Little Hill Lounge,"[00:00:00.000 --> 00:00:05.000]   When a bell rings, a KALX donor gets their wings.
 [00:00:05.000 --> 00:00:10.000]   And sometimes the KALX entertainment calendar gets read.
 [00:00:10.000 --> 00:00:15.000]   Including now, 6.30 PM for Tuesday, April 15th in the East Bay.
 [00:00:15.000 --> 00:00:20.000]   At Little Hill Lounge, you can hear Eli Knowles and Brent Ramos.
 [00:00:20.000 --> 00:00:26.000]   The new parish has Etran Delaire and Maya Ongaku.
-[00:00:26.000 --> 00:00:30.080]   At Yoshi's, Lee Hildebrand benefit Levee Smith Curtis Salgado.",37.9129477,-122.3099732,Little Hill Lounge
+[00:00:26.000 --> 00:00:30.080]   At Yoshi's, Lee Hildebrand benefit Levee Smith Curtis Salgado.",37.9129477,-122.3099732,Little Hill Lounge,"1. Eli Knowles and Brent Ramos are playing at Little Hill Lounge on Tuesday, April 15th. Source: KALX
+   2. Etran Delaire and Maya Ongaku are at the new parish on Tuesday, April 15th (Date not explicitly mentioned in transcript). Source: KALX
+   3. Lee Hildebrand is performing a benefit for Levee Smith, Curtis Salgado at Yoshi's, but no specific date was mentioned. Source: KALX"
 2025-04-15T18:32:21,KALX,data/kalx_clip_2025-04-15_18-31-50.mp3,The New Parish,"[00:00:00.000 --> 00:00:05.000]   When a bell rings, a KALX donor gets their wings.
 [00:00:05.000 --> 00:00:10.000]   And sometimes the KALX entertainment calendar gets read.
 [00:00:10.000 --> 00:00:15.000]   Including now, 6.30 PM for Tuesday, April 15th in the East Bay.
 [00:00:15.000 --> 00:00:20.000]   At Little Hill Lounge, you can hear Eli Knowles and Brent Ramos.
 [00:00:20.000 --> 00:00:26.000]   The new parish has Etran Delaire and Maya Ongaku.
-[00:00:26.000 --> 00:00:30.080]   At Yoshi's, Lee Hildebrand benefit Levee Smith Curtis Salgado.",37.8076736,-122.2725839,The New Parish
+[00:00:26.000 --> 00:00:30.080]   At Yoshi's, Lee Hildebrand benefit Levee Smith Curtis Salgado.",37.8076736,-122.2725839,The New Parish,"1. Eli Knowles and Brent Ramos are playing at Little Hill Lounge on Tuesday, April 15th. Source: KALX
+   2. Etran Delaire and Maya Ongaku are performing at The new parish (unknown date, as the transcript does not provide it)
+   3. Lee Hildebrand is benefiting Levee Smith Curtis Salgado at Yoshi's on an unknown date (as the transcript does not provide the specific date for this event). Source: KALX"
 2025-04-15T18:33:22,KALX,data/kalx_clip_2025-04-15_18-32-51.mp3,Rickshaw Stop,"[00:00:00.000 --> 00:00:07.680]   Adam Troy and Balloon Time will be at the Knockout. Makeout Room is presenting
 [00:00:07.680 --> 00:00:14.560]   Darryl Johns. At the Regency Ballroom you can hear Goldie Live and Jamal. Eider,
 [00:00:14.560 --> 00:00:20.920]   KTJ and Carly will be at the Rickshaw Stop. And finally Beth Gibbons and Cass
 [00:00:20.920 --> 00:00:26.520]   McCombs will be at the Warfield. You can also see events for the upcoming week on
-[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7759904,-122.42047537588324,Rickshaw Stop
+[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7759904,-122.42047537588300,Rickshaw Stop,"1. Adam Troy and Balloon Time playing at The Knockout. Source: KALX
+2. Darryl Johns playing at Makeout Room. Source: KALX
+3. Goldie Live and Jamal playing at Regency Ballroom. Source: KALX
+4. Eider, KTJ and Carly playing at the Rickshaw Stop. Source: KALX
+5. Beth Gibbons and Cass McCombs playing at The Warfield. Source: KALX
+6. Unknown artist(s) playing at an unknown venue (no date mentioned). Source: KALX (for events in the upcoming week, as no specific date is given)"
 2025-04-15T18:33:22,KALX,data/kalx_clip_2025-04-15_18-32-51.mp3,Knockout,"[00:00:00.000 --> 00:00:07.680]   Adam Troy and Balloon Time will be at the Knockout. Makeout Room is presenting
 [00:00:07.680 --> 00:00:14.560]   Darryl Johns. At the Regency Ballroom you can hear Goldie Live and Jamal. Eider,
 [00:00:14.560 --> 00:00:20.920]   KTJ and Carly will be at the Rickshaw Stop. And finally Beth Gibbons and Cass
 [00:00:20.920 --> 00:00:26.520]   McCombs will be at the Warfield. You can also see events for the upcoming week on
-[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7451409,-122.420005,Knockout
+[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7451409,-122.420005,Knockout,"1. Adam Troy and Balloon Time playing at The Knockout. Source: KALX
+2. Darryl Johns playing at Makeout Room. Source: KALX
+3. Goldie Live and Jamal playing at The Regency Ballroom. Source: KALX
+4. Eider, KTJ and Carly playing at The Rickshaw Stop. Source: KALX
+5. Beth Gibbons and Cass McCombs playing at The Warfield. Source: KALX
+6. Unknown playing at Unknown venue (as no date or specific artist name was mentioned). Source: KALX"
 2025-04-15T18:33:22,KALX,data/kalx_clip_2025-04-15_18-32-51.mp3,Regency Ballroom,"[00:00:00.000 --> 00:00:07.680]   Adam Troy and Balloon Time will be at the Knockout. Makeout Room is presenting
 [00:00:07.680 --> 00:00:14.560]   Darryl Johns. At the Regency Ballroom you can hear Goldie Live and Jamal. Eider,
 [00:00:14.560 --> 00:00:20.920]   KTJ and Carly will be at the Rickshaw Stop. And finally Beth Gibbons and Cass
 [00:00:20.920 --> 00:00:26.520]   McCombs will be at the Warfield. You can also see events for the upcoming week on
-[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7878176,-122.4215762,Regency Ballroom
+[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7878176,-122.4215762,Regency Ballroom,"1. Adam Troy and Balloon Time playing at The Knockout. Source: KALX
+2. Darryl Johns playing at Makeout Room. Source: KALX
+3. Goldie Live and Jamal playing at The Regency Ballroom. Source: KALX
+4. Eider, KTJ and Carly playing at The Rickshaw Stop. Source: KALX
+5. Beth Gibbons and Cass McCombs playing at The Warfield. Source: KALX
+6. Unknown artist(s) playing at an unknown venue (as no date or specific venue was mentioned). Source: KALX"
 2025-04-15T18:33:22,KALX,data/kalx_clip_2025-04-15_18-32-51.mp3,Warfield,"[00:00:00.000 --> 00:00:07.680]   Adam Troy and Balloon Time will be at the Knockout. Makeout Room is presenting
 [00:00:07.680 --> 00:00:14.560]   Darryl Johns. At the Regency Ballroom you can hear Goldie Live and Jamal. Eider,
 [00:00:14.560 --> 00:00:20.920]   KTJ and Carly will be at the Rickshaw Stop. And finally Beth Gibbons and Cass
 [00:00:20.920 --> 00:00:26.520]   McCombs will be at the Warfield. You can also see events for the upcoming week on
-[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7826218,-122.41034204471734,Warfield
+[00:00:26.520 --> 00:00:29.920]   on our website, kalx.berkeley.edu.",37.7826218,-122.41034204471700,Warfield,"1. Adam Troy and Balloon Time playing at The Knockout. Source: KALX
+2. Darryl Johns playing at Makeout Room. Source: KALX
+3. Goldie Live and Jamal playing at The Regency Ballroom. Source: KALX
+4. Eider, KTJ and Carly playing at The Rickshaw Stop. Source: KALX
+5. Beth Gibbons and Cass McCombs playing at The Warfield. Source: KALX"
 2025-04-16T21:05:30,KALX,data/clips/kalx_clip_2025-04-16_21-04-59.mp3,Kilowatt,"[00:00:00.000 --> 00:00:07.240]   in San Francisco on Thursday April 17th at 8 p.m. the kilowatt is located at
 [00:00:07.240 --> 00:00:14.840]   3160 16th Street in San Francisco. This venue is 21 and up so you must be at
 [00:00:14.840 --> 00:00:20.600]   least that old in order to win passes and the venue is wheelchair accessible.
 [00:00:20.600 --> 00:00:27.240]   Again this is on the bill are the Lords of Altamont, the Boss Martians, the Boars
-[00:00:27.240 --> 00:00:28.760]   and Johnny Nasty boots.",37.7649743,-122.4232405,Kilowatt
+[00:00:27.240 --> 00:00:28.760]   and Johnny Nasty boots.",37.7649743,-122.4232405,Kilowatt,"Artist(s): The Lords of Altamont, the Boss Martians, the Boars, Johnny Nasty boots.
+   Venue: The Kilowatt (3160 16th Street in San Francisco)
+   Date: April 17th
+   Source: KALX"
