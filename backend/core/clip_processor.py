@@ -9,6 +9,7 @@ from backend.services.song_match_logger import log_match
 from backend.services.artist_mention_logger import log_mention, mentioned_artists
 from backend.services.venue_mention_logger import check_for_mentioned_venues, log_venue_mention
 from backend.data_io.loaders import load_known_artists, load_known_venues
+from backend.services.transcript_logger import log_transcript
 # from backend.services.user_loader import load_user_profile
 
 import re
@@ -29,8 +30,12 @@ def is_music_segment(transcript: str) -> bool:
     return any(indicator.lower() in transcript.lower() for indicator in music_indicators)
 
 def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base.en"):
+    artist_hits = []
     print(f"🧠 Transcribing {file_path.name}...")
     transcript = transcribe_clip(file_path, model_name=model_name)
+
+    # Log full transcript for reference later
+    # log_transcript(str(file_path), transcript, station=station)
 
 
     # 🧼 Clean transcript for both artist matching and user output
@@ -44,9 +49,9 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
         print("🎵 Music segment detected — trying ACRCloud...")
         match = identify_song(file_path)
         if match and match.get("title") and match.get("artist"):
-            print("🧪 Match object about to log:")
-            for k, v in match.items():
-                print(f"  {k}: {v}")
+            # print("🧪 Match object about to log:")
+            # for k, v in match.items():
+            #     print(f"  {k}: {v}")
             log_match(str(file_path), match, station=station)
         else:
             print("❌ No match found for music segment.")
@@ -54,12 +59,13 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
     # 2a. If not a song, maybe an artist mention?
     else: 
         print(f"🗣 Speech detected — checking for artist or venue mentions...")
-        matches = mentioned_artists(cleaned, known_artists)
-        if matches:
-            print(f"🎯 Mentioned: {', '.join(matches)}")
-            log_mention(str(file_path), cleaned, station=station, matches=matches)
+        artist_hits = mentioned_artists(cleaned, known_artists)
+        if artist_hits:
+            print(f"🎯 Mentioned: {', '.join(artist_hits)}")
+            log_mention(str(file_path), cleaned, station=station, matches=artist_hits)
         else:
             print(f"🕸 No artist mentions found.")
+
 
     # 2b. Or a venue mention?
     venue_hits = check_for_mentioned_venues(cleaned, known_venues, return_aliases=True)
@@ -89,6 +95,21 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
         append_events_to_csv(events)
 
     else:
+        events = []
         print("📍 No venue mentions found.")
+
+    contains_music = is_music_segment(transcript)
+    contains_venue = bool(venue_hits)
+    contains_artist = bool(artist_hits)
+    llm_ready = bool(events)
+    log_transcript(
+        str(file_path),
+        transcript,
+        station=station,
+        contains_music=contains_music,
+        contains_venue=contains_venue,
+        contains_artist=contains_artist,
+        llm_summary_ready=llm_ready
+    )
     print()
 
