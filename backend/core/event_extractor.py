@@ -53,7 +53,7 @@ def append_events_to_csv(events: List[Dict]) -> None:
 
     with open(PARSED_EVENTS_PATH, "a", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=[
-            "timestamp", "artist", "venue", "date", "station", "filename", "summary", "audio_url"
+            "timestamp", "artist", "venue", "date", "station", "filename"
         ])
         if not file_exists:
             writer.writeheader()

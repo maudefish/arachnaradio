@@ -1,6 +1,11 @@
 #dashboard.py
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+
+from project_setup import setup_project_path
+setup_project_path()
+
 from dotenv import load_dotenv
-import os
 import pydeck as pdk
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -10,11 +15,12 @@ from pathlib import Path
 from datetime import datetime
 import yaml
 from typing import List
-from auth_section import get_spotify_client
-from artist_manager import get_all_top_artists, save_top_artists_to_yaml, load_favorite_artists
-from venue_manager import update_master_venue_list, save_favorite_venues, load_favorite_venues
+from backend.auth.auth_section import get_spotify_client
+from backend.user_io.user_loader import get_user_profile_path, get_all_top_artists, load_favorite_artists
+from backend.user_io.user_writer import save_top_artists_to_yaml
+# from venue_manager import update_master_venue_list, save_favorite_venues, load_favorite_venues
 from tooltip_formatter import create_venue_tooltip, create_venue_tooltip_from_summary
-from event_map_utils import load_parsed_events_with_coords
+from backend.data_io.event_map_loader import load_parsed_events_with_coords
 
 
 st.set_page_config(page_title="Arachnaradio Dashboard", layout="wide")
@@ -24,19 +30,12 @@ sp = get_spotify_client()
 user_profile = sp.current_user()
 username = user_profile["id"]  # used for file naming
 
-from artist_manager import (
-    get_user_profile_path,
-    get_all_top_artists,
-    save_top_artists_to_yaml,
-    load_favorite_artists,
-)
-
 # Only fetch & save Spotify top artists if user profile doesn't exist yet
 user_profile_path = get_user_profile_path(username)
 
-
 # Load profile if it exists
 if user_profile_path.exists():
+    st.info(f"Welcome back, {user_profile['display_name']}!")
     with open(user_profile_path, "r") as f:
         profile = yaml.safe_load(f) or {}
 
@@ -53,10 +52,12 @@ if user_profile_path.exists():
     favorite_venues = profile["favorite_venues"]
     location_hint = profile["location_hint"]
 
-
 else:
+    st.info(f"Welcome, {user_profile['display_name']}! Setting up your profile...")
     top_artists = get_all_top_artists(sp)
+    st.write("📝 Writing to:", get_user_profile_path(username))
     save_top_artists_to_yaml(username, top_artists)
+    st.success("🎧 Saved top Spotify artists to user profile!")
     favorite_artists = top_artists
     favorite_venues = []  # default to empty list
 
