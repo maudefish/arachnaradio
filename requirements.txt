@@ -35,9 +35,12 @@ pyarrow==17.0.0
 pydeck==0.9.1
 pydub==0.25.1
 Pygments==2.19.1
+pyprojroot==0.3.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2025.2
+PyYAML==6.0.2
+RapidFuzz==3.13.0
 referencing==0.35.1
 regex==2024.11.6
 requests==2.32.3

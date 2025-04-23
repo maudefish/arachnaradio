@@ -1,0 +1,119 @@
+known_venues:
+  924 Gilman:
+    aliases:
+    - Gilman
+  Ashkenaz:
+    aliases: []
+  Baltic Kiss:
+    aliases:
+    - The Baltic Kiss
+  Bottom of the Hill:
+    aliases:
+    - Bottom o' the Hill
+  DNA Lounge:
+    aliases:
+    - DNA
+  Fox Theater:
+    aliases:
+    - The Fox
+    - Fox Oakland
+  Hotel Utah:
+    aliases:
+    - The Hotel Utah
+  Ivy Room:
+    aliases: []
+  Kilowatt:
+    aliases: []
+  Knockout:
+    aliases: []
+  Little Hill Lounge:
+    aliases: []
+  Public Works:
+    aliases: []
+  Regency Ballroom:
+    aliases:
+    - The Regency
+    - Regency SF
+  SFJAZZ Center:
+    aliases:
+    - SFJAZZ
+    - S.F. Jazz Center
+    - SF Jazz
+    - SF Jazz Center
+  The Fillmore:
+    aliases:
+    - Fillmore SF
+  The Freight:
+    aliases:
+    - Freight & Salvage
+    - Freight
+  The Lost Church:
+    aliases:
+    - Lost Church
+  The New Parish:
+    aliases:
+    - New Parish
+  Warfield:
+    aliases:
+    - The Warfield
+  Starline Social Club:
+    aliases:
+    - Starline
+  The Chapel:
+    aliases:
+    - Chapel SF
+    - The Chapel SF
+    - Chapel
+  The Independent:
+    aliases:
+    - Independent SF
+  Rickshaw Stop:
+    aliases:
+    - Rickshaw
+    - Rickshaw Stop SF
+  Great American Music Hall:
+    aliases: []
+  Cafe du Nord:
+    aliases: []
+  Cornerstone:
+    aliases: []
+  Elbo Room:
+    aliases: []
+  August Hall:
+    aliases: []
+  Boom Boom Room:
+    aliases: []
+  Cafe Du Nord:
+    aliases: []
+  CounterPulse:
+    aliases: []
+  Gray Area:
+    aliases: []
+  Make Out Room:
+    aliases: []
+  Neck of the Woods:
+    aliases: []
+  Thee Parkside:
+    aliases: []
+  The Back Room:
+    aliases: []
+  "Eli\u2019s Mile High Club":
+    aliases: []
+  Thee Stork Club:
+    aliases: []
+  UC Theatre:
+    aliases: []
+  "Yoshi\u2019s":
+    aliases: []
+  Sweetwater Music Hall:
+    aliases: []
+  Eagle:
+    aliases: []
+  Greek Theatre:
+    aliases: []
+  Timbre Folk and Baroque:
+    aliases: []
+  4 Star Theater:
+    aliases: []
+  Brick & Mortar Music Hall:
+    aliases: []
