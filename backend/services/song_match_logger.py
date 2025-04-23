@@ -31,29 +31,30 @@ def ensure_log_file():
                 "timestamp", "station", "filename",
                 "title", "artist", "album",
                 "score", "label", "play_offset_ms",
-                "acrid", "genres"
+                "genres"
             ])
 
-# def log_match(filepath: str, match: dict, station: str = "Unknown"):
-#     ensure_log_file()
 
-#     genres = ";".join(match.get("genres", [])) if match.get("genres") else ""
+# def log_match(filename, match, station="KALX"):
+    # if is_duplicate_match(match, station=station):
+    #     print(f"🔁 Duplicate match skipped: {match['title']} by {match['artist']}")
+    #     return
 
-#     with open(LOG_FILE, "a", newline="") as f:
-#         writer = csv.writer(f)
-#         writer.writerow([
-#             datetime.now().isoformat(timespec="seconds"),
-#             station,
-#             filepath,
-#             match.get("title"),
-#             match.get("artist"),
-#             match.get("album"),
-#             match.get("score"),
-#             match.get("label"),
-#             match.get("play_offset_ms"),
-#             match.get("acrid"),
-#             genres
-#         ])
+    # with open(LOG_PATH, "a", newline="") as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow([
+    #         datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+    #         station,
+    #         filename,
+    #         match.get("title", ""),
+    #         match.get("artist", ""),
+    #         match.get("album", ""),
+    #         match.get("score", ""),
+    #         match.get("label", ""),
+    #         match.get("play_offset_ms", ""),
+    #         "; ".join(match.get("genres", [])),
+    #     ])
+    # print(f"✅ Logged match: {match['title']} by {match['artist']}")
 
 
 def log_match(filename, match, station="KALX"):
@@ -61,19 +62,33 @@ def log_match(filename, match, station="KALX"):
         print(f"🔁 Duplicate match skipped: {match['title']} by {match['artist']}")
         return
 
+    genres = match.get("genres", [])
+    if isinstance(genres, str):
+        genres = [genres]
+
+    row = [
+        datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
+        station,
+        filename,
+        match.get("title", ""),
+        match.get("artist", ""),
+        match.get("album", ""),
+        match.get("score", ""),
+        match.get("label", ""),
+        match.get("play_offset_ms", ""),
+        "; ".join(genres),
+    ]
+
+    file_exists = os.path.exists(LOG_PATH)
+    is_empty = os.path.getsize(LOG_PATH) == 0 if file_exists else True
+
     with open(LOG_PATH, "a", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow([
-            datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-            station,
-            filename,
-            match.get("title", ""),
-            match.get("artist", ""),
-            match.get("album", ""),
-            match.get("score", ""),
-            match.get("label", ""),
-            match.get("play_offset_ms", ""),
-            "; ".join(match.get("genres", [])),
-        ])
-    print(f"✅ Logged match: {match['title']} by {match['artist']}")
+        if is_empty:
+            writer.writerow([
+                "timestamp", "station", "filename", "title", "artist",
+                "album", "score", "label", "play_offset_ms", "genres"
+            ])
+        writer.writerow(row)
 
+    print(f"✅ Logged match: {match['title']} by {match['artist']}")

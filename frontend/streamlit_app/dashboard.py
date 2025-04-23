@@ -191,7 +191,7 @@ venue_log_path = Path("data/logs/parsed_events.csv")
 
 
 # SONG MATCHES
-st.subheader("🎶 adsfRecent Song Matches")
+st.subheader("🎶 Recent Song Matches")
 if matches_path.exists():
     matches = pd.read_csv(matches_path)
     matches = matches.drop(columns=["filename"])
@@ -220,77 +220,10 @@ if mentions_path.exists():
 else:
     st.info("No artist mentions logged yet.")
 
-# artist_filter = st.sidebar.selectbox("Filter by Artist", matches["artist"].unique())
-# filtered = matches[matches["artist"] == artist_filter]
-# st.dataframe(filtered)
-
-
-
-# st.subheader("📍 Venue Mentions")
-
-# venue_log_path = Path("data/logs/venue_mentions.csv")
-# Assuming `venues_display` is your DataFrame
-# venues_display["tooltip"] = venues_display.apply(lambda row: create_venue_tooltip(row), axis=1)
-
-
-
-# if venue_log_path.exists():
-#     venues = pd.read_csv(venue_log_path)
-
-#     # Show table
-#     if "timestamp" in venues.columns:
-#         venues["timestamp"] = venues["timestamp"].apply(format_timestamp)
-
-#     venues_display = venues.copy()
-#     venues_display = venues_display.dropna(how="all")
-
-
-#     if "filename" in venues_display.columns:
-#         venues_display = venues_display.drop(columns=["filename"])
-
-#     st.dataframe(venues_display, use_container_width=True)
-
-#     # Show map if lat/lon are present
-#     if {"lat", "lon"}.issubset(venues.columns):
-#         st.subheader("🗺️ Venue Map")
-
-#         venue_map_data = venues.dropna(subset=["lat", "lon"])
-
-#         tooltip = {
-#             "html": "<b>{venue}</b><br/>{station}<br/>{timestamp}",
-#             "style": {"backgroundColor": "white", "color": "black"},
-#         }
-
-#         st.pydeck_chart(pdk.Deck(
-
-#         map_style="mapbox://styles/mapbox/dark-v10",  # dark minimalist map
-#         initial_view_state=pdk.ViewState(
-#             latitude=37.77, longitude=-122.42, zoom=11
-#         ),
-#         layers=[
-#             pdk.Layer(
-#                 "ScatterplotLayer",
-#                 data=venues,
-#                 get_position='[lon, lat]',
-#                 get_color='[255, 0, 0, 180]',
-#                 get_radius=120,  # Increase for visual size
-#                 radius_min_pixels=5,  # ensures it's not too small when zoomed out
-#                 radius_max_pixels=20,  # cap for when zoomed in
-#                 pickable=True
-#                     )
-#         ],
-
-#         tooltip={"html": "{tooltip}", "style": {"backgroundColor": "black", "color": "white"}}
-#         ))
-
-
-        
-# else:
-#     st.info("No venue mentions logged yet.")
 if venue_log_path.exists():
     venues = load_parsed_events_with_coords()
-    st.write("Columns in merged event data:", venues.columns.tolist())
-    st.write(venues.head())
+    # st.write("Columns in merged event data:", venues.columns.tolist())
+    # st.write(venues.head())
 
 
 
@@ -298,6 +231,7 @@ if venue_log_path.exists():
         venues["timestamp"] = venues["timestamp"].apply(format_timestamp)
 
     venues = venues.dropna(how="all")
+    venues = venues.sort_values("timestamp", ascending=False)
     venues_with_coords = venues.dropna(subset=["lat", "lon"]).copy()
 
     # ✅ Add LLM summary-based tooltip

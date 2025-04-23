@@ -44,6 +44,9 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
         print("🎵 Music segment detected — trying ACRCloud...")
         match = identify_song(file_path)
         if match and match.get("title") and match.get("artist"):
+            print("🧪 Match object about to log:")
+            for k, v in match.items():
+                print(f"  {k}: {v}")
             log_match(str(file_path), match, station=station)
         else:
             print("❌ No match found for music segment.")

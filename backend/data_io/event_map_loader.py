@@ -17,5 +17,8 @@ def load_parsed_events_with_coords():
 
     # Optional cleanup
     merged = merged.drop(columns=["name"], errors="ignore")
+    if "timestamp" not in events.columns:
+        raise ValueError("❌ 'timestamp' column missing from parsed_events.csv")
+
 
     return merged

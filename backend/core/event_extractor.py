@@ -8,7 +8,11 @@ import json
 # --- Configuration ---
 PARSED_EVENTS_PATH = Path("data/logs/parsed_events.csv")
 
-
+def extract_timestamp_from_filename(filename: str) -> str:
+    match = re.search(r"\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}", Path(filename).name)
+    if match:
+        dt = datetime.strptime(match.group(), "%Y-%m-%d_%H-%M-%S")
+        return dt.strftime("%Y-%m-%dT%H:%M:%S")
 
 def normalize_event_fields(event: dict) -> dict:
     """
@@ -35,6 +39,7 @@ def extract_rows_from_summary(summary: str, station: str, filename: str) -> List
             for item in parsed:
                 # Ensure dict, flatten all values
                 if isinstance(item, dict):
+                    item.setdefault("timestamp", extract_timestamp_from_filename(filename))
                     item.setdefault("station", station)
                     item.setdefault("filename", filename)
                     flat = normalize_event_fields(item)
@@ -68,4 +73,3 @@ def append_events_to_csv(events: List[Dict]) -> None:
 # events = extract_rows_from_summary(summary_text, station, filename)
 # append_events_to_csv(events)
 
-"✅ Created event extraction + CSV appending script."

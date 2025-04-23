@@ -78,7 +78,7 @@ def continuous_capture(station_id, stream_url, duration=60, overlap=5, model="ba
     loop()
 
 # Starting point for capturing audio clips for transcription 
-# Example usage:  python -m cli.capture_stream --station kalx --duration 10 --model ggml-small.en
+# Example usage:  python -m cli.capture_stream --station kalx --duration 10 --model ggml-medium.en
 def main():
     parser = argparse.ArgumentParser(description="📻 Stream and analyze audio for a given station.")
     parser.add_argument("--station", required=True, help="Station ID (e.g., kalx, kdvs)")
