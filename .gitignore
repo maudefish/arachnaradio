@@ -17,5 +17,5 @@ __pycache__/
 *.mp3
 data/clips/
 data/clips/*.mp3
-
+data/
 .DS_Store
