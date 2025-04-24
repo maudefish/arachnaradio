@@ -16,8 +16,8 @@ from datetime import datetime
 import yaml
 from typing import List
 from backend.auth.auth_section import get_spotify_client
-from backend.user_io.user_loader import get_user_profile_path, get_all_top_artists, load_favorite_artists
-from backend.user_io.user_writer import save_top_artists_to_yaml
+from backend.user_io.user_loader import get_user_profile_path, get_all_top_artists, load_favorite_artists, save_top_artists_to_yaml
+# from backend.user_io.user_writer import 
 # from venue_manager import update_master_venue_list, save_favorite_venues, load_favorite_venues
 from tooltip_formatter import create_venue_tooltip, create_venue_tooltip_from_summary
 from backend.data_io.event_map_loader import load_parsed_events_with_coords

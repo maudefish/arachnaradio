@@ -9,7 +9,7 @@ from backend.services.song_match_logger import log_match
 from backend.services.artist_mention_logger import log_mention, mentioned_artists
 from backend.services.venue_mention_logger import check_for_mentioned_venues, log_venue_mention
 from backend.data_io.loaders import load_known_artists, load_known_venues
-from backend.services.transcript_logger import log_transcript
+from backend.services.transcript_logger import log_transcript, clean_transcript
 # from backend.services.user_loader import load_user_profile
 
 import re
@@ -20,9 +20,9 @@ VENUES_PATH = here("data/masters/venues_master.yaml")
 known_artists = load_known_artists(ARTISTS_PATH)
 known_venues = load_known_venues(VENUES_PATH)
 
-def clean_transcript(transcript: str) -> str:
-    # Remove timestamps and [Music] tags
-    return transcript.strip()
+# def clean_transcript(transcript: str) -> str:
+#     # Remove timestamps and [Music] tags
+#     return transcript.strip()
 
 def is_music_segment(transcript: str) -> bool:
     # Check for common indicators of music in the raw transcript
@@ -43,6 +43,7 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
 
     print(f"📝 Raw Transcript (model: {model_name})")
     print(transcript)
+    print(cleaned)
 
     # 1. Check for Song ID
     if is_music_segment(transcript):
@@ -105,6 +106,7 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
     log_transcript(
         str(file_path),
         transcript,
+        cleaned,
         station=station,
         contains_music=contains_music,
         contains_venue=contains_venue,

@@ -96,12 +96,12 @@ def main():
 
     print(f"\n📡 Starting continuous capture for {station_name}...\n")
 
-    try:
-        while True:
-            continuous_capture(station_id, stream_url, duration=args.duration, overlap=5, model=args.model)
+    # try:
+    #     while True:
+    continuous_capture(station_id, stream_url, duration=args.duration, overlap=5, model=args.model)
 
-    except KeyboardInterrupt:
-        print("🛑 Gracefully exiting clip capture.")
+    # except KeyboardInterrupt:
+    #     print("🛑 Gracefully exiting clip capture.")
 
 if __name__ == "__main__":
     main()

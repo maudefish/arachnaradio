@@ -1,0 +1,25 @@
+you did a lot of good work last night. 
+
+- finished pushing refactor
+- wrote backfilling tool for parsed events
+- fixed bugs in writing timestamp to parsed events + reversed order
+- updated to python 3.11
+- FEAT: entire transcription logging with boolean flags
+
+
+todo:
+- for some reason user venues are getting erased
+
+## event map:
+- filter events that have already happened / duplicates (save first mention maybe, in line with notification approach)
+- IF venue date is missing --> go into master transcript log and search for relevant flags in nearby clips
+
+	|--> implies that i should also start working on a concatenated transcription module
+
+(also Yoshi's was mentioned and it didn't flag the venue -- need to fix aliases)
+
+(also didn't catch this bottom of the hill mention? [00:00:48.440 --> 00:00:52.860]   I will do the question after I tell you what the the tickets are to the bottom
+[00:00:52.860 --> 00:00:59.120]   of the hill over in San Francisco 1233 17th Street in San Francisco and it is a
+🗣 Speech detected — checking for artist or venue mentions...
+🕸 No artist mentions found.
+📍 No venue mentions found.)
