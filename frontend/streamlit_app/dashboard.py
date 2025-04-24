@@ -232,7 +232,8 @@ if venue_log_path.exists():
 
     venues = venues.dropna(how="all")
     venues = venues.sort_values("timestamp", ascending=False)
-    venues_with_coords = venues.dropna(subset=["lat", "lon"]).copy()
+    venues_with_coords = venues
+    # .dropna(subset=["lat", "lon"]).copy()
 
     # ✅ Add LLM summary-based tooltip
     venues_with_coords["tooltip"] = venues_with_coords.apply(

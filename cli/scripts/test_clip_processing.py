@@ -14,7 +14,7 @@ favorite_artists = [
 ]
 
 # 🎧 Path to your test audio file
-filename = Path("data/kalx_clip_2025-04-10_16-00-46.mp3")
+filename = Path("data/clips/kalx_clip_2025-04-23_02-34-18.mp3")
 station = "Test"
 
 # 🧠 Run song match

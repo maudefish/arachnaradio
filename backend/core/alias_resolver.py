@@ -3,63 +3,62 @@ import yaml
 from pathlib import Path
 from typing import Optional
 from rapidfuzz import process, fuzz
+import re
 
 # Paths
-ALIAS_FILE = here("data/masters/venue_aliases.yaml")
+# ALIAS_FILE = here("data/masters/aliases/venue_aliases.yaml")
 
 
-def load_aliases() -> dict:
-    if ALIAS_FILE.exists():
-        with open(ALIAS_FILE, "r") as f:
-            return yaml.safe_load(f) or {}
-    return {}
+#from pathlib import Path
+from rapidfuzz import process, fuzz
+import yaml
 
-def save_aliases(aliases: dict):
-    ALIAS_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(ALIAS_FILE, "w") as f:
-        yaml.dump(aliases, f, sort_keys=True)
-def resolve_canonical_name(input_name: str, aliases: Optional[dict] = None, master_list: Optional[list] = None, threshold: int = 92, debug: bool = False) -> str:
-    input_norm = input_name.strip().lower()
+# Load alias YAML
+with open("data/masters/venues_master.yaml", "r") as f:
+    alias_data = yaml.safe_load(f)
 
-    if len(input_norm) < 3 or not any(c.isalpha() for c in input_norm):
-        if debug:
-            print(f"❌ Skipping bad input: '{input_name}'")
-        return input_name
+def normalize_name(name: str) -> str:
+    name = name.lower().strip()
+    name = re.sub(r'^the\s+', '', name)               # Remove leading "the"
+    name = name.replace('&', 'and')                   # Ampersand to 'and'
+    name = name.replace('theatre', 'theater')         # Normalize spelling
+    name = re.sub(r"[^\w\s]", "", name)               # Remove punctuation
+    name = re.sub(r"\s+", " ", name)                  # Collapse spaces
+    return name
 
-    if aliases is None:
-        aliases = load_aliases()
+# Build alias map + normalized canonicals
+canonical_names = list(alias_data.keys())
+normalized_canonicals = [normalize_name(c) for c in canonical_names]
+alias_map = {}
 
-    # 1. Exact match
-    for canonical, alt_names in aliases.items():
-        all_aliases = [canonical.lower()] + [a.lower() for a in alt_names.get("aliases", [])]
-        if input_norm in all_aliases:
-            return canonical
+for canonical, info in alias_data.items():
+    alias_map[normalize_name(canonical)] = canonical
+    for alias in info.get("aliases", []):
+        alias_map[normalize_name(alias)] = canonical
 
-    # 2. Fuzzy alias matching
-    alias_lookup = {
-        alias: canonical
-        for canonical, alt in aliases.items()
-        for alias in [canonical] + alt.get("aliases", [])
-    }
+def resolve_canonical_name(input_name: str, use_aliases: bool = True, use_fuzzy: bool = True, score_threshold: int = 50, verbose=False) -> str:
+    if not input_name:
+        return ""
 
-    result = process.extractOne(input_name, alias_lookup.keys(), scorer=fuzz.WRatio)
-    if result:
-        match, score, _ = result
-    else:
-        match, score = None, 0  # or handle however you want
+    input_normalized = normalize_name(input_name)
 
-    if debug:
-        print(f"🤖 Fuzzy match: '{input_name}' → '{match}' (score: {score})")
+    # 1. Alias matching
+    if use_aliases and input_normalized in alias_map:
+        if verbose:
+            print(f"\n✅ Alias match: '{input_normalized}' → '{alias_map[input_normalized]}'\n")
+        return alias_map[input_normalized]
 
-    if score >= threshold:
-        return alias_lookup[match]
+    # 2. Fuzzy fallback
+    if use_fuzzy:
+        match, score, _ = process.extractOne(input_normalized, normalized_canonicals, scorer=fuzz.WRatio)
+        if score >= score_threshold:
+            original = canonical_names[normalized_canonicals.index(match)]
+            if verbose:
+                print(f"\n🔍 Fuzzy match ({score:.1f}): '{input_normalized}' → '{original}'\n")
+            return original
 
-    # 3. Fuzzy match against master list
-    if master_list:
-        match, score, _ = process.extractOne(input_name, master_list, scorer=fuzz.WRatio)
-        if score >= threshold:
-            return match
-
+    if verbose:
+        print(f"⚠️ Could not resolve: '{input_name}'")
     return input_name
 
 

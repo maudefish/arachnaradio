@@ -14,10 +14,9 @@ def load_known_artists(path: Path) -> list[str]:
     data = load_yaml(path)
     return data.get("known_artists", [])
 
-def load_known_venues(path: Path) -> list[str]:
+def load_known_venues(path: Path) -> tuple[list[str], dict]:
     data = load_yaml(path)
-    return data.get("known_venues", [])
-
+    return list(data.keys()), data  # ✅ known_venues, alias_data
 def load_venue_aliases(path: Path) -> dict:
     return load_yaml(path)
 

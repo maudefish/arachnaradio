@@ -1,119 +1,328 @@
-known_venues:
-  924 Gilman:
-    aliases:
-    - Gilman
-  Ashkenaz:
-    aliases: []
-  Baltic Kiss:
-    aliases:
-    - The Baltic Kiss
-  Bottom of the Hill:
-    aliases:
-    - Bottom o' the Hill
-  DNA Lounge:
-    aliases:
-    - DNA
-  Fox Theater:
-    aliases:
-    - The Fox
-    - Fox Oakland
-  Hotel Utah:
-    aliases:
-    - The Hotel Utah
-  Ivy Room:
-    aliases: []
-  Kilowatt:
-    aliases: []
-  Knockout:
-    aliases: []
-  Little Hill Lounge:
-    aliases: []
-  Public Works:
-    aliases: []
-  Regency Ballroom:
-    aliases:
-    - The Regency
-    - Regency SF
-  SFJAZZ Center:
-    aliases:
-    - SFJAZZ
-    - S.F. Jazz Center
-    - SF Jazz
-    - SF Jazz Center
-  The Fillmore:
-    aliases:
-    - Fillmore SF
-  The Freight:
-    aliases:
-    - Freight & Salvage
-    - Freight
-  The Lost Church:
-    aliases:
-    - Lost Church
-  The New Parish:
-    aliases:
-    - New Parish
-  Warfield:
-    aliases:
-    - The Warfield
-  Starline Social Club:
-    aliases:
-    - Starline
-  The Chapel:
-    aliases:
-    - Chapel SF
-    - The Chapel SF
-    - Chapel
-  The Independent:
-    aliases:
-    - Independent SF
-  Rickshaw Stop:
-    aliases:
-    - Rickshaw
-    - Rickshaw Stop SF
-  Great American Music Hall:
-    aliases: []
-  Cafe du Nord:
-    aliases: []
-  Cornerstone:
-    aliases: []
-  Elbo Room:
-    aliases: []
-  August Hall:
-    aliases: []
-  Boom Boom Room:
-    aliases: []
-  Cafe Du Nord:
-    aliases: []
-  CounterPulse:
-    aliases: []
-  Gray Area:
-    aliases: []
-  Make Out Room:
-    aliases: []
-  Neck of the Woods:
-    aliases: []
-  Thee Parkside:
-    aliases: []
-  The Back Room:
-    aliases: []
-  "Eli\u2019s Mile High Club":
-    aliases: []
-  Thee Stork Club:
-    aliases: []
-  UC Theatre:
-    aliases: []
-  "Yoshi\u2019s":
-    aliases: []
-  Sweetwater Music Hall:
-    aliases: []
-  Eagle:
-    aliases: []
-  Greek Theatre:
-    aliases: []
-  Timbre Folk and Baroque:
-    aliases: []
-  4 Star Theater:
-    aliases: []
-  Brick & Mortar Music Hall:
-    aliases: []
+Great American Music Hall:
+  lat: 37.7847659
+  lon: -122.41883557457422
+  address: null
+  city: San Francisco
+  aliases:
+  - great american
+The Chapel:
+  lat: 37.7604879
+  lon: -122.42120099500367
+  address: null
+  city: San Francisco
+  aliases:
+  - Chapel SF
+  - The Chapel San Francisco
+Rickshaw Stop:
+  lat: 37.7759904
+  lon: -122.42047537588324
+  address: null
+  city: San Francisco
+  aliases: 
+  - Rick Shaw Stop
+  - The Rickshaw
+The Independent:
+  lat: 37.7755281
+  lon: -122.43764100406057
+  address: null
+  city: San Francisco
+  aliases:
+  - independent  
+  - Independent SF
+  - The Indy
+Bottom of the Hill:
+  lat: 37.7649626
+  lon: -122.39641152655962
+  address: null
+  city: San Francisco
+  aliases:
+  - bottom ofhill
+  - bottom of hill
+Cafe du Nord:
+  lat: 37.7667182
+  lon: -122.43054460123211
+  address: null
+  city: San Francisco
+  aliases: []
+The Fillmore:
+  lat: 37.7840838
+  lon: -122.433171
+  address: null
+  city: San Francisco
+  aliases:
+  - fillmore
+  - fill more
+Kilowatt:
+  lat: 37.7649743
+  lon: -122.4232405
+  address: null
+  city: San Francisco
+  aliases: []
+DNA Lounge:
+  lat: 37.77108755
+  lon: -122.41261257044634
+  address: null
+  city: San Francisco
+  aliases: []
+Hotel Utah:
+  lat: 37.77930235
+  lon: -122.39816076428788
+  address: null
+  city: San Francisco
+  aliases: []
+Cornerstone:
+  lat: 37.7574184
+  lon: -122.48367362001542
+  address: null
+  city: San Francisco
+  aliases: []
+Elbo Room:
+  lat: 37.7625463
+  lon: -122.4215367
+  address: null
+  city: San Francisco
+  aliases: 
+  - elbow room
+924 Gilman:
+  lat: 37.879307
+  lon: -122.297145
+  address: null
+  city: San Francisco
+  aliases: 
+  - the gilman
+  - the gillman
+August Hall:
+  lat: 37.7875876
+  lon: -122.4097872
+  address: null
+  city: San Francisco
+  aliases: []
+Boom Boom Room:
+  lat: 37.7846021
+  lon: -122.433137
+  address: null
+  city: San Francisco
+  aliases: []
+Cafe Du Nord:
+  lat: 37.7667182
+  lon: -122.43054460123211
+  address: null
+  city: San Francisco
+  aliases: []
+CounterPulse:
+  lat: 37.7833739
+  lon: -122.4104095
+  address: null
+  city: San Francisco
+  aliases: []
+Gray Area:
+  lat: 37.7544372
+  lon: -122.4182629024854
+  address: null
+  city: San Francisco
+  aliases: []
+Knockout:
+  lat: 37.7451409
+  lon: -122.420005
+  address: null
+  city: San Francisco
+  aliases: 
+  - the knockout
+The Lost Church:
+  lat: 37.7657871
+  lon: -122.41846711128797
+  address: null
+  city: San Francisco
+  aliases:
+  - lost church
+Make Out Room:
+  lat: 37.755275
+  lon: -122.4194265
+  address: null
+  city: San Francisco
+  aliases: 
+  - Make Out Room
+Neck of the Woods:
+  lat: 37.7831255
+  lon: -122.4637116
+  address: null
+  city: San Francisco
+  aliases:
+  - neck of woods
+  - neck ofwoods
+Public Works:
+  lat: 37.7688931
+  lon: -122.41926507660828
+  address: null
+  city: San Francisco
+  aliases: []
+Regency Ballroom:
+  lat: 37.7878176
+  lon: -122.4215762
+  address: null
+  city: San Francisco
+  aliases: []
+Thee Parkside:
+  lat: 37.7651806
+  lon: -122.399908
+  address: null
+  city: San Francisco
+  aliases: 
+  - the parkside
+  - the park side
+Warfield:
+  lat: 37.7826218
+  lon: -122.41034204471734
+  address: null
+  city: San Francisco
+  aliases: 
+    - war field
+    - the warfield
+Starline Social Club:
+  lat: 37.8122821
+  lon: -122.2725457777843
+  address: null
+  city: Oakland
+  aliases:
+  - starline social
+  - star line social club
+Ashkenaz:
+  lat: 37.88014045
+  lon: -122.29534700403023
+  address: null
+  city: Berkeley
+  aliases: []
+The Back Room:
+  lat: 34.201225
+  lon: -118.6005277
+  address: null
+  city: Berkeley
+  aliases:
+  - back room
+Eli’s Mile High Club:
+  lat: 37.8257804
+  lon: -122.26967135
+  address: null
+  city: Oakland
+  aliases:
+  - eli’s mile high
+  - eli's mile high club
+  - eli's mile high
+  - eli's
+Ivy Room:
+  lat: 37.8904419
+  lon: -122.2992009
+  address: null
+  city: Albany
+  aliases: []
+Little Hill Lounge:
+  lat: 37.9129477
+  lon: -122.3099732
+  address: null
+  city: El Cerrito
+  aliases: []
+The New Parish:
+  lat: 37.8076736
+  lon: -122.2725839
+  address: null
+  city: Oakland
+  aliases:
+  - new parish
+Thee Stork Club:
+  lat: 37.81313635
+  lon: -122.26838485
+  address: null
+  city: Oakland
+  aliases:
+  - thee stork
+UC Theatre:
+  lat: 37.8718055
+  lon: -122.2698143
+  address: null
+  city: Berkeley
+  aliases: []
+Yoshi’s:
+  lat: 37.796226
+  lon: -122.2785951
+  address: null
+  city: Oakland
+  aliases: 
+  - yoshis
+  - yoshi's
+Sweetwater Music Hall:
+  lat: 37.9069947
+  lon: -122.54814382670912
+  address: null
+  city: Mill Valley
+  aliases:
+  - sweetwater
+Eagle:
+  lat: 37.82937395
+  lon: -121.6267405
+  address: null
+  city: .nan
+  aliases: []
+Fox Theater:
+  lat: 37.808
+  lon: -122.2708
+  address: null
+  city: Oakland
+  aliases: 
+  - the fox
+Greek Theatre:
+  lat: 37.8735
+  lon: -122.2547
+  address: null
+  city: Berkeley
+  aliases: 
+  - UC Berkeley Greek Theatre
+  - The Greek
+Baltic Kiss:
+  lat: 37.9362
+  lon: -122.3535
+  address: null
+  city: Richmond
+  aliases: []
+The Freight:
+  lat: 37.8703
+  lon: -122.2698
+  address: null
+  city: Berkeley
+  aliases:
+  - freight
+  - the freight and salvage
+Timbre Folk and Baroque:
+  lat: 37.8661
+  lon: -122.2903
+  address: null
+  city: Berkeley
+  aliases: 
+  - timber folk and baroque
+  - timbre folk & baroque
+  - timber folk & baroque
+4 Star Theater:
+  lat: 37.7821
+  lon: -122.4838
+  address: null
+  city: San Francisco
+  aliases: 
+  - four star theater
+Brick & Mortar Music Hall:
+  lat: 37.7687
+  lon: -122.4204
+  address: null
+  city: San Francisco
+  aliases:
+  - brick & mortar
+  - brick and mortar music hall
+SFJAZZ Center:
+  lat: 37.7763
+  lon: -122.4218
+  address: null
+  city: San Francisco
+  aliases: 
+  - SFJAZZ
+  - S.F. Jazz Center
+  - SF Jazz
+  - SF Jazz Center
+  - sf jazz center

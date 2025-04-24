@@ -4,9 +4,22 @@ from typing import List, Dict
 import csv
 import re
 import json
+from backend.core.alias_resolver import resolve_canonical_name
 
 # --- Configuration ---
 PARSED_EVENTS_PATH = Path("data/logs/parsed_events.csv")
+
+def normalize_event_fields(event: dict) -> dict:
+    normalized = event.copy()
+
+    if "venue" in normalized and isinstance(normalized["venue"], str):
+        original = normalized["venue"]
+        canonical = resolve_canonical_name(original)
+        normalized["venue_original"] = original
+        normalized["venue"] = canonical
+
+    return normalized
+
 
 def extract_timestamp_from_filename(filename: str) -> str:
     match = re.search(r"\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}", Path(filename).name)
@@ -14,7 +27,7 @@ def extract_timestamp_from_filename(filename: str) -> str:
         dt = datetime.strptime(match.group(), "%Y-%m-%d_%H-%M-%S")
         return dt.strftime("%Y-%m-%dT%H:%M:%S")
 
-def normalize_event_fields(event: dict) -> dict:
+def flatten_event_fields(event: dict) -> dict:
     """
     Ensure that all values in the event are strings, flattening lists.
     """
@@ -27,9 +40,6 @@ def normalize_event_fields(event: dict) -> dict:
     return normalized
 
 def extract_rows_from_summary(summary: str, station: str, filename: str) -> List[Dict]:
-    # print("🔍 Raw LLM Summary:\n", summary)
-
-    # 1. Clean illegal trailing commas
     cleaned = re.sub(r",(\s*[\}\]])", r"\1", summary.strip())
 
     try:
@@ -37,12 +47,15 @@ def extract_rows_from_summary(summary: str, station: str, filename: str) -> List
         if isinstance(parsed, list):
             normalized = []
             for item in parsed:
-                # Ensure dict, flatten all values
                 if isinstance(item, dict):
                     item.setdefault("timestamp", extract_timestamp_from_filename(filename))
                     item.setdefault("station", station)
                     item.setdefault("filename", filename)
-                    flat = normalize_event_fields(item)
+
+                    # Canonicalize venue BEFORE flattening
+                    item = normalize_event_fields(item)
+
+                    flat = flatten_event_fields(item)
                     normalized.append(flat)
             return normalized
         else:
@@ -51,25 +64,24 @@ def extract_rows_from_summary(summary: str, station: str, filename: str) -> List
     except json.JSONDecodeError as e:
         print(f"❌ JSON parsing failed after cleaning: {e}")
         return []
+    return []
 
-def append_events_to_csv(events: List[Dict]) -> None:
-    PARSED_EVENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    file_exists = PARSED_EVENTS_PATH.exists()
+def append_events_to_csv(events: List[Dict], path: Path = PARSED_EVENTS_PATH) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    file_exists = path.exists()
 
-    with open(PARSED_EVENTS_PATH, "a", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=[
-            "timestamp", "artist", "venue", "date", "station", "filename"
-        ])
+    fieldnames = [
+        "timestamp", "artist", "venue", "venue_original", "date", "station", "filename"
+    ]
+
+    with open(path, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         if not file_exists:
             writer.writeheader()
         for event in events:
-            writer.writerow(event)
+            # Ensure all required keys are present
+            row = {field: str(event.get(field, "")) for field in fieldnames}
+            writer.writerow(row)
 
 
-# EXAMPLE USAGE:
-# summary_text = llm_output
-# filename = "data/audio_clip.mp3"
-# station = "KALX"
-# events = extract_rows_from_summary(summary_text, station, filename)
-# append_events_to_csv(events)
 

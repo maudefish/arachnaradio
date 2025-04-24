@@ -23,3 +23,22 @@ todo:
 🗣 Speech detected — checking for artist or venue mentions...
 🕸 No artist mentions found.
 📍 No venue mentions found.)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+thursday april 24
+
+- fixed clean_transcript to ACTUALLY merge together chunks and remove timestamps 
+- logging cleaned transcripts now also -- will make concatenating easy in future
+- starting to address alias matching again -- AFTER LLM in pipeline
+
+------------
+
+- a HUGE mess with the alias and fuzzy matching finally up and working...
+- alias + fuzzy matching applied to every transcript for venue lookup, then again after llm gets its hands on it (and occasionally screws it up). but no more!
+
+- TODO: handoff venue hint to LLM helper (see how far this gets up in terms of accurate venue matching... if a ton of dates are still missing etc then may need to develop method to looking to clips before and after for dates / other info). 
+
+
+

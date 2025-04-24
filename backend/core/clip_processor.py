@@ -18,7 +18,8 @@ ARTISTS_PATH = here("data/masters/artists_master.yaml")
 VENUES_PATH = here("data/masters/venues_master.yaml")                   
 
 known_artists = load_known_artists(ARTISTS_PATH)
-known_venues = load_known_venues(VENUES_PATH)
+known_venues, alias_data = load_known_venues(VENUES_PATH)
+
 
 # def clean_transcript(transcript: str) -> str:
 #     # Remove timestamps and [Music] tags
@@ -67,9 +68,7 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
         else:
             print(f"🕸 No artist mentions found.")
 
-
-    # 2b. Or a venue mention?
-    venue_hits = check_for_mentioned_venues(cleaned, known_venues, return_aliases=True)
+    venue_hits = check_for_mentioned_venues(cleaned, known_venues, alias_data, return_aliases=True)
     venue_hits = list(set(venue_hits))  # Remove duplicates
 
 
@@ -82,7 +81,9 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             filename=str(file_path),
             transcript=cleaned,
             station=station,
-            venues=venue_hits
+            venues=venue_hits,
+            alias_data=alias_data,         # ✅ pass this in
+            master_names=known_venues      # ✅ pass canonical names
         )
 
         # 2. Generate LLM-style summary
