@@ -14,6 +14,8 @@ load_dotenv()
 ACR_HOST = os.getenv("ACR_HOST")  # e.g., https://identify-us-west-2.acrcloud.com
 ACR_KEY = os.getenv("ACR_KEY")
 ACR_SECRET = os.getenv("ACR_SECRET")
+print("🔑 Loaded ACR keys:", ACR_HOST, ACR_KEY[:4], "...")
+
 
 def identify_song(file_path: Path):
     # Prepare audio clip (10s mono wav)
@@ -63,6 +65,10 @@ def identify_song(file_path: Path):
 
     response = requests.post(ACR_HOST + http_uri, files=files, data=data)
     result = response.json()
+    # Show the full raw result for debugging
+    if result["status"]["code"] == 3003:
+        print("🚫 ACRCloud quota exceeded — upgrade or wait for reset.")
+
 
     if result.get("status", {}).get("code") == 0:
         metadata = result["metadata"]["music"][0]

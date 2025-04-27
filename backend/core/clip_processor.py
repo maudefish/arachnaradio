@@ -44,7 +44,7 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
 
     print(f"📝 Raw Transcript (model: {model_name})")
     print(transcript)
-    print(cleaned)
+    # print(cleaned)
 
     # 1. Check for Song ID
     if is_music_segment(transcript):
@@ -87,7 +87,7 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
         )
 
         # 2. Generate LLM-style summary
-        summary = generate_event_summary(cleaned, station)
+        summary = generate_event_summary(cleaned, station, file_path, canonical_names)
         # print(f"📝 Event Summary: {summary}")
 
         # 3. Extract structured events from summary

@@ -47,10 +47,10 @@ def create_venue_tooltip(row, base_audio_path="https://yourdomain.com/audio"):
         audio_link = f'<br/><a href="{base_audio_path}/{basename}" target="_blank">🎧 Listen</a>'
 
     return (
-        f"<b>{artist}</b><br/>"
-        f"📍 {venue}<br/>"
-        f"📅 {date}<br/>"
-        f"📻 {station}"
+        f"<b>🎤 Artists: {artist}</b><br/>"
+        f"📍 Venue: {venue}<br/>"
+        f"📅 Date: {date}<br/>"
+        f"📻 Source: {station}"
         f"{audio_link}"
     )
 

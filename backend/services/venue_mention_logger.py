@@ -41,7 +41,7 @@ def check_for_mentioned_venues(
     matched = []
 
     for canonical in venue_list:
-        resolved = resolve_canonical_name(canonical)
+        resolved = resolve_canonical_name(canonical, verbose=False)
 
         # 👇 This should be the YAML key, so use `resolved`, not `normalize_name(...)`
         aliases = alias_data.get(resolved, {}).get("aliases", [])
@@ -78,7 +78,7 @@ def log_venue_mention(
 
         logged = set()
         for canonical_name, matched_alias in venues:
-            canonical = resolve_canonical_name(canonical_name)
+            canonical = resolve_canonical_name(canonical_name, verbose=True)
             if canonical.lower() in logged:
                 continue
             lat, lon = get_coords_for_venue(canonical)
