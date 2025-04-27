@@ -80,3 +80,88 @@ See requirements.txt for a full list.
 - [ ] station: Most frequently played artists
 - [ ] station: Venues most often mentioned
 
+# 📚 Project Overview
+
+**Arachnaradio** is a real-time radio content analysis pipeline that transcribes live broadcast streams, identifies musical tracks, detects venue and artist mentions, and generates structured event metadata. It integrates modern speech recognition, music fingerprinting, entity resolution, and large language model summarization to create an enriched cultural knowledge graph from ephemeral radio broadcasts.
+
+---
+
+# 🛠️ Technologies Used
+
+| Category             | Tools / Concepts                          |
+|----------------------|-------------------------------------------|
+| Speech-to-text       | Whisper (OpenAI)                          |
+| Music fingerprinting | ACRCloud                                  |
+| Entity resolution    | Fuzzy matching, alias YAML mappings       |
+| LLM summarization    | Ollama (Mistral models)                   |
+| Data processing      | Python, CSV structured logging            |
+| Geospatial enrichment| Latitude/Longitude mapping of venues     |
+| API integration      | Requests, dotenv                         |
+| System orchestration | CLI scripting, modular design            |
+
+---
+
+# 🏗️ System Architecture
+
+[Radio Stream]
+    ↓
+[Clip Recorder] — 90-120s overlapping segments
+    ↓
+[Whisper Transcription]
+    ↓
+[Music Segment Detection] → [ACRCloud Song ID]
+    ↓
+[Venue + Artist Mention Detection]
+    ↓
+[LLM Summarization for Event Structuring]
+    ↓
+[Structured Logs + CSV Output]
+
+---
+
+# 📈 Example Insights (Planned / Early Stages)
+
+- 📍 **Venue Mention Maps** — Which venues are getting most on-air promotion?
+- 🎶 **Artist Airplay Trends** — Frequency of independent artist mentions across stations.
+- 📆 **Temporal Patterns** — Peak days/times for live event promotion.
+- 📻 **Station Profiles** — Compare event types and musical diversity across radio ecosystems.
+
+---
+
+# 💬 Use Case Examples
+
+- **Artists and Venues** can track radio shoutouts and event promotion exposure.
+- **Journalists and Historians** can explore live culture ecosystems over time.
+- **Fans and Promoters** can surface hidden scenes, small events, and emerging artists.
+
+---
+
+# 🚀 Future Roadmap
+
+- Expand to monitor multiple radio streams in parallel.
+- Add real-time dashboards for venue/artist timelines.
+- Integrate fallback systems for song ID quotas (e.g., ShazamIO).
+- Develop light NLP models to improve venue inference.
+- Add simple web-based access to filtered event timelines.
+
+---
+
+# 📜 License
+
+
+---
+
+# ✨ Acknowledgements
+
+- OpenAI for Whisper
+- ACRCloud for music recognition
+- Mistral/Ollama for LLM capabilities
+- Radio stations for fostering vibrant local culture
+
+---
+
+# 📎 Screenshots / Output Examples 
+
+- CLI demo showing live transcription and match logging
+- Example structured CSV snippet
+- (Later: dashboard screenshot or artist/venue maps!)
