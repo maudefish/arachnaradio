@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 from typing import List, Tuple, Union
-from backend.core.alias_resolver import resolve_canonical_name, normalize_name
+from backend.core.alias_resolver import resolve_canonical_name, normalize_name2, get_aliases_from_yaml
 from backend.core.llm_helper import generate_event_summary
 from backend.data_io.writers import write_venue_log_row
 
@@ -33,27 +33,34 @@ def get_coords_for_venue(venue_name: str):
 #     return matched
 def check_for_mentioned_venues(
                     transcript: str,
-                    venue_list: List[str],
+                    known_venues: List[str],
                     alias_data: dict,
                     return_aliases: bool = True
                 ) -> List[Tuple[str, str]]:    
-    transcript_clean = normalize_name(transcript)
+    transcript_clean = normalize_name2(transcript)
+    # print(f"\n\nDEBUG: transcript_clean output:\n\n {transcript_clean}")
+    # print(f"\n\nDEBUG: alias_data output:\n\n {alias_data}")
+
     matched = []
 
-    for canonical in venue_list:
-        resolved = resolve_canonical_name(canonical, verbose=False)
+    for canonical in known_venues:
+        # resolved = resolve_canonical_name(canonical, alias_data, verbose=True)
+        # print(f"\nDEBUG: canonical: {canonical}, resolved: {resolved} ")
 
-        # 👇 This should be the YAML key, so use `resolved`, not `normalize_name(...)`
-        aliases = alias_data.get(resolved, {}).get("aliases", [])
+        match_candidates = {normalize_name2(canonical)} # These are just the normalized canonical names alone
 
-        # Build set of match candidates
-        match_candidates = {normalize_name(resolved)}
-        match_candidates.update(normalize_name(a) for a in aliases)
+        # # 👇 This should be the YAML key, so use `resolved`, not `normalize_name(...)`
+        aliases = get_aliases_from_yaml(canonical, alias_data)
+
+        match_candidates.update(normalize_name2(a) for a in aliases) # This creates a larger candidate list from the aliases
+        # print(match_candidates)
 
         for candidate in match_candidates:
             if candidate in transcript_clean:
-                matched.append((resolved, candidate))
+                matched.append((canonical, candidate))
                 break
+        # print(matched)
+
 
     return matched
 
@@ -78,7 +85,8 @@ def log_venue_mention(
 
         logged = set()
         for canonical_name, matched_alias in venues:
-            canonical = resolve_canonical_name(canonical_name, verbose=True)
+            # canonical = resolve_canonical_name(canonical_name, verbose=True)
+            canonical = canonical_name
             if canonical.lower() in logged:
                 continue
             lat, lon = get_coords_for_venue(canonical)

@@ -33,11 +33,8 @@ def is_music_segment(transcript: str) -> bool:
 def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base.en"):
     artist_hits = []
     print(f"🧠 Transcribing {file_path.name}...")
+    print(f"hi\n\n\n")
     transcript = transcribe_clip(file_path, model_name=model_name)
-
-    # Log full transcript for reference later
-    # log_transcript(str(file_path), transcript, station=station)
-
 
     # 🧼 Clean transcript for both artist matching and user output
     cleaned = clean_transcript(transcript)
@@ -46,19 +43,16 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
     print(transcript)
     # print(cleaned)
 
-    # 1. Check for Song ID
+    # 1. Check for SONG ID
     if is_music_segment(transcript):
         print("🎵 Music segment detected — trying ACRCloud...")
         match = identify_song(file_path)
         if match and match.get("title") and match.get("artist"):
-            # print("🧪 Match object about to log:")
-            # for k, v in match.items():
-            #     print(f"  {k}: {v}")
             log_match(str(file_path), match, station=station)
         else:
             print("❌ No match found for music segment.")
     
-    # 2a. If not a song, maybe an artist mention?
+    # 2. If not a song, maybe an ARTIST mention?
     else: 
         print(f"🗣 Speech detected — checking for artist or venue mentions...")
         artist_hits = mentioned_artists(cleaned, known_artists)
@@ -67,8 +61,14 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             log_mention(str(file_path), cleaned, station=station, matches=artist_hits)
         else:
             print(f"🕸 No artist mentions found.")
-
+    
+    # 3. Check for VENUE mention
+    # print(known_venues)
+    # print(alias_data)
+    
     venue_hits = check_for_mentioned_venues(cleaned, known_venues, alias_data, return_aliases=True)
+    # print(venue_hits)
+    # return
     venue_hits = list(set(venue_hits))  # Remove duplicates
 
 

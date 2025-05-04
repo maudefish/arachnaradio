@@ -17,6 +17,7 @@ def load_known_artists(path: Path) -> list[str]:
 def load_known_venues(path: Path) -> tuple[list[str], dict]:
     data = load_yaml(path)
     return list(data.keys()), data  # ✅ known_venues, alias_data
+    
 def load_venue_aliases(path: Path) -> dict:
     return load_yaml(path)
 
@@ -25,3 +26,6 @@ def load_csv(path: Path) -> pd.DataFrame:
         return pd.read_csv(path)
     else:
         return pd.DataFrame()
+
+def get_aliases_from_yaml(canonical: str, yaml_data: dict):
+    return yaml_data.get(canonical, {}).get("aliases", [])

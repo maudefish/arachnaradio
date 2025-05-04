@@ -29,16 +29,51 @@ todo:
 
 thursday april 24
 
-- fixed clean_transcript to ACTUALLY merge together chunks and remove timestamps 
-- logging cleaned transcripts now also -- will make concatenating easy in future
-- starting to address alias matching again -- AFTER LLM in pipeline
+[x] - fixed clean_transcript to ACTUALLY merge together chunks and remove timestamps 
+[x] - logging cleaned transcripts now also -- will make concatenating easy in future
+[x] - starting to address alias matching again -- AFTER LLM in pipeline
 
 ------------
 
-- a HUGE mess with the alias and fuzzy matching finally up and working...
-- alias + fuzzy matching applied to every transcript for venue lookup, then again after llm gets its hands on it (and occasionally screws it up). but no more!
+[x] - a HUGE mess with the alias and fuzzy matching finally up and working...
+[x] - alias + fuzzy matching applied to every transcript for venue lookup, then again after llm gets its hands on it (and occasionally screws it up). but no more!
 
-- TODO: handoff venue hint to LLM helper (see how far this gets up in terms of accurate venue matching... if a ton of dates are still missing etc then may need to develop method to looking to clips before and after for dates / other info). 
+[x] - TODO: handoff venue hint to LLM helper (see how far this gets up in terms of accurate venue matching... if a ton of dates are still missing etc then may need to develop method to looking to clips before and after for dates / other info). 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+saturday april 26
+
+[x] - added a dev review page on the streamline dashboard for easy viewing of daily transcript logs. 
+[ ] - CURRENTLY: working on bug where fuzzy matching is not being called successfully in main pipeline
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sunday april 27
+
+[ ] - still working on fixing fuzzy matching -- problem was that the fuzzy matching was being attempted with the ENTIRE transcript. 
+	- FIX TO IMPLEMENT: only attempt fuzzy matching in the form "... at VENUE, we have ..." and "VENUE has..."
+
+[ ] - OTHER PROBLEM: LLM (ollama) taking 30+ seconds to resolve transcripts from larger 90s clips. 
+	- FIX TO IMPLEMENT: hand off only one venue match at a time. will then make process for searching beyond current clip for date/artist easier as well. 
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OUTSTANDING PROBLEMS I DON'T KNOW HOW TO FIX YET:
+
+[ ] - artist names getting messed up (google api search + grab first corrected result if not in list? how slow will it be to constantly check for artists, even without fuzzy matching?)
+	- possible fix: direct substring matching first (pre filter) -> fuzzy / alias matching when part of substring matches. (note that fuzzy matching for every artist is not feasible)
+
+[ ] - clip size optimization / music detection: how to use the fewest possible amount of ACRcloud API calls possible while still getting all the song matches?
+
+[ ] - user taste matching: could be pretty simple actually. because i imagine that just showing trending artists on a station may be too disorganized (different DJ will play totally different stuff), may be better to just make a metric for 1) songs played on station by user's favorite artists 2) mentions of artists get extra weight 
 

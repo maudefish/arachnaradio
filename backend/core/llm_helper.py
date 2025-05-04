@@ -12,7 +12,7 @@ def query_ollama(prompt: str, model: str = "mistral") -> str:
                 "prompt": prompt,
                 "stream": False  # set to True if you want token-by-token streaming
             },
-            timeout=30
+            timeout=60
         )
         response.raise_for_status()
         data = response.json()

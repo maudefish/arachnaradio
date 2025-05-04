@@ -5,42 +5,36 @@ from typing import Optional
 from rapidfuzz import process, fuzz
 import re
 
-# Paths
-# ALIAS_FILE = here("data/masters/aliases/venue_aliases.yaml")
+def get_aliases_from_yaml(canonical: str, yaml_data: dict):
+    return yaml_data.get(canonical, {}).get("aliases", [])
 
-
-#from pathlib import Path
-from rapidfuzz import process, fuzz
-import yaml
-
-# Load alias YAML
-with open("data/masters/venues_master.yaml", "r") as f:
-    alias_data = yaml.safe_load(f)
-
-def normalize_name(name: str) -> str:
+def normalize_name2(name: str) -> str:
     name = name.lower().strip()
     name = re.sub(r'^the\s+', '', name)               # Remove leading "the"
     name = name.replace('&', 'and')                   # Ampersand to 'and'
     name = name.replace('theatre', 'theater')         # Normalize spelling
     name = re.sub(r"[^\w\s]", "", name)               # Remove punctuation
     name = re.sub(r"\s+", " ", name)                  # Collapse spaces
+    # print(f"\n\nDEBUG: normalize_name output: {name}\n\n")
     return name
 
 # Build alias map + normalized canonicals
-canonical_names = list(alias_data.keys())
-normalized_canonicals = [normalize_name(c) for c in canonical_names]
-alias_map = {}
+# canonical_names = list(alias_data.keys())
+# print(canonical_names)
+# normalized_canonicals = [normalize_name(c) for c in canonical_names]
+# alias_map = {}
 
-for canonical, info in alias_data.items():
-    alias_map[normalize_name(canonical)] = canonical
-    for alias in info.get("aliases", []):
-        alias_map[normalize_name(alias)] = canonical
+# for canonical, info in alias_data.items():
+#     alias_map[normalize_name(canonical)] = canonical
+#     for alias in info.get("aliases", []):
+#         alias_map[normalize_name(alias)] = canonical
 
-def resolve_canonical_name(input_name: str, use_aliases: bool = True, use_fuzzy: bool = True, score_threshold: int = 50, verbose=False) -> str:
+def resolve_canonical_name(input_name: str, alias_data: dict, use_aliases: bool = True, use_fuzzy: bool = True, score_threshold: int = 50, verbose=False) -> str:
     if not input_name:
         return ""
 
-    input_normalized = normalize_name(input_name)
+    input_normalized = normalize_name2(input_name)
+    print(f"\n\nDEBUG: input_normalized output: {input_normalized}\n\n")
 
     # 1. Alias matching
     if use_aliases and input_normalized in alias_map:
