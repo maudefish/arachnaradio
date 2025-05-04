@@ -165,3 +165,56 @@ See requirements.txt for a full list.
 - CLI demo showing live transcription and match logging
 - Example structured CSV snippet
 - (Later: dashboard screenshot or artist/venue maps!)
+
+# Simplified Data Flowchart
+```mermaid
+flowchart TD
+    A["🎧 New Radio Clip"] --> B["📝 Transcribe with Whisper"]
+    B --> C{"🎵 Is it music?"}
+    C -- Yes --> D["🔍 Identify Song with ACRCloud"]
+    D --> E["🎯 Log Song Match"]
+
+    C -- No --> F["🎙️ Check for Artists & Venues"]
+    F --> G{"📍 Venue Mention?"}
+    G -- Yes --> H["🤖 Generate Event Summary (LLM)"]
+    H --> I["🗃️ Save Parsed Events"]
+    G -- No --> J["📄 Log Transcript Only"]
+```
+
+# Full Data Processing Pipeline
+
+```mermaid
+flowchart TD
+    AA["capture_stream.py"] -- INPUT: station ID, clip duration, whisper model --> AAA["load_station_config()"]
+    AAAA["stations_master.yaml"] --> AAA
+    AAA -- Get station stream URL --> AAB["record_clip()"]
+    AAB --> AAC["ffmpeg"]
+    AAC --> AAD["station_clip_timestamp.mp3"]
+    AAD --> A["process_clip()"]
+    A --> AZ["wait_until_fully_written()"]
+    AZ --> AAB
+    A --> B["transcribe_clip()"]
+    B --> BB["whisper-cpp"]
+    BB -- Log every transcript with music, venue, and artist flags --> ZZ["all_transcripts.csv"]
+    BB -- Strip timestamps --> BA["clean_transcript()"]
+    BB -- Use common music identifiers --> C["is_music_segment()"]
+    C --> CA["ACRCloud API call"]
+    CA -- Positive song ID --> CAA["log_match()"]
+    CAA --> CAAA["song_matches.csv"]
+    CA -- ❌ No match found --> CAB["end"]
+    BA -- Check for artist mention --> D["mentioned_artists()"]
+    D -- ❌ No match found --> DA["end"]
+    D -- Positive artist ID (string match) --> DD["log_mention()"]
+    DD --> DDD["artist_mentions.csv"]
+    Z["artists_master.yaml"] --> D
+    F["check_for_mentioned_venues()"] -- string match of venue (or alias) in transcript --> FF(["venue_hits"])
+    FF --> FFF["log_venue_mention()"]
+    FFF --> FFFF["venue_mentions.csv"]
+    FF -- if venue_hits, pass off transcript + venue hint to LLM --> G["generate_event_summary()"]
+    G -- "llm_helper.py" --> H["Ollama local call"]
+    H -- use LLM summary to generate JSON of event --> HH["extract_rows_from_summary()"]
+    HH --> HHH["append_events_to_csv()"]
+    HHH --> HHHH["parsed_events.csv"]
+    Y["venues_master.yaml"] --> F
+    BA -- Check for venue mention --> F
+```
