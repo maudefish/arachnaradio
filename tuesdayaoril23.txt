@@ -52,18 +52,21 @@ saturday april 26
 
 sunday april 27
 
-[ ] - still working on fixing fuzzy matching -- problem was that the fuzzy matching was being attempted with the ENTIRE transcript. 
+[x] - still working on fixing fuzzy matching -- problem was that the fuzzy matching was being attempted with the ENTIRE transcript. 
 	- FIX TO IMPLEMENT: only attempt fuzzy matching in the form "... at VENUE, we have ..." and "VENUE has..."
 
-[ ] - OTHER PROBLEM: LLM (ollama) taking 30+ seconds to resolve transcripts from larger 90s clips. 
+[x] - OTHER PROBLEM: LLM (ollama) taking 30+ seconds to resolve transcripts from larger 90s clips. 
 	- FIX TO IMPLEMENT: hand off only one venue match at a time. will then make process for searching beyond current clip for date/artist easier as well. 
 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+saturday may 3
 
+[x] created "fuzzy_matcher.py" to 1) identify potential phrases that may contain venue names (after "at" or before "has") and 2) run fuzzy matching against the a normalized list of known venue names. 
 
-
+[ ] working on a geotagger (venue_geo_checker.py)
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

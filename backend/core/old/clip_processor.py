@@ -11,7 +11,6 @@ from backend.services.venue_mention_logger import check_for_mentioned_venues, lo
 from backend.data_io.loaders import load_known_artists, load_known_venues
 from backend.services.transcript_logger import log_transcript, clean_transcript
 # from backend.services.user_loader import load_user_profile
-from backend.core.fuzzy_matcher import fuzzy_match_venues_from_phrases
 
 import re
                     
@@ -34,7 +33,7 @@ def is_music_segment(transcript: str) -> bool:
 def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base.en"):
     artist_hits = []
     print(f"🧠 Transcribing {file_path.name}...")
-    # print(f"hi\n\n\n")
+    print(f"hi\n\n\n")
     transcript = transcribe_clip(file_path, model_name=model_name)
 
     # 🧼 Clean transcript for both artist matching and user output
@@ -67,18 +66,16 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
     # print(known_venues)
     # print(alias_data)
     
-    # This next call checks ONLY for direct string matches of canonical/alias names
     venue_hits = check_for_mentioned_venues(cleaned, known_venues, alias_data, return_aliases=True)
     # print(venue_hits)
     # return
     venue_hits = list(set(venue_hits))  # Remove duplicates
 
-    fuzzy_hits = fuzzy_match_venues_from_phrases(cleaned, venue_hits, known_venues, 87, True) # those that remain may be matched w/ fuzz
-    venue_hits = venue_hits + fuzzy_hits
-    print(f"\nfuzzy_hits: {fuzzy_hits}\n")
+
     if venue_hits:
         canonical_names = [v[0] for v in venue_hits]
         print(f"📍 Venue(s) mentioned: {', '.join(canonical_names)}")
+
         # 1. Log raw mention data to CSV
         log_venue_mention(
             filename=str(file_path),
@@ -89,17 +86,15 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             master_names=known_venues      # ✅ pass canonical names
         )
 
-        for canonical in canonical_names:
+        # 2. Generate LLM-style summary
+        summary = generate_event_summary(cleaned, station, file_path, canonical_names)
+        # print(f"📝 Event Summary: {summary}")
 
-            # 2. Generate LLM-style summary
-            summary = generate_event_summary(cleaned, station, file_path, canonical)
-            # print(f"📝 Event Summary: {summary}")
+        # 3. Extract structured events from summary
+        events = extract_rows_from_summary(summary, station, file_path)
 
-            # 3. Extract structured events from summary
-            events = extract_rows_from_summary(summary, station, file_path)
-
-            # 4. Append to structured CSV log
-            append_events_to_csv(events)
+        # 4. Append to structured CSV log
+        append_events_to_csv(events)
 
     else:
         events = []

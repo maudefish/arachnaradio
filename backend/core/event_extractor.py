@@ -11,6 +11,7 @@ PARSED_EVENTS_PATH = Path("data/logs/parsed_events.csv")
 
 def normalize_event_fields(event: dict) -> dict:
     normalized = event.copy()
+    print(f"\nnormalized:{normalized}\n")
 
     if "venue" in normalized and isinstance(normalized["venue"], str):
         original = normalized["venue"]
@@ -53,7 +54,7 @@ def extract_rows_from_summary(summary: str, station: str, filename: str) -> List
                     item.setdefault("filename", filename)
 
                     # Canonicalize venue BEFORE flattening
-                    item = normalize_event_fields(item)
+                    # item = normalize_event_fields(item)
 
                     flat = flatten_event_fields(item)
                     normalized.append(flat)

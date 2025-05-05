@@ -3,8 +3,7 @@ Great American Music Hall:
   lon: -122.41883557457422
   address: null
   city: San Francisco
-  aliases:
-  - great american
+  aliases: []
 The Chapel:
   lat: 37.7604879
   lon: -122.42120099500367
@@ -108,7 +107,8 @@ Cafe Du Nord:
   lon: -122.43054460123211
   address: null
   city: San Francisco
-  aliases: []
+  aliases: 
+    - cafe du nord
 CounterPulse:
   lat: 37.7833739
   lon: -122.4104095
@@ -142,6 +142,7 @@ Make Out Room:
   city: San Francisco
   aliases: 
   - Make Out Room
+  - makeout room
 Neck of the Woods:
   lat: 37.7831255
   lon: -122.4637116
@@ -228,6 +229,12 @@ The New Parish:
   city: Oakland
   aliases:
   - new parish
+Stay Gold Deli:
+  lat:
+  lon:
+  address: null
+  city: Oakland
+  aliases: []
 Thee Stork Club:
   lat: 37.81313635
   lon: -122.26838485

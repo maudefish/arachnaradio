@@ -10,6 +10,18 @@ def get_aliases_from_yaml(canonical: str, yaml_data: dict):
 
 def normalize_name2(name: str) -> str:
     name = name.lower().strip()
+    name = re.sub(r'^thee\s+', '', name)               # Remove leading "the"
+
+    name = re.sub(r'^the\s+', '', name)               # Remove leading "the"
+    name = name.replace('&', 'and')                   # Ampersand to 'and'
+    name = name.replace('theatre', 'theater')         # Normalize spelling
+    name = re.sub(r"[^\w\s]", "", name)               # Remove punctuation
+    name = re.sub(r"\s+", " ", name)                  # Collapse spaces
+    # print(f"\n\nDEBUG: normalize_name output: {name}\n\n")
+    return name
+def normalize_name(name: str) -> str:
+    name = name.lower().strip()
+    name = re.sub(r'^thee\s+', '', name)               # Remove leading "the"
     name = re.sub(r'^the\s+', '', name)               # Remove leading "the"
     name = name.replace('&', 'and')                   # Ampersand to 'and'
     name = name.replace('theatre', 'theater')         # Normalize spelling

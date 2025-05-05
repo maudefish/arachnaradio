@@ -3,6 +3,8 @@ kalx:
   stream_url: "http://stream.kalx.berkeley.edu:8000/kalx-128.mp3"
   location: "Berkeley, CA"
   schedule_url: "https://kalx.berkeley.edu/calendar"
+  lat: 37.877778
+  lon: -122.245556
 
 kdvs:
   name: "KDVS"
