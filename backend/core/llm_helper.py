@@ -35,8 +35,8 @@ Here's a transcript of an audio clip from {station} radio that occurred on {week
 
 Extract the event at {venue_hint} mentioned in this transcript. Each event should include:
 - `artist`: Name(s) of the artist(s) (properly captilized)
-- `venue`: Name of the venue
-- `date`: Date of the event (if a day of week is mentioned, extrapolate the date using {weekday} (today) as a reference point. Put "Unknown" if not mentioned)
+- `venue`: {venue_hint}
+- `date`: Date of the event (if a day of week is mentioned, extrapolate the date using today = {weekday} as a reference point. Put "Unknown" if not able to be determined from context.)
 - `station`: Always return "{station}" here
 
 Return the result for the event located at {venue_hint} as a JSON dictionary. Do NOT comment on missing information or include superfluous information. Stick to this format below. Example:
@@ -44,7 +44,7 @@ Return the result for the event located at {venue_hint} as a JSON dictionary. Do
 [
   {{ 
     "artist": "Artist A, Artist B",
-    "venue": "The Chapel",
+    "venue": "{venue_hint}",
     "date": "April 22",
     "station": "{station}",
   }}

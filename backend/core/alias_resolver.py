@@ -8,17 +8,17 @@ import re
 def get_aliases_from_yaml(canonical: str, yaml_data: dict):
     return yaml_data.get(canonical, {}).get("aliases", [])
 
-def normalize_name2(name: str) -> str:
-    name = name.lower().strip()
-    name = re.sub(r'^thee\s+', '', name)               # Remove leading "the"
-
-    name = re.sub(r'^the\s+', '', name)               # Remove leading "the"
-    name = name.replace('&', 'and')                   # Ampersand to 'and'
-    name = name.replace('theatre', 'theater')         # Normalize spelling
-    name = re.sub(r"[^\w\s]", "", name)               # Remove punctuation
-    name = re.sub(r"\s+", " ", name)                  # Collapse spaces
-    # print(f"\n\nDEBUG: normalize_name output: {name}\n\n")
-    return name
+# def normalize_name2(name: str) -> str:
+#     name = name.lower().strip()
+#     name = re.sub(r'^thee\s+', '', name)               # Remove leading "the"
+#     name = re.sub(r'^the\s+', '', name)               # Remove leading "the"
+#     name = re.sub(r'^of\s+', '', name)               # Remove leading "the"
+#     name = name.replace('&', 'and')                   # Ampersand to 'and'
+#     name = name.replace('theatre', 'theater')         # Normalize spelling
+#     name = re.sub(r"[^\w\s]", "", name)               # Remove punctuation
+#     name = re.sub(r"\s+", " ", name)                  # Collapse spaces
+#     # print(f"\n\nDEBUG: normalize_name output: {name}\n\n")
+#     return name
 def normalize_name(name: str) -> str:
     name = name.lower().strip()
     name = re.sub(r'^thee\s+', '', name)               # Remove leading "the"
@@ -30,6 +30,18 @@ def normalize_name(name: str) -> str:
     # print(f"\n\nDEBUG: normalize_name output: {name}\n\n")
     return name
 
+STOPWORDS = {"the", "thee", "of", "tonight"}
+
+def normalize_name2(name: str) -> str:
+    name = re.sub(r'^(thee|the|of)\s+', '', name)  # remove leading 'thee', 'the', or 'of'
+    name = name.lower().strip()
+    name = name.replace('&', 'and')
+    name = name.replace('theatre', 'theater')
+    name = re.sub(r"[^\w\s]", "", name)  # Remove punctuation
+    name = re.sub(r"\s+", " ", name)     # Collapse multiple spaces
+    tokens = name.split()
+    tokens = [t for t in tokens if t not in STOPWORDS]
+    return " ".join(tokens)
 # Build alias map + normalized canonicals
 # canonical_names = list(alias_data.keys())
 # print(canonical_names)

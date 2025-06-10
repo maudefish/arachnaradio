@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 from typing import List, Tuple, Union
-from backend.core.alias_resolver import resolve_canonical_name, normalize_name2, get_aliases_from_yaml
+from backend.core.alias_resolver import resolve_canonical_name, normalize_name, get_aliases_from_yaml
 from backend.core.llm_helper import generate_event_summary
 from backend.data_io.writers import write_venue_log_row
 
@@ -37,7 +37,7 @@ def check_for_mentioned_venues(
                     alias_data: dict,
                     return_aliases: bool = True
                 ) -> List[Tuple[str, str]]:    
-    transcript_clean = normalize_name2(transcript)
+    transcript_clean = normalize_name(transcript)
     # print(f"\n\nDEBUG: transcript_clean output:\n\n {transcript_clean}")
     # print(f"\n\nDEBUG: alias_data output:\n\n {alias_data}")
 
@@ -47,12 +47,12 @@ def check_for_mentioned_venues(
         # resolved = resolve_canonical_name(canonical, alias_data, verbose=True)
         # print(f"\nDEBUG: canonical: {canonical}, resolved: {resolved} ")
 
-        match_candidates = {normalize_name2(canonical)} # These are just the normalized canonical names alone
+        match_candidates = {normalize_name(canonical)} # These are just the normalized canonical names alone
 
         # # 👇 This should be the YAML key, so use `resolved`, not `normalize_name(...)`
         aliases = get_aliases_from_yaml(canonical, alias_data)
 
-        match_candidates.update(normalize_name2(a) for a in aliases) # This creates a larger candidate list from the aliases
+        match_candidates.update(normalize_name(a) for a in aliases) # This creates a larger candidate list from the aliases
         # print(match_candidates)
 
         for candidate in match_candidates:

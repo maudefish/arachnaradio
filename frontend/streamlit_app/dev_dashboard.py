@@ -4,7 +4,7 @@ import pandas as pd
 from backend.services.transcript_logger import clean_transcript
 
 def render():
-    st.title("Your Dashboard Title")
+    # st.title("Your Dashboard Title")
     # rest of your Streamlit UI
 
     st.title("🕷️ Developer Log Explorer")

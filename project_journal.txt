@@ -1,4 +1,8 @@
-you did a lot of good work last night. 
+notes for future selves to keep track of which loose ends still need tying. 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+wednesday april 23
 
 - finished pushing refactor
 - wrote backfilling tool for parsed events
@@ -46,7 +50,7 @@ thursday april 24
 saturday april 26
 
 [x] - added a dev review page on the streamline dashboard for easy viewing of daily transcript logs. 
-[ ] - CURRENTLY: working on bug where fuzzy matching is not being called successfully in main pipeline
+[x] - CURRENTLY: working on bug where fuzzy matching is not being called successfully in main pipeline
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -72,7 +76,19 @@ saturday may 3
 
 Sunday may 4
 
-[ ] PROBLEM: while testing fuzzy matching on a test clip, 'the Kilowatt', 'the Rickshaw Stop', 'the SF Jazz Center' , etc, are being listed as potential fuzzy match candidates even though they were already identified as direct string matches in venue_hits...... this implies to me that there must be something wrong with the way that pre-existing matches are removed from the candidate pool for fuzzy_hits. *** this must be fixed so that the list of fuzzy candidate phrases are clean to be manually combed through and either 1) added as a new alias for an existing venue (streamlit -> yaml), 2) added as a new venue (streamlit -> geopy -> yaml), or 3) ignored. 
+[ ] PROBLEM: while testing fuzzy matching on a test clip, 'the Rickshaw Stop' , (and sometimes SFJAZZ Center??? not getting same results on each run..) being listed as potential fuzzy match candidates even though they were already identified as direct string matches in venue_hits...... this implies to me that there must be something wrong with the way that pre-existing matches are removed from the candidate pool for fuzzy_hits. *** this must be fixed so that the list of fuzzy candidate phrases are clean to be manually combed through and either 1) added as a new alias for an existing venue (streamlit -> yaml), 2) added as a new venue (streamlit -> geopy -> yaml), or 3) ignored. 
+
+[ ] could be wise to take a look at normalize_name() and normalize_name2() and make sure they are serving their roles properly -- removing "of" and "the" seems to increase effectiveness of fuzzy matching a LOT, but need to make sure the canonical names are still the ones that are logged. 
+
+[ ] ALSO need to make sure that only venues within X miles of station are being looked at
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+saturday may 10
+
+just thinking out loud... i'm thinking about my current pipeline specifically for searching for venues mentions. currently it looks like 
+
+clip_processor --> check_for_mentioned_venues in venue_mention_logger --> normalize_name in alias_resolver --> back to clip_processor --> check for fuzzy....
+
+maybe i should refactor this into a more modular approach. the general problem would be "find mentions of <string> in <transcript> by any means necessary. potential methods: direct, alias, fuzzy"
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

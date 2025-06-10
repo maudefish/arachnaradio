@@ -12,6 +12,8 @@ from backend.data_io.loaders import load_known_artists, load_known_venues
 from backend.services.transcript_logger import log_transcript, clean_transcript
 # from backend.services.user_loader import load_user_profile
 from backend.core.fuzzy_matcher import fuzzy_match_venues_from_phrases
+from backend.services.fuzzy_miss_logger import log_fuzzy_misses
+from backend.utils.time_utils import extract_timestamp
 
 import re
                     
@@ -21,11 +23,6 @@ VENUES_PATH = here("data/masters/venues_master.yaml")
 known_artists = load_known_artists(ARTISTS_PATH)
 known_venues, alias_data = load_known_venues(VENUES_PATH)
 
-
-# def clean_transcript(transcript: str) -> str:
-#     # Remove timestamps and [Music] tags
-#     return transcript.strip()
-
 def is_music_segment(transcript: str) -> bool:
     # Check for common indicators of music in the raw transcript
     music_indicators = ["[music]", "(music)", "*Music*", "[MUSIC]", "♪", "♫", "🎵", "[instrumental]", "(instrumental)", "[song]", "(song)", "[MUSIC PLAYING]", "music)"]
@@ -34,7 +31,6 @@ def is_music_segment(transcript: str) -> bool:
 def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base.en"):
     artist_hits = []
     print(f"🧠 Transcribing {file_path.name}...")
-    # print(f"hi\n\n\n")
     transcript = transcribe_clip(file_path, model_name=model_name)
 
     # 🧼 Clean transcript for both artist matching and user output
@@ -64,21 +60,21 @@ def process_clip(file_path: Path, station: str = "KALX", model_name: str = "base
             print(f"🕸 No artist mentions found.")
     
     # 3. Check for VENUE mention
-    # print(known_venues)
-    # print(alias_data)
     
     # This next call checks ONLY for direct string matches of canonical/alias names
     venue_hits = check_for_mentioned_venues(cleaned, known_venues, alias_data, return_aliases=True)
-    # print(venue_hits)
-    # return
     venue_hits = list(set(venue_hits))  # Remove duplicates
 
-    fuzzy_hits = fuzzy_match_venues_from_phrases(cleaned, venue_hits, known_venues, 87, True) # those that remain may be matched w/ fuzz
+    fuzzy_hits, fuzzy_misses = fuzzy_match_venues_from_phrases(cleaned, venue_hits, known_venues, alias_data, 90, True) # those that remain may be matched w/ fuzz
+    log_fuzzy_misses(fuzzy_misses, station=station, timestamp=extract_timestamp(file_path))
+
+
     venue_hits = venue_hits + fuzzy_hits
     print(f"\nfuzzy_hits: {fuzzy_hits}\n")
+    print(f"\nfuzzy_misses: {fuzzy_misses}\n")
     if venue_hits:
         canonical_names = [v[0] for v in venue_hits]
-        print(f"📍 Venue(s) mentioned: {', '.join(canonical_names)}")
+        print(f"📍 Venue(s) mentioned: {', '.join(canonical_names)}\n")
         # 1. Log raw mention data to CSV
         log_venue_mention(
             filename=str(file_path),

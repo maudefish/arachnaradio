@@ -3,7 +3,8 @@ Great American Music Hall:
   lon: -122.41883557457422
   address: null
   city: San Francisco
-  aliases: []
+  aliases: 
+    - great american music home
 The Chapel:
   lat: 37.7604879
   lon: -122.42120099500367
@@ -114,7 +115,8 @@ CounterPulse:
   lon: -122.4104095
   address: null
   city: San Francisco
-  aliases: []
+  aliases: 
+    - counter pulse
 Gray Area:
   lat: 37.7544372
   lon: -122.4182629024854
@@ -128,6 +130,7 @@ Knockout:
   city: San Francisco
   aliases: 
   - the knockout
+  - knock out
 The Lost Church:
   lat: 37.7657871
   lon: -122.41846711128797
