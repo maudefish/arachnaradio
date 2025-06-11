@@ -23,6 +23,21 @@ This lead me to want to develop an app that would ...
 
 --- 
 
+## Preliminary Usage Examples: User Dashboard
+
+The screenshots below highlight features of the current Arachnaradio user dashboard. Logged-in users can view real-time matches between their tracked artists and recent radio broadcasts, as well as a geographic map of venue mentions pulled from transcribed radio content. Spotify integration allows for personalized tracking, while fuzzy matching and geocoding help align raw radio data with known venue and artist databases.
+
+![Venue Map](./assets/dashboard_matches.png)
+
+Matched tracks for a user’s tracked artists across multiple stations, including timestamp, title, album, and label data.
+
+![Dashboard View](./assets/dashboard_event_map.png)
+
+Interactive venue map showing mentions of tracked artists at specific locations, enriched with event details, source stations, and playback links.
+
+
+
+
 ## 🎯 Current Project Milestones
 
 - [x] Stream and save live radio audio (KALX)
@@ -47,7 +62,6 @@ This lead me to want to develop an app that would ...
     ```bash
     python arachnaradio/stream_capture_to_recog.py
     ```
-3. 
 
 ---
 ## 🛠️ Dependencies
@@ -70,9 +84,9 @@ See requirements.txt for a full list.
 - [x] Log artist mentions from a user provided list
 - [x] Log venue mentions from a user provided list
 - [x] Map venue mentions on dashboard
-- [ ] Compare identified songs to user’s Spotify profile
+- [x] Compare identified songs to user’s Spotify profile
 - [ ] Trigger push/email/desktop notifications for matches
-- [ ] Web dashboard for browsing matches and logs
+- [x] Web dashboard for browsing matches and logs
 - [ ] Archive and index interviews with full transcripts
 - [ ] “Trending artists by song appearance on radio station X"
 - [ ] "Sift" feature to check out radiostation stats/songs
