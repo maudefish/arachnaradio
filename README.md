@@ -1,3 +1,7 @@
+This project is © 2025 Kevin P. Rodriguez. All rights reserved.  
+For personal or academic use only. Contact for licensing inquiries or collaboration proposals.
+
+
 # 🕸️ Arachnaradio
 
 **Arachnaradio** is a Python-based tool for capturing, identifying, and archiving content from live radio streams. It’s designed to help listeners rediscover the serendipity of real radio, while surfacing songs and interviews that align with their personal taste.
