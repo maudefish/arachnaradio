@@ -43,8 +43,8 @@ Interactive venue map showing mentions of tracked artists at specific locations,
 - [x] Stream and save live radio audio (KALX)
 - [x] Identify music clips via audio recognition (ACRCloud or AudD)
 - [x] Transcribe speech using Whisper
-- [ ] Detect mentions of artists from user's listening history
-- [ ] Notify or log when relevant content is detected
+- [x] Detect mentions of artists from user's listening history
+- [x] Notify or log when relevant content is detected
 - [ ] Clean up clips after parsing to manage storage
 
 ---
@@ -157,10 +157,6 @@ See requirements.txt for a full list.
 - Integrate fallback systems for song ID quotas (e.g., ShazamIO).
 - Develop light NLP models to improve venue inference.
 - Add simple web-based access to filtered event timelines.
-
----
-
-# 📜 License
 
 
 ---
